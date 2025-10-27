@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up My First Home Lab - Cybersecurityjunior</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../assets/cybersecurityjunior.png">
+    <link rel="shortcut icon" type="image/png" href="../assets/cybersecurityjunior.png">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        /* Header with transparency */
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        
+        /* Logo sizing */
+        .logo-image {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 50%;
+        }
+        
+        /* Content card */
+        .content-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Typography styles for article content */
+        .article-content h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #fff;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #fff;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+        
+        .article-content p {
+            margin-bottom: 1rem;
+            line-height: 1.75;
+            color: #d1d5db;
+        }
+        
+        .article-content ul, .article-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+            color: #d1d5db;
+        }
+        
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .article-content code {
+            background: rgba(59, 130, 246, 0.1);
+            color: #60a5fa;
+            padding: 0.125rem 0.375rem;
+            border-radius: 0.25rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .article-content pre {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+
+    <!-- Header / Navigation Bar -->
+    <header class="sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <img src="../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="logo-image">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../index.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Home</a>
+                    <a href="../pages/about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="../pages/blog.html" class="text-blue-400 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../pages/contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Back Button -->
+            <a href="../pages/blog.html" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-semibold mb-8 transition-colors group">
+                <svg class="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+                Back to Blog
+            </a>
+            
+            <!-- Article Header -->
+            <header class="mb-8">
+                <div class="mb-4">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full">Home Lab</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">
+                    Setting Up My First Home Lab
+                </h1>
+                <div class="flex items-center text-gray-400 text-sm">
+                    <time datetime="2024-12-15">December 15, 2024</time>
+                    <span class="mx-3">•</span>
+                    <span>8 min read</span>
+                </div>
+            </header>
+            
+            <!-- Featured Image -->
+            <div class="mb-8 rounded-xl overflow-hidden">
+                <img src="https://placehold.co/1200x600/3B82F6/FFFFFF?text=Home+Lab+Setup" alt="Home Lab Setup" class="w-full h-auto">
+            </div>
+            
+            <!-- Article Content -->
+            <div class="content-card rounded-xl p-8 mb-8">
+                <div class="article-content">
+                    <p class="text-lg text-gray-300 mb-6 font-medium">
+                        Building a home lab has been one of the most rewarding experiences in my cybersecurity journey. It's a safe environment to break things, learn from mistakes, and develop practical skills that you can't get from books alone.
+                    </p>
+                    
+                    <h2>Why Build a Home Lab?</h2>
+                    <p>
+                        Before diving into the technical details, let me explain why I believe every aspiring cybersecurity professional should have a home lab:
+                    </p>
+                    <ul class="list-disc">
+                        <li><strong>Hands-on Experience:</strong> Theory is important, but practical skills are what employers value most.</li>
+                        <li><strong>Safe Testing Environment:</strong> You can test exploits, malware, and vulnerabilities without risking production systems.</li>
+                        <li><strong>Certification Prep:</strong> Many certifications like CEH, OSCP, and GPEN require practical knowledge that a home lab provides.</li>
+                        <li><strong>Portfolio Building:</strong> Document your projects and showcase them to potential employers.</li>
+                    </ul>
+                    
+                    <h2>Hardware Requirements</h2>
+                    <p>
+                        One of the biggest misconceptions is that you need expensive hardware. Here's what I started with:
+                    </p>
+                    <ul class="list-disc">
+                        <li><strong>CPU:</strong> Intel Core i5 (4 cores) or AMD Ryzen 5</li>
+                        <li><strong>RAM:</strong> 16GB minimum (32GB recommended)</li>
+                        <li><strong>Storage:</strong> 500GB SSD for faster VM boot times</li>
+                        <li><strong>Network:</strong> Basic home router (later upgraded to pfSense)</li>
+                    </ul>
+                    
+                    <h2>Software Setup</h2>
+                    <h3>1. Hypervisor Choice</h3>
+                    <p>
+                        I chose <code>VirtualBox</code> for its ease of use and cross-platform compatibility. Other popular options include VMware Workstation and Proxmox.
+                    </p>
+                    
+                    <h3>2. Virtual Machines</h3>
+                    <p>
+                        Here's my initial lab setup:
+                    </p>
+                    <ul class="list-disc">
+                        <li><strong>Kali Linux:</strong> Primary attack machine</li>
+                        <li><strong>Ubuntu Server:</strong> Practice Linux administration</li>
+                        <li><strong>Windows 10:</strong> Test Windows-specific attacks</li>
+                        <li><strong>Metasploitable 2:</strong> Intentionally vulnerable target</li>
+                        <li><strong>pfSense:</strong> Network segmentation and monitoring</li>
+                    </ul>
+                    
+                    <h2>Networking Configuration</h2>
+                    <p>
+                        Proper network segmentation is crucial for a realistic lab environment. I created three networks:
+                    </p>
+                    <ul class="list-disc">
+                        <li><strong>Management Network:</strong> For accessing the hypervisor and VMs</li>
+                        <li><strong>Attack Network:</strong> Where my Kali Linux machine resides</li>
+                        <li><strong>Victim Network:</strong> Isolated network for vulnerable machines</li>
+                    </ul>
+                    
+                    <h2>Cost Breakdown</h2>
+                    <p>
+                        Here's what I spent to get started:
+                    </p>
+                    <ul class="list-disc">
+                        <li>Used desktop PC: $300</li>
+                        <li>RAM upgrade (16GB): $60</li>
+                        <li>SSD (500GB): $50</li>
+                        <li><strong>Total: $410</strong></li>
+                    </ul>
+                    
+                    <h2>Key Lessons Learned</h2>
+                    <p>
+                        After three months of running my home lab, here are my biggest takeaways:
+                    </p>
+                    <ol class="list-decimal">
+                        <li><strong>Start Small:</strong> Don't try to build everything at once. Start with 2-3 VMs and expand gradually.</li>
+                        <li><strong>Document Everything:</strong> Keep notes on configurations, issues, and solutions. I use a digital notebook for this.</li>
+                        <li><strong>Snapshots Are Your Friend:</strong> Always take snapshots before major changes. I've saved myself countless hours with this habit.</li>
+                        <li><strong>Join Communities:</strong> Reddit's r/homelab and cybersecurity Discord servers have been invaluable resources.</li>
+                    </ol>
+                    
+                    <h2>Next Steps</h2>
+                    <p>
+                        Now that my basic lab is running, I'm planning to:
+                    </p>
+                    <ul class="list-disc">
+                        <li>Set up a SIEM (Security Information and Event Management) with Splunk</li>
+                        <li>Build an Active Directory environment for Windows pentesting</li>
+                        <li>Implement IDS/IPS with Snort or Suricata</li>
+                        <li>Create automated attack scenarios with Python scripts</li>
+                    </ul>
+                    
+                    <h2>Conclusion</h2>
+                    <p>
+                        Building a home lab is one of the best investments you can make in your cybersecurity career. It doesn't have to be expensive or complicated—start with what you have and grow from there. The hands-on experience you'll gain is irreplaceable.
+                    </p>
+                    <p>
+                        If you have questions about setting up your own lab or want to share your setup, feel free to reach out! I'm always happy to help fellow learners.
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Author Box -->
+            <div class="content-card rounded-xl p-6 mb-8">
+                <div class="flex items-center">
+                    <img src="https://ui-avatars.com/api/?name=Author&background=3B82F6&color=fff&size=96" alt="Author" class="w-16 h-16 rounded-full mr-4">
+                    <div>
+                        <h3 class="text-xl font-bold text-white">About the Author</h3>
+                        <p class="text-gray-400 mt-1">Cybersecurity enthusiast documenting the journey from IT professional to security specialist. Follow along as I share lessons learned, challenges faced, and victories celebrated.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Share Buttons -->
+            <div class="content-card rounded-xl p-6">
+                <h3 class="text-lg font-bold text-white mb-4">Share this article</h3>
+                <div class="flex space-x-4">
+                    <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">Twitter</a>
+                    <a href="#" class="bg-blue-800 hover:bg-blue-900 text-white px-4 py-2 rounded-lg font-semibold transition-colors">LinkedIn</a>
+                    <a href="#" class="bg-gray-700 hover:bg-gray-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors">Copy Link</a>
+                </div>
+            </div>
+        </article>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="../index.html" class="flex items-center space-x-2">
+                        <img src="../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="logo-image">
+                        <span class="text-2xl font-bold text-white">Cybersecurity<span class="text-blue-500">junior</span></span>
+                    </a>
+                </div>
+                
+                <!-- Footer Links -->
+                <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0 text-sm">
+                    <a href="../pages/about/about.html" class="hover:text-white transition-colors">About Us</a>
+                    <a href="../pages/blog.html" class="hover:text-white transition-colors">Blog</a>
+                    <a href="../pages/contact/contact.html" class="hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
+

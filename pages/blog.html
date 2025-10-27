@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Posts - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .category-btn {
+            transition: all 0.3s ease;
+        }
+        .category-btn.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: #3B82F6;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../index.html" class="flex items-center">
+                        <img src="../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-blue-400 px-3 py-2 rounded-md text-base font-bold drop-shadow-lg">Blog</a>
+                    <a href="contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <!-- Page Header -->
+        <div class="text-center mb-12 fade-in">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-4">Blog Posts</h1>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                Explore my journey into cybersecurity through detailed posts covering everything from home labs to career transitions.
+            </p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="mb-12 fade-in">
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="filterPosts('all')" class="category-btn active px-6 py-3 rounded-full border border-gray-600 text-white hover:bg-gray-700 transition-all">
+                    All Posts
+                </button>
+                <button onclick="filterPosts('Home Lab')" class="category-btn px-6 py-3 rounded-full border border-gray-600 text-white hover:bg-gray-700 transition-all">
+                    Home Lab
+                </button>
+                <button onclick="filterPosts('Career Transition')" class="category-btn px-6 py-3 rounded-full border border-gray-600 text-white hover:bg-gray-700 transition-all">
+                    Career Transition
+                </button>
+                <button onclick="filterPosts('Certifications')" class="category-btn px-6 py-3 rounded-full border border-gray-600 text-white hover:bg-gray-700 transition-all">
+                    Certifications
+                </button>
+                <button onclick="filterPosts('Discovery')" class="category-btn px-6 py-3 rounded-full border border-gray-600 text-white hover:bg-gray-700 transition-all">
+                    Discovery
+                </button>
+                <button onclick="filterPosts('My Journey')" class="category-btn px-6 py-3 rounded-full border border-gray-600 text-white hover:bg-gray-700 transition-all">
+                    My Journey
+                </button>
+                <button onclick="filterPosts('Networking')" class="category-btn px-6 py-3 rounded-full border border-gray-600 text-white hover:bg-gray-700 transition-all">
+                    Networking
+                </button>
+            </div>
+        </div>
+
+        <!-- Sort Options -->
+        <div class="mb-8 fade-in">
+            <div class="flex justify-center items-center space-x-4">
+                <span class="text-gray-300">Sort by:</span>
+                <select id="sortSelect" onchange="sortPosts()" class="bg-gray-800 text-white border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:border-blue-500">
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="title">Title A-Z</option>
+                    <option value="category">Category</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Blog Posts Grid -->
+        <div id="postsContainer" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Posts will be dynamically loaded here -->
+        </div>
+
+        <!-- Loading Indicator -->
+        <div id="loadingIndicator" class="text-center py-8">
+            <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-white"></div>
+            <p class="text-gray-300 mt-2">Loading posts...</p>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Blog posts data with publication dates (newest to oldest)
+        const blogPosts = [
+            {
+                id: 'home-lab-setup',
+                title: 'Setting Up My First Home Lab',
+                category: 'Home Lab',
+                date: '2025-10-27',
+                excerpt: 'A step-by-step guide on how I built my first cybersecurity home lab on a budget, from hardware to virtualization...',
+                image: 'https://placehold.co/600x400/3B82F6/FFFFFF?text=Home+Lab',
+                link: 'posts/home-lab-setup.html',
+                readTime: '8 min read'
+            },
+            {
+                id: 'career-transition',
+                title: 'My Transition from IT to Cybersecurity',
+                category: 'Career Transition',
+                date: '2025-10-25',
+                excerpt: 'It wasn\'t easy, but it was worth it. Here are the key steps I took to pivot my career into cybersecurity...',
+                image: 'https://placehold.co/600x400/10B981/FFFFFF?text=Career+Tips',
+                link: 'posts/career-transition.html',
+                readTime: '6 min read'
+            },
+            {
+                id: 'security-plus-exam',
+                title: 'Passing the Security+ Exam',
+                category: 'Certifications',
+                date: '2025-10-23',
+                excerpt: 'My study plan, the resources I used, and what I wish I knew before taking the CompTIA Security+ (SY0-601)...',
+                image: 'https://placehold.co/600x400/F59E0B/FFFFFF?text=Certifications',
+                link: 'posts/security-plus-exam.html',
+                readTime: '10 min read'
+            },
+            {
+                id: 'wireshark-analysis',
+                title: 'The Power of Wireshark',
+                category: 'Discovery',
+                date: '2025-10-21',
+                excerpt: 'I never realized how much data was flying around my network. A deep dive into my first week with Wireshark...',
+                image: 'https://placehold.co/600x400/EF4444/FFFFFF?text=Discovery',
+                link: 'posts/wireshark-analysis.html',
+                readTime: '7 min read'
+            },
+            {
+                id: 'imposter-syndrome',
+                title: 'Imposter Syndrome is Real',
+                category: 'My Journey',
+                date: '2025-10-19',
+                excerpt: 'A personal post about dealing with imposter syndrome and how I\'m working to overcome it in this new field...',
+                image: 'https://placehold.co/600x400/8B5CF6/FFFFFF?text=My+Journey',
+                link: 'posts/imposter-syndrome.html',
+                readTime: '5 min read'
+            },
+            {
+                id: 'networking-basics',
+                title: 'Networking Basics I Wish I Knew Sooner',
+                category: 'Networking',
+                date: '2025-10-17',
+                excerpt: 'You can\'t secure what you don\'t understand. Breaking down the OSI model and TCP/IP in plain English...',
+                image: 'https://placehold.co/600x400/EC4899/FFFFFF?text=Networking',
+                link: 'posts/networking-basics.html',
+                readTime: '9 min read'
+            }
+        ];
+
+        let filteredPosts = [...blogPosts];
+        let currentCategory = 'all';
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPosts();
+        });
+
+        function loadPosts() {
+            const container = document.getElementById('postsContainer');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            
+            // Hide loading indicator
+            loadingIndicator.style.display = 'none';
+            
+            // Clear container
+            container.innerHTML = '';
+            
+            // Add fade-in animation to each post
+            filteredPosts.forEach((post, index) => {
+                const postElement = createPostElement(post);
+                postElement.style.animationDelay = `${index * 0.1}s`;
+                postElement.classList.add('fade-in');
+                container.appendChild(postElement);
+            });
+        }
+
+        function createPostElement(post) {
+            const postDiv = document.createElement('div');
+            postDiv.className = 'glass-card rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:shadow-2xl hover:-translate-y-2 hover:scale-105 transition-all duration-300';
+            
+            const categoryColors = {
+                'Home Lab': 'bg-blue-100 text-blue-800',
+                'Career Transition': 'bg-green-100 text-green-800',
+                'Certifications': 'bg-yellow-100 text-yellow-800',
+                'Discovery': 'bg-red-100 text-red-800',
+                'My Journey': 'bg-purple-100 text-purple-800',
+                'Networking': 'bg-pink-100 text-pink-800'
+            };
+
+            postDiv.innerHTML = `
+                <img class="h-56 w-full object-cover" src="${post.image}" alt="${post.title}">
+                <div class="p-6 flex flex-col flex-grow">
+                    <span class="inline-block ${categoryColors[post.category]} text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">${post.category}</span>
+                    <h3 class="text-2xl font-bold text-white mb-2">${post.title}</h3>
+                    <p class="text-gray-300 mb-4 flex-grow">${post.excerpt}</p>
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-sm text-gray-400">${formatDate(post.date)}</span>
+                        <span class="text-sm text-gray-400">${post.readTime}</span>
+                    </div>
+                    <a href="${post.link}" class="text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                        Read More
+                        <svg class="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            `;
+            
+            return postDiv;
+        }
+
+        function filterPosts(category) {
+            currentCategory = category;
+            
+            // Update active button
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Filter posts
+            if (category === 'all') {
+                filteredPosts = [...blogPosts];
+            } else {
+                filteredPosts = blogPosts.filter(post => post.category === category);
+            }
+            
+            // Reload posts
+            loadPosts();
+        }
+
+        function sortPosts() {
+            const sortBy = document.getElementById('sortSelect').value;
+            
+            switch(sortBy) {
+                case 'newest':
+                    filteredPosts.sort((a, b) => new Date(b.date) - new Date(a.date));
+                    break;
+                case 'oldest':
+                    filteredPosts.sort((a, b) => new Date(a.date) - new Date(b.date));
+                    break;
+                case 'title':
+                    filteredPosts.sort((a, b) => a.title.localeCompare(b.title));
+                    break;
+                case 'category':
+                    filteredPosts.sort((a, b) => a.category.localeCompare(b.category));
+                    break;
+            }
+            
+            loadPosts();
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+        }
+    </script>
+</body>
+</html>
