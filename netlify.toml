@@ -1,0 +1,12 @@
+[build]
+  # No build command needed for static HTML
+  command = ""
+  # Publish the root directory
+  publish = "."
+
+# Custom 404 page
+[[redirects]]
+  from = "/*"
+  to = "/404.html"
+  status = 404
+
