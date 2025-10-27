@@ -25,7 +25,7 @@ export function StoredBlobsList({ lastMutationTime }) {
     return (
         <>
             <h2 className="mb-4 text-xl text-center">Objects in Blob Store</h2>
-            <div className="bg-white rounded-sm text-neutral-900">
+            <div className="bg-neutral-900 rounded-sm text-neutral-100">
                 <div className="px-4 py-2.5 text-center">
                     {!keys?.length ? (
                         <span className="inline-flex w-full justify-center py-1.5">Please upload some shapes!</span>
@@ -40,10 +40,10 @@ export function StoredBlobsList({ lastMutationTime }) {
                                             onSelect(keyName);
                                         }}
                                         className={
-                                            'inline-flex items-center justify-center w-full px-4 py-1.5 rounded-sm text-neutral-900 ' +
+                                            'inline-flex items-center justify-center w-full px-4 py-1.5 rounded-sm text-neutral-100 ' +
                                             (isSelected
-                                                ? 'bg-neutral-200'
-                                                : 'cursor-pointer transition hover:bg-neutral-200')
+                                                ? 'bg-neutral-700'
+                                                : 'cursor-pointer transition hover:bg-neutral-700')
                                         }
                                     >
                                         {keyName}
@@ -62,7 +62,7 @@ export function StoredBlobsList({ lastMutationTime }) {
 function BlobPreview({ data }) {
     const fullBlobData = generateBlob(data); // Recreates the SVG path by the existing parameters
     return (
-        <div className="p-4 border-t border-neutral-300 aspect-square">
+        <div className="p-4 border-t border-neutral-700 aspect-square">
             <div className="mb-4 text-center">{data.name}</div>
             <div className="p-2 font-mono rounded-sm bg-neutral-800 text-neutral-100">
                 {JSON.stringify(data, null, ' ')}

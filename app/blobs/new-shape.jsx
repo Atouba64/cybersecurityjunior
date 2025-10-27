@@ -25,8 +25,8 @@ export function NewShape(props) {
     return (
         <>
             <h2 className="mb-4 text-xl text-center">New Random Shape</h2>
-            <div className="mb-6 bg-white rounded-sm">
-                <div className="p-4 text-center border-b text-neutral-900 border-neutral-300">
+            <div className="mb-6 bg-neutral-900 rounded-sm">
+                <div className="p-4 text-center border-b text-neutral-100 border-neutral-700">
                     {blobData?.parameters?.name}
                 </div>
                 <div className="p-4">
