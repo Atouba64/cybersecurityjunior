@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cybersecurityjunior.com - My Journey</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide-react@latest/dist/umd/lucide.js"></script>
+    
+    <!-- Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* This CSS hides all "pages" by default */
+        .page-content {
+            display: none;
+        }
+        
+        /* This CSS shows the "active" page */
+        .page-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header / Navigation Bar -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo (Top Far Left) -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center space-x-2">
+                        <!-- Simple Shield Icon as Logo -->
+                        <svg class="h-8 w-8 text-blue-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <span class="text-2xl font-bold text-gray-900">Cybersecurity<span class="text-blue-600">junior</span>.com</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">Home</a>
+                    <a href="javascript:void(0)" onclick="showPage('about')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">About Me</a>
+                    <a href="javascript:void(0)" onclick="showPage('journey')" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium transition-colors">My Journey</a>
+                    <a href="javascript:void(0)" onclick="showPage('contact')" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-button" onclick="toggleMenu()" class="inline-flex items-center justify-center p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
+                        <span class="sr-only">Open main menu</span>
+                        <!-- Menu Icon (lucide) -->
+                        <svg id="menu-icon-open" class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                        <!-- Close Icon (lucide) - hidden by default -->
+                        <svg id="menu-icon-close" class="h-6 w-6 hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu, hidden by default -->
+        <div id="mobile-menu" class="hidden md:hidden shadow-lg border-t border-gray-200">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="javascript:void(0)" onclick="showPage('home')" class="text-gray-700 hover:bg-gray-100 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">Home</a>
+                <a href="javascript:void(0)" onclick="showPage('about')" class="text-gray-700 hover:bg-gray-100 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">About Me</a>
+                <a href="javascript:void(0)" onclick="showPage('journey')" class="text-gray-700 hover:bg-gray-100 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium">My Journey</a>
+                <a href="javascript:void(0)" onclick="showPage('contact')" class="bg-blue-600 text-white hover:bg-blue-700 block w-full text-left px-3 py-2 rounded-md text-base font-medium shadow-sm">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="min-h-screen">
+
+        <!-- ===== HOME PAGE ===== -->
+        <!-- 'active' class makes this visible on load -->
+        <main id="home" class="page-content active">
+            
+            <!-- Hero Section -->
+            <section class="bg-gradient-to-r from-blue-700 to-indigo-800 text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+                    <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
+                        Start Your Journey into Cybersecurity.
+                    </h1>
+                    <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+                        From beginner tips and career transitions to advanced homelabs. Follow my journey and learn with me as I navigate the world of cyber.
+                    </p>
+                    <a href="javascript:void(0)" onclick="showPage('journey')" class="inline-block bg-white text-blue-700 font-bold px-8 py-3 rounded-lg text-lg hover:bg-gray-100 transition-colors shadow-lg transform hover:scale-105">
+                        Explore My Journey
+                    </a>
+                </div>
+            </section>
+            
+            <!-- Latest Six Blog Posts -->
+            <section class="py-16 sm:py-24">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <h2 class="text-3xl font-extrabold text-gray-900 text-center mb-12">
+                        Latest Discoveries
+                    </h2>
+                    
+                    <!-- Blog Post Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Blog Post Card 1 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <img class="h-56 w-full object-cover" src="https://placehold.co/600x400/3B82F6/FFFFFF?text=Home+Lab" alt="Home Lab Setup">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">Home Lab</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Setting Up My First Home Lab</h3>
+                                <p class="text-gray-600 mb-4 flex-grow">A step-by-step guide on how I built my first cybersecurity home lab on a budget, from hardware to virtualization...</p>
+                                <a href="javascript:void(0)" onclick="showPage('post-1')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                                    Read More
+                                    <svg class="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post Card 2 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <img class="h-56 w-full object-cover" src="https://placehold.co/600x400/10B981/FFFFFF?text=Career+Tips" alt="Career Transition">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">Career Transition</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">My Transition from IT to Cybersecurity</h3>
+                                <p class="text-gray-600 mb-4 flex-grow">It wasn't easy, but it was worth it. Here are the key steps I took to pivot my career into cybersecurity...</p>
+                                <a href="javascript:void(0)" onclick="showPage('post-2')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                                    Read More
+                                    <svg class="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post Card 3 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <img class="h-56 w-full object-cover" src="https://placehold.co/600x400/F59E0B/FFFFFF?text=Certifications" alt="Certifications">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="inline-block bg-yellow-100 text-yellow-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">Certifications</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Passing the Security+ Exam</h3>
+                                <p class="text-gray-600 mb-4 flex-grow">My study plan, the resources I used, and what I wish I knew before taking the CompTIA Security+ (SY0-601)...</p>
+                                <a href="javascript:void(0)" onclick="showPage('post-3')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                                    Read More
+                                    <svg class="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post Card 4 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <img class="h-56 w-full object-cover" src="https://placehold.co/600x400/EF4444/FFFFFF?text=Discovery" alt="Discovery">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="inline-block bg-red-100 text-red-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">Discovery</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">The Power of Wireshark</h3>
+                                <p class="text-gray-600 mb-4 flex-grow">I never realized how much data was flying around my network. A deep dive into my first week with Wireshark...</p>
+                                <a href="javascript:void(0)" onclick="showPage('post-4')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                                    Read More
+                                    <svg class="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post Card 5 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <img class="h-56 w-full object-cover" src="https://placehold.co/600x400/8B5CF6/FFFFFF?text=My+Journey" alt="My Journey">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="inline-block bg-purple-100 text-purple-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">My Journey</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Imposter Syndrome is Real</h3>
+                                <p class="text-gray-600 mb-4 flex-grow">A personal post about dealing with imposter syndrome and how I'm working to overcome it in this new field...</p>
+                                <a href="javascript:void(0)" onclick="showPage('post-5')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                                    Read More
+                                    <svg class="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Blog Post Card 6 -->
+                        <div class="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col transform hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                            <img class="h-56 w-full object-cover" src="https://placehold.co/600x400/EC4899/FFFFFF?text=Networking" alt="Networking Basics">
+                            <div class="p-6 flex flex-col flex-grow">
+                                <span class="inline-block bg-pink-100 text-pink-800 text-xs font-semibold px-2.5 py-0.5 rounded-full mb-3">Networking</span>
+                                <h3 class="text-2xl font-bold text-gray-900 mb-2">Networking Basics I Wish I Knew Sooner</h3>
+                                <p class="text-gray-600 mb-4 flex-grow">You can't secure what you don't understand. Breaking down the OSI model and TCP/IP in plain English...</p>
+                                <a href="javascript:void(0)" onclick="showPage('post-6')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                                    Read More
+                                    <svg class="ml-1 h-5 w-5 group-hover:translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- ===== ABOUT PAGE ===== -->
+        <main id="about" class="page-content">
+            <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="bg-white shadow-xl rounded-lg overflow-hidden">
+                    <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/0284C7/FFFFFF?text=About+Me" alt="About me header">
+                    <div class="p-8 sm:p-12">
+                        <h1 class="text-4xl font-extrabold text-gray-900 mb-4">About Me</h1>
+                        <p class="text-lg text-gray-700 mb-6">
+                            Hello! I'm the face behind Cybersecurityjunior.com. Like many of you, I'm on the exciting (and sometimes overwhelming) path of building a career in cybersecurity. I didn't start here; my background was in [Your Previous Field, e.g., customer service / IT support / marketing], but my passion for technology and problem-solving led me to this field.
+                        </p>
+                        
+                        <h2 class="text-3xl font-bold text-gray-900 mb-3">My Mission</h2>
+                        <p class="text-lg text-gray-700 mb-6">
+                            I created this blog to document my journey—the successes, the failures, and all the "aha!" moments in between. My goal is to create a resource I wish I had when I started: a transparent, honest look at what it takes to break into cyber.
+                        </p>
+                        <p class="text-lg text-gray-700 mb-6">
+                            This site is part personal diary, part technical notebook. You'll find documentation of my home lab projects, notes on certifications I'm studying for, and reflections on the job-hunting process.
+                        </p>
+                        <p class="text-lg text-gray-700">
+                            Whether you're just starting to consider a career change or you're deep in your studies, I hope my experiences can offer some guidance, inspiration, or at the very least, a sense of community. We're all in this together!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== MY JOURNEY PAGE ===== -->
+        <main id="journey" class="page-content">
+            <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <h1 class="text-4xl font-extrabold text-gray-900 text-center mb-12">My Cybersecurity Journey</h1>
+                
+                <!-- Timeline -->
+                <div class="relative border-l-4 border-blue-600 ml-4">
+                    
+                    <!-- Timeline Item 1 -->
+                    <div class="mb-12">
+                        <div class="absolute w-8 h-8 bg-blue-600 rounded-full -left-4 border-4 border-white"></div>
+                        <div class="ml-10">
+                            <span class="text-sm font-semibold text-gray-500">October 2025</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-2">The Journey Begins!</h3>
+                            <p class="text-lg text-gray-700">Launched Cybersecurityjunior.com to document my learning path. Started my first certification study: CompTIA Security+.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item 2 -->
+                    <div class="mb-12">
+                        <div class="absolute w-8 h-8 bg-blue-600 rounded-full -left-4 border-4 border-white"></div>
+                        <div class="ml-10">
+                            <span class="text-sm font-semibold text-gray-500">November 2025</span>
+                            <h3 class="text-2xl font-bold text-gray-900 mt-1 mb-2">First Home Lab Build</h3>
+                            <p class="text-lg text-gray-700">Got my hands dirty with Proxmox and set up my first virtual machines. Deployed a pfSense firewall and a basic Active Directory environment. Wrote my first blog post about it!</p>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 3 -->
+                    <div class="mb-12">
+                        <div class="absolute w-8 h-8 bg-gray-300 rounded-full -left-4 border-4 border-white"></div>
+                        <div class="ml-10">
+                            <span class="text-sm font-semibold text-gray-500">Coming Soon...</span>
+                            <h3 class="text-2xl font-bold text-gray-400 mt-1 mb-2">Passed Security+ Exam (I hope!)</h3>
+                            <p class="text-lg text-gray-500">My exam is scheduled for next month. Wish me luck! I'll post a full breakdown of my study resources and experience.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== CONTACT PAGE ===== -->
+        <main id="contact" class="page-content">
+            <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="bg-white shadow-xl rounded-lg p-8 sm:p-12">
+                    <h1 class="text-4xl font-extrabold text-gray-900 text-center mb-4">Get In Touch</h1>
+                    <p class="text-lg text-gray-600 text-center mb-10">
+                        Have a question, a resource to share, or just want to connect? Drop me a message!
+                    </p>
+                    
+                    <form action="#" method="POST" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <div class="mt-1">
+                                <input type="text" name="name" id="name" autocomplete="name" class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <div class="mt-1">
+                                <input id="email" name="email" type="email" autocomplete="email" required class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border-gray-300 rounded-md">
+                            </div>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <div class="mt-1">
+                                <textarea id="message" name="message" rows="4" class="py-3 px-4 block w-full shadow-sm focus:ring-blue-500 focus:border-blue-500 border border-gray-300 rounded-md"></textarea>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button type="submit" class="inline-flex justify-center py-3 px-8 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <!-- ===== BLOG POST PAGES (EXAMPLES) ===== -->
+        
+        <!-- Blog Post 1 Page -->
+        <main id="post-1" class="page-content">
+            <article class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <!-- Post Header -->
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Home Lab</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">
+                        Setting Up My First Home Lab
+                    </h1>
+                    <p class="text-lg text-gray-500">
+                        Published on <time datetime="2025-10-26">October 26, 2025</time> by <span class="font-medium text-gray-700">Cybersecurityjunior</span>
+                    </p>
+                </div>
+                
+                <!-- Featured Image -->
+                <img class="w-full h-auto rounded-lg shadow-lg mb-12 object-cover" src="https://placehold.co/1000x500/3B82F6/FFFFFF?text=My+Home+Lab+v1.0" alt="Home Lab Setup">
+                
+                <!-- Post Content -->
+                <!-- Using prose class for beautiful typography -->
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-700">
+                    <p>
+                        This is it! The first major step in my hands-on learning journey. Building a home lab felt incredibly intimidating, but I decided to just dive in. My main goal was to create a sandboxed environment where I could practice offensive and defensive techniques without, you know, breaking the law or my own network.
+                    </p>
+                    
+                    <h2>My Goals for the Lab</h2>
+                    <p>
+                        I wanted to keep it simple and budget-friendly. My primary objectives were:
+                    </p>
+                    <ul>
+                        <li>Learn virtualization (I chose Proxmox).</li>
+                        <li>Understand network segmentation (using pfSense).</li>
+                        <li>Build a basic Active Directory environment (a classic target).</li>
+                        <li>Deploy a vulnerable machine to attack (like Metasploitable).</li>
+                    </ul>
+                    
+                    <h2>The Hardware</h2>
+                    <p>
+                        You don't need a massive server rack! I started with an old desktop PC I had lying around.
+                    </p>
+                    <ul>
+                        <li><strong>Model:</strong> Old Dell OptiPlex</li>
+                        <li><strong>CPU:</strong> Intel i5 (8th Gen)</li>
+                        <li><strong>RAM:</strong> 16GB (I did upgrade this, cost about $40)</li>
+                        <li><strong>Storage:</strong> 500GB SSD</li>
+                    </ul>
+                    
+                    <h2>Conclusion</h2>
+                    <p>
+                        Getting this up and running took a whole weekend and a lot of troubleshooting, but the feeling of seeing my virtual machines talking to each other (and attacking each other) was incredible. Next up, I'll be documenting how I installed and configured Active Directory.
+                    </p>
+                </div>
+
+                <!-- Back Button -->
+                <div class="mt-16 text-center">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                        <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to All Posts
+                    </a>
+                </div>
+            </article>
+        </main>
+        
+        <!-- Other blog post pages (2-6) would follow the same structure as post-1 -->
+        <!-- Post 2 -->
+        <main id="post-2" class="page-content">
+             <article class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-green-100 text-green-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Career Transition</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">My Transition from IT to Cybersecurity</h1>
+                </div>
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-700">
+                    <p>Content for post 2... (This is a placeholder, you would add your full blog post here.)</p>
+                </div>
+                <div class="mt-16 text-center">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                        <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to All Posts
+                    </a>
+                </div>
+             </article>
+        </main>
+        <!-- Post 3 -->
+        <main id="post-3" class="page-content">
+             <article class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-yellow-100 text-yellow-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Certifications</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">Passing the Security+ Exam</h1>
+                </div>
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-700">
+                    <p>Content for post 3... (This is a placeholder, you would add your full blog post here.)</p>
+                </div>
+                <div class="mt-16 text-center">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                        <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to All Posts
+                    </a>
+                </div>
+             </article>
+        </main>
+        <!-- Post 4 -->
+        <main id="post-4" class="page-content">
+             <article class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-red-100 text-red-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Discovery</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">The Power of Wireshark</h1>
+                </div>
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-700">
+                    <p>Content for post 4... (This is a placeholder, you would add your full blog post here.)</p>
+                </div>
+                <div class="mt-16 text-center">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                        <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to All Posts
+                    </a>
+                </div>
+             </article>
+        </main>
+        <!-- Post 5 -->
+        <main id="post-5" class="page-content">
+             <article class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">My Journey</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">Imposter Syndrome is Real</h1>
+                </div>
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-700">
+                    <p>Content for post 5... (This is a placeholder, you would add your full blog post here.)</p>
+                </div>
+                <div class="mt-16 text-center">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                        <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to All Posts
+                    </a>
+                </div>
+             </article>
+        </main>
+        <!-- Post 6 -->
+        <main id="post-6" class="page-content">
+             <article class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Networking</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900 mb-3">Networking Basics I Wish I Knew Sooner</h1>
+                </div>
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-700">
+                    <p>Content for post 6... (This is a placeholder, you would add your full blog post here.)</p>
+                </div>
+                <div class="mt-16 text-center">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="text-blue-600 font-semibold hover:text-blue-800 inline-flex items-center group">
+                        <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                        Back to All Posts
+                    </a>
+                </div>
+             </article>
+        </main>
+        
+    </div>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="javascript:void(0)" onclick="showPage('home')" class="flex items-center space-x-2">
+                        <svg class="h-8 w-8 text-blue-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        <span class="text-2xl font-bold text-white">Cybersecurity<span class="text-blue-500">junior</span>.com</span>
+                    </a>
+                </div>
+                
+                <!-- Social Media Links -->
+                <div class="flex space-x-6 mb-6 md:mb-0">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">GitHub</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4-4.3-2.5-6-3m12 5v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6.1 0-1.3-.5-2.4-1.3-3.2.1-.3.5-1.5-.1-3.2 0 0-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1c-.6 1.7-.2 2.9-.1 3.2C4.5 7.1 4 8.2 4 9.5c0 4.7 2.7 5.8 5.5 6.1-.6.5-.9 1.4-.9 2.8v3.5"></path></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">LinkedIn</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <span class="sr-only">Twitter</span>
+                        <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm">
+                <p>&copy; 2025 Cybersecurityjunior.com. All rights reserved.</p>
+                <p class="mt-1">Documenting my journey, one post at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // --- Page Navigation Logic ---
+        
+        // Set the 'home' page as active by default
+        document.getElementById('home').classList.add('active');
+
+        function showPage(pageId) {
+            // Hide all page content
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the target page
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.add('active');
+            }
+            
+            // Scroll to the top of the page on navigation
+            window.scrollTo(0, 0);
+            
+            // Close the mobile menu if it's open
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuButton = document.getElementById('mobile-menu-button');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                openIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        // --- Mobile Menu Toggle Logic ---
+        function toggleMenu() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openIcon = document.getElementById('menu-icon-open');
+            const closeIcon = document.getElementById('menu-icon-close');
+            
+            mobileMenu.classList.toggle('hidden');
+            openIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        }
+
+        // --- Initialize Lucide Icons ---
+        // This is necessary to make the SVG icons render
+        lucide.createIcons();
+    </script>
+
+</body>
+</html>
