@@ -3,591 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Building an Automated AWS Compliance Tool: A Complete Setup Guide</title>
+    <title>Building an Automated AWS Compliance Tool - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
         }
-        
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.7;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            padding: 20px;
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            overflow: hidden;
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 60px 40px;
-            text-align: center;
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
-        
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        
-        header .subtitle {
-            font-size: 1.2em;
-            opacity: 0.9;
-            font-weight: 300;
-        }
-        
-        .author-info {
-            background: #f8f9fa;
-            padding: 20px 40px;
-            border-bottom: 2px solid #e9ecef;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        
-        .author-info .date {
-            color: #6c757d;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .intro {
-            background: #e7f3ff;
-            border-left: 4px solid #2196F3;
-            padding: 25px;
-            margin: 30px 0;
-            border-radius: 4px;
-        }
-        
-        .intro p {
-            font-size: 1.1em;
-            margin: 0;
-        }
-        
-        h2 {
-            color: #1e3c72;
-            font-size: 2em;
-            margin: 40px 0 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
-        }
-        
-        h3 {
-            color: #2a5298;
-            font-size: 1.5em;
-            margin: 30px 0 15px;
-        }
-        
-        h4 {
-            color: #495057;
-            font-size: 1.2em;
-            margin: 20px 0 10px;
-        }
-        
-        p {
-            margin: 15px 0;
-            font-size: 1.05em;
-        }
-        
-        .step {
-            background: #f8f9fa;
-            border-left: 4px solid #28a745;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        .step-number {
-            display: inline-block;
-            background: #28a745;
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: bold;
-            margin-right: 10px;
-        }
-        
         pre {
-            background: #2d2d2d;
+            background: #1e1e1e;
             color: #f8f8f2;
-            padding: 20px;
-            border-radius: 8px;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
             overflow-x: auto;
-            margin: 20px 0;
+            margin: 1.5rem 0;
             font-size: 0.9em;
-            line-height: 1.5;
+            line-height: 1.6;
         }
-        
         code {
-            background: #f4f4f4;
-            padding: 2px 6px;
-            border-radius: 3px;
+            background: rgba(107, 114, 128, 0.3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 0.25rem;
             font-family: 'Courier New', monospace;
             font-size: 0.9em;
-            color: #e83e8c;
+            color: #fbbf24;
         }
-        
         pre code {
             background: transparent;
             padding: 0;
             color: inherit;
         }
-        
-        .diagram {
-            background: white;
-            border: 2px solid #dee2e6;
-            border-radius: 8px;
-            padding: 30px;
-            margin: 30px 0;
-            text-align: center;
-        }
-        
-        .architecture-box {
-            fill: #667eea;
-            stroke: #1e3c72;
-            stroke-width: 2;
-        }
-        
-        .architecture-text {
-            fill: white;
-            font-family: Arial, sans-serif;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        
-        .arrow {
-            stroke: #495057;
-            stroke-width: 2;
-            fill: none;
-            marker-end: url(#arrowhead);
-        }
-        
-        .chart-container {
-            margin: 30px 0;
-            padding: 20px;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .bar {
-            fill: #667eea;
-            transition: all 0.3s ease;
-        }
-        
-        .bar:hover {
-            fill: #764ba2;
-        }
-        
-        .warning-box {
-            background: #fff3cd;
-            border-left: 4px solid #ffc107;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        .success-box {
-            background: #d4edda;
-            border-left: 4px solid #28a745;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        .info-box {
-            background: #d1ecf1;
-            border-left: 4px solid #17a2b8;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        ul, ol {
-            margin: 15px 0 15px 30px;
-        }
-        
-        li {
-            margin: 10px 0;
-            font-size: 1.05em;
-        }
-        
-        a {
-            color: #667eea;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        
-        a:hover {
-            text-decoration: underline;
-        }
-        
-        .toc {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            margin: 30px 0;
-        }
-        
-        .toc h3 {
-            margin-top: 0;
-        }
-        
-        .toc ul {
-            list-style: none;
-            margin-left: 0;
-        }
-        
-        .toc li {
-            margin: 8px 0;
-        }
-        
-        .toc a {
-            color: #495057;
-        }
-        
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .tech-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        
         .command-block {
-            background: #2d2d2d;
+            background: #1e1e1e;
             color: #f8f8f2;
-            padding: 15px;
-            border-radius: 6px;
-            margin: 15px 0;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1rem 0;
             font-family: 'Courier New', monospace;
             position: relative;
+            border-left: 3px solid #28a745;
         }
-        
         .command-block::before {
             content: '$';
             color: #28a745;
-            margin-right: 10px;
+            margin-right: 0.5rem;
             font-weight: bold;
-        }
-        
-        footer {
-            background: #2c3e50;
-            color: white;
-            padding: 30px 40px;
-            text-align: center;
-        }
-        
-        .social-links {
-            margin-top: 15px;
-        }
-        
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.2em;
-        }
-        
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            .tech-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
-<body>
-    <div class="container">
-        <header>
-            <h1>🔒 Building an Automated AWS Compliance Tool</h1>
-            <p class="subtitle">A Complete Step-by-Step Guide for Cybersecurity Professionals</p>
-        </header>
-        
-        <div class="author-info">
-            <div>
-                <strong>Written for:</strong> Cybersecurity Specialists & DevSecOps Engineers
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
             </div>
-            <div class="date">
-                Published: November 2025
-            </div>
-        </div>
-        
-        <div class="content">
-            <div class="intro">
-                <p><strong>Hey there, fellow security professionals!</strong> If you're tired of manually checking AWS configurations for compliance issues, or if you're looking to automate your SOC 2 and ISO 27001 audit preparation, you're in the right place. I'm going to walk you through setting up a production-ready automated compliance reporting tool that scans your AWS environment and generates detailed Excel reports.</p>
-            </div>
-            
-            <div class="toc">
-                <h3>📑 Table of Contents</h3>
-                <ul>
-                    <li><a href="#what-is-this">What We're Building</a></li>
-                    <li><a href="#architecture">Architecture Overview</a></li>
-                    <li><a href="#prerequisites">Prerequisites</a></li>
-                    <li><a href="#setup">Step-by-Step Setup</a></li>
-                    <li><a href="#testing">Testing Your Setup</a></li>
-                    <li><a href="#deployment">Deployment Options</a></li>
-                    <li><a href="#advanced">Advanced Features</a></li>
-                    <li><a href="#troubleshooting">Troubleshooting</a></li>
-                </ul>
-            </div>
-            
-            <section id="what-is-this">
-                <h2>🎯 What We're Building</h2>
-                <p>This tool automates the tedious work of compliance auditing by:</p>
-                <ul>
-                    <li><strong>Scanning AWS IAM policies</strong> for risky wildcard permissions</li>
-                    <li><strong>Checking S3 buckets</strong> for encryption and public access</li>
-                    <li><strong>Auditing EC2 Security Groups</strong> for open risky ports (SSH, RDP, etc.)</li>
-                    <li><strong>Verifying VPC configurations</strong> including flow logs and endpoints</li>
-                    <li><strong>Analyzing EC2 instances</strong> for IMDSv2, encryption, and monitoring</li>
-                    <li><strong>Integrating with SIEM</strong> (Elasticsearch/ELK Stack) for security event correlation</li>
-                    <li><strong>Generating comprehensive Excel reports</strong> ready for auditors</li>
-                </ul>
-                
-                <div class="chart-container">
-                    <h4>Compliance Checks Coverage</h4>
-                    <svg width="100%" height="300" viewBox="0 0 800 300" id="coverageChart">
-                        <defs>
-                            <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        <g transform="translate(50, 20)">
-                            <text x="350" y="-10" text-anchor="middle" font-size="18" font-weight="bold" fill="#2c3e50">Compliance Checks by Category</text>
-                            <!-- Bars -->
-                            <rect class="bar" x="0" y="200" width="80" height="60" fill="url(#barGradient)"/>
-                            <text x="40" y="275" text-anchor="middle" font-size="12" fill="#495057">IAM</text>
-                            <text x="40" y="195" text-anchor="middle" font-size="12" fill="white" font-weight="bold">15</text>
-                            
-                            <rect class="bar" x="120" y="180" width="80" height="80" fill="url(#barGradient)"/>
-                            <text x="160" y="275" text-anchor="middle" font-size="12" fill="#495057">S3</text>
-                            <text x="160" y="175" text-anchor="middle" font-size="12" fill="white" font-weight="bold">20</text>
-                            
-                            <rect class="bar" x="240" y="160" width="80" height="100" fill="url(#barGradient)"/>
-                            <text x="280" y="275" text-anchor="middle" font-size="12" fill="#495057">EC2</text>
-                            <text x="280" y="155" text-anchor="middle" font-size="12" fill="white" font-weight="bold">25</text>
-                            
-                            <rect class="bar" x="360" y="140" width="80" height="120" fill="url(#barGradient)"/>
-                            <text x="400" y="275" text-anchor="middle" font-size="12" fill="#495057">VPC</text>
-                            <text x="400" y="135" text-anchor="middle" font-size="12" fill="white" font-weight="bold">30</text>
-                            
-                            <rect class="bar" x="480" y="120" width="80" height="140" fill="url(#barGradient)"/>
-                            <text x="520" y="275" text-anchor="middle" font-size="12" fill="#495057">Security</text>
-                            <text x="520" y="115" text-anchor="middle" font-size="12" fill="white" font-weight="bold">35</text>
-                            
-                            <rect class="bar" x="600" y="100" width="80" height="160" fill="url(#barGradient)"/>
-                            <text x="640" y="275" text-anchor="middle" font-size="12" fill="#495057">SIEM</text>
-                            <text x="640" y="95" text-anchor="middle" font-size="12" fill="white" font-weight="bold">40</text>
-                            
-                            <!-- Y-axis -->
-                            <line x1="0" y1="260" x2="0" y2="0" stroke="#495057" stroke-width="2"/>
-                            <line x1="0" y1="260" x2="680" y2="260" stroke="#495057" stroke-width="2"/>
-                            
-                            <!-- Y-axis labels -->
-                            <text x="-10" y="265" text-anchor="end" font-size="10" fill="#6c757d">0</text>
-                            <text x="-10" y="210" text-anchor="end" font-size="10" fill="#6c757d">10</text>
-                            <text x="-10" y="160" text-anchor="end" font-size="10" fill="#6c757d">20</text>
-                            <text x="-10" y="110" text-anchor="end" font-size="10" fill="#6c757d">30</text>
-                            <text x="-10" y="60" text-anchor="end" font-size="10" fill="#6c757d">40</text>
-                        </g>
-                    </svg>
-                </div>
-            </section>
-            
-            <section id="architecture">
-                <h2>🏗️ Architecture Overview</h2>
-                <p>Let me show you how everything fits together:</p>
-                
-                <div class="diagram">
-                    <svg width="100%" height="500" viewBox="0 0 900 500" id="architectureDiagram">
-                        <defs>
-                            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-                                <polygon points="0 0, 10 3, 0 6" fill="#495057" />
-                            </marker>
-                            <linearGradient id="awsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
-                                <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
-                            </linearGradient>
-                        </defs>
-                        
-                        <!-- AWS Services -->
-                        <rect x="50" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)" class="architecture-box"/>
-                        <text x="110" y="80" text-anchor="middle" class="architecture-text" font-size="12">AWS IAM</text>
-                        
-                        <rect x="200" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)" class="architecture-box"/>
-                        <text x="260" y="80" text-anchor="middle" class="architecture-text" font-size="12">AWS S3</text>
-                        
-                        <rect x="350" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)" class="architecture-box"/>
-                        <text x="410" y="80" text-anchor="middle" class="architecture-text" font-size="12">AWS EC2</text>
-                        
-                        <rect x="500" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)" class="architecture-box"/>
-                        <text x="560" y="80" text-anchor="middle" class="architecture-text" font-size="12">AWS VPC</text>
-                        
-                        <!-- Compliance Scanner -->
-                        <rect x="300" y="200" width="200" height="80" rx="10" fill="#667eea" stroke="#1e3c72" stroke-width="3"/>
-                        <text x="400" y="235" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Compliance Scanner</text>
-                        <text x="400" y="255" text-anchor="middle" fill="white" font-size="12">Python + boto3</text>
-                        
-                        <!-- SIEM -->
-                        <rect x="600" y="200" width="150" height="80" rx="10" fill="#28a745" stroke="#1e7e34" stroke-width="3"/>
-                        <text x="675" y="235" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Elasticsearch</text>
-                        <text x="675" y="255" text-anchor="middle" fill="white" font-size="12">SIEM Integration</text>
-                        
-                        <!-- Report Generator -->
-                        <rect x="300" y="350" width="200" height="80" rx="10" fill="#764ba2" stroke="#5a2d7a" stroke-width="3"/>
-                        <text x="400" y="385" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Report Builder</text>
-                        <text x="400" y="405" text-anchor="middle" fill="white" font-size="12">Excel Reports</text>
-                        
-                        <!-- Arrows -->
-                        <line x1="110" y1="110" x2="350" y2="200" class="arrow"/>
-                        <line x1="260" y1="110" x2="400" y2="200" class="arrow"/>
-                        <line x1="410" y1="110" x2="400" y2="200" class="arrow"/>
-                        <line x1="560" y1="110" x2="450" y2="200" class="arrow"/>
-                        <line x1="500" y1="280" x2="400" y2="350" class="arrow"/>
-                        <line x1="675" y1="280" x2="500" y2="390" class="arrow"/>
-                    </svg>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/667eea/FFFFFF?text=Automated+AWS+Compliance+Tool" alt="AWS Compliance Tool">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-purple-100 text-purple-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">DevSecOps</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Building an Automated AWS Compliance Tool</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-11-01">November 1, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
                 </div>
                 
-                <div class="tech-grid">
-                    <div class="tech-card">AWS IAM</div>
-                    <div class="tech-card">AWS S3</div>
-                    <div class="tech-card">AWS EC2</div>
-                    <div class="tech-card">AWS VPC</div>
-                    <div class="tech-card">Elasticsearch</div>
-                    <div class="tech-card">Python 3.11</div>
-                    <div class="tech-card">Docker</div>
-                    <div class="tech-card">Kubernetes</div>
-                </div>
-            </section>
-            
-            <section id="prerequisites">
-                <h2>📋 Prerequisites</h2>
-                <p>Before we dive in, make sure you have these installed:</p>
-                
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <strong>Python 3.11+</strong>
-                    <div class="command-block">python3 --version</div>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <strong>AWS CLI configured</strong>
-                    <div class="command-block">aws configure</div>
-                    <p>You'll need AWS credentials with read-only access to IAM, S3, EC2, and VPC.</p>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">3</span>
-                    <strong>Git</strong>
-                    <div class="command-block">git --version</div>
-                </div>
-                
-                <div class="step">
-                    <span class="step-number">4</span>
-                    <strong>Docker (optional, for containerized deployment)</strong>
-                    <div class="command-block">docker --version</div>
-                </div>
-                
-                <div class="info-box">
-                    <strong>💡 Pro Tip:</strong> If you don't have AWS credentials yet, you can still test the tool using sample data! We'll cover that in the testing section.
-                </div>
-            </section>
-            
-            <section id="setup">
-                <h2>🚀 Step-by-Step Setup</h2>
-                
-                <h3>Step 1: Clone the Repository</h3>
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <p>First, let's get the code. If you have the repository URL, clone it:</p>
-                    <div class="command-block">git clone https://github.com/your-username/auto-compliance-tool.git</div>
-                    <p>Or if you're working from a local directory:</p>
-                    <div class="command-block">cd auto-compliance-tool</div>
-                </div>
-                
-                <h3>Step 2: Set Up Python Virtual Environment</h3>
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <p>Always use a virtual environment to keep dependencies isolated:</p>
-                    <div class="command-block">python3 -m venv venv</div>
-                    <p>Activate it:</p>
-                    <div class="command-block">source venv/bin/activate  # On macOS/Linux</div>
-                    <div class="command-block">venv\Scripts\activate  # On Windows</div>
-                </div>
-                
-                <h3>Step 3: Install Dependencies</h3>
-                <div class="step">
-                    <span class="step-number">3</span>
-                    <p>Install all required Python packages:</p>
-                    <div class="command-block">pip install -r requirements.txt</div>
-                    <p>This installs:</p>
-                    <ul>
-                        <li><code>boto3</code> - AWS SDK for Python</li>
-                        <li><code>pandas</code> - Data manipulation</li>
-                        <li><code>openpyxl</code> - Excel file generation</li>
-                        <li><code>elasticsearch</code> - SIEM integration</li>
-                        <li><code>requests</code> - HTTP library</li>
-                    </ul>
-                </div>
-                
-                <h3>Step 4: Configure AWS Credentials</h3>
-                <div class="step">
-                    <span class="step-number">4</span>
-                    <p>Set up your AWS credentials. You have a few options:</p>
-                    
-                    <h4>Option A: Environment Variables (Recommended for testing)</h4>
-                    <div class="command-block">export AWS_ACCESS_KEY_ID="your-access-key"</div>
-                    <div class="command-block">export AWS_SECRET_ACCESS_KEY="your-secret-key"</div>
-                    <div class="command-block">export AWS_DEFAULT_REGION="us-east-1"</div>
-                    
-                    <h4>Option B: AWS CLI Configuration</h4>
-                    <div class="command-block">aws configure</div>
-                    <p>This will prompt you for your credentials and save them to <code>~/.aws/credentials</code>.</p>
-                    
-                    <div class="warning-box">
-                        <strong>⚠️ Security Note:</strong> Make sure your AWS credentials have only the minimum required permissions (read-only access to IAM, S3, EC2, VPC). Never commit credentials to version control!
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-300">
+                    <div class="bg-blue-900 bg-opacity-30 rounded-lg p-6 mb-6 border-l-4 border-blue-400">
+                        <p class="text-xl mb-0">
+                            <strong>Hey there, fellow security professionals!</strong> If you're tired of manually checking AWS configurations for compliance issues, or if you're looking to automate your SOC 2 and ISO 27001 audit preparation, you're in the right place. I'm going to walk you through setting up a production-ready automated compliance reporting tool that scans your AWS environment and generates detailed Excel reports.
+                        </p>
                     </div>
-                </div>
-                
-                <h3>Step 5: Configure Baseline Checks</h3>
-                <div class="step">
-                    <span class="step-number">5</span>
-                    <p>The tool uses baseline configurations to determine what to check. Review and customize <code>config/baseline_checks.json</code>:</p>
-                    <pre><code>{
+                    
+                    <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                        <h3 class="text-xl font-semibold text-white mb-4">📑 Table of Contents</h3>
+                        <ul class="list-disc list-inside space-y-2 text-gray-300">
+                            <li><a href="#what-is-this" class="text-blue-400 hover:text-blue-300">What We're Building</a></li>
+                            <li><a href="#architecture" class="text-blue-400 hover:text-blue-300">Architecture Overview</a></li>
+                            <li><a href="#prerequisites" class="text-blue-400 hover:text-blue-300">Prerequisites</a></li>
+                            <li><a href="#setup" class="text-blue-400 hover:text-blue-300">Step-by-Step Setup</a></li>
+                            <li><a href="#testing" class="text-blue-400 hover:text-blue-300">Testing Your Setup</a></li>
+                            <li><a href="#deployment" class="text-blue-400 hover:text-blue-300">Deployment Options</a></li>
+                            <li><a href="#advanced" class="text-blue-400 hover:text-blue-300">Advanced Features</a></li>
+                            <li><a href="#troubleshooting" class="text-blue-400 hover:text-blue-300">Troubleshooting</a></li>
+                        </ul>
+                    </div>
+                    
+                    <section id="what-is-this">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🎯 What We're Building</h2>
+                        <p class="mb-4">This tool automates the tedious work of compliance auditing by:</p>
+                        <ul class="list-disc list-inside mb-6 space-y-2">
+                            <li><strong>Scanning AWS IAM policies</strong> for risky wildcard permissions</li>
+                            <li><strong>Checking S3 buckets</strong> for encryption and public access</li>
+                            <li><strong>Auditing EC2 Security Groups</strong> for open risky ports (SSH, RDP, etc.)</li>
+                            <li><strong>Verifying VPC configurations</strong> including flow logs and endpoints</li>
+                            <li><strong>Analyzing EC2 instances</strong> for IMDSv2, encryption, and monitoring</li>
+                            <li><strong>Integrating with SIEM</strong> (Elasticsearch/ELK Stack) for security event correlation</li>
+                            <li><strong>Generating comprehensive Excel reports</strong> ready for auditors</li>
+                        </ul>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                            <h4 class="text-lg font-semibold text-white mb-4">Compliance Checks Coverage</h4>
+                            <svg width="100%" height="300" viewBox="0 0 800 300" id="coverageChart">
+                                <defs>
+                                    <linearGradient id="barGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                <g transform="translate(50, 20)">
+                                    <text x="350" y="-10" text-anchor="middle" font-size="18" font-weight="bold" fill="#e5e7eb">Compliance Checks by Category</text>
+                                    <rect class="bar" x="0" y="200" width="80" height="60" fill="url(#barGradient)"/>
+                                    <text x="40" y="275" text-anchor="middle" font-size="12" fill="#9ca3af">IAM</text>
+                                    <text x="40" y="195" text-anchor="middle" font-size="12" fill="white" font-weight="bold">15</text>
+                                    
+                                    <rect class="bar" x="120" y="180" width="80" height="80" fill="url(#barGradient)"/>
+                                    <text x="160" y="275" text-anchor="middle" font-size="12" fill="#9ca3af">S3</text>
+                                    <text x="160" y="175" text-anchor="middle" font-size="12" fill="white" font-weight="bold">20</text>
+                                    
+                                    <rect class="bar" x="240" y="160" width="80" height="100" fill="url(#barGradient)"/>
+                                    <text x="280" y="275" text-anchor="middle" font-size="12" fill="#9ca3af">EC2</text>
+                                    <text x="280" y="155" text-anchor="middle" font-size="12" fill="white" font-weight="bold">25</text>
+                                    
+                                    <rect class="bar" x="360" y="140" width="80" height="120" fill="url(#barGradient)"/>
+                                    <text x="400" y="275" text-anchor="middle" font-size="12" fill="#9ca3af">VPC</text>
+                                    <text x="400" y="135" text-anchor="middle" font-size="12" fill="white" font-weight="bold">30</text>
+                                    
+                                    <rect class="bar" x="480" y="120" width="80" height="140" fill="url(#barGradient)"/>
+                                    <text x="520" y="275" text-anchor="middle" font-size="12" fill="#9ca3af">Security</text>
+                                    <text x="520" y="115" text-anchor="middle" font-size="12" fill="white" font-weight="bold">35</text>
+                                    
+                                    <rect class="bar" x="600" y="100" width="80" height="160" fill="url(#barGradient)"/>
+                                    <text x="640" y="275" text-anchor="middle" font-size="12" fill="#9ca3af">SIEM</text>
+                                    <text x="640" y="95" text-anchor="middle" font-size="12" fill="white" font-weight="bold">40</text>
+                                    
+                                    <line x1="0" y1="260" x2="0" y2="0" stroke="#9ca3af" stroke-width="2"/>
+                                    <line x1="0" y1="260" x2="680" y2="260" stroke="#9ca3af" stroke-width="2"/>
+                                    
+                                    <text x="-10" y="265" text-anchor="end" font-size="10" fill="#6b7280">0</text>
+                                    <text x="-10" y="210" text-anchor="end" font-size="10" fill="#6b7280">10</text>
+                                    <text x="-10" y="160" text-anchor="end" font-size="10" fill="#6b7280">20</text>
+                                    <text x="-10" y="110" text-anchor="end" font-size="10" fill="#6b7280">30</text>
+                                    <text x="-10" y="60" text-anchor="end" font-size="10" fill="#6b7280">40</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </section>
+                    
+                    <section id="architecture">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🏗️ Architecture Overview</h2>
+                        <p class="mb-4">Let me show you how everything fits together:</p>
+                        
+                        <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                            <svg width="100%" height="500" viewBox="0 0 900 500" id="architectureDiagram">
+                                <defs>
+                                    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+                                        <polygon points="0 0, 10 3, 0 6" fill="#9ca3af" />
+                                    </marker>
+                                    <linearGradient id="awsGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" style="stop-color:#FF9900;stop-opacity:1" />
+                                        <stop offset="100%" style="stop-color:#FF6600;stop-opacity:1" />
+                                    </linearGradient>
+                                </defs>
+                                
+                                <rect x="50" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)"/>
+                                <text x="110" y="80" text-anchor="middle" fill="white" font-size="12" font-weight="bold">AWS IAM</text>
+                                
+                                <rect x="200" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)"/>
+                                <text x="260" y="80" text-anchor="middle" fill="white" font-size="12" font-weight="bold">AWS S3</text>
+                                
+                                <rect x="350" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)"/>
+                                <text x="410" y="80" text-anchor="middle" fill="white" font-size="12" font-weight="bold">AWS EC2</text>
+                                
+                                <rect x="500" y="50" width="120" height="60" rx="5" fill="url(#awsGradient)"/>
+                                <text x="560" y="80" text-anchor="middle" fill="white" font-size="12" font-weight="bold">AWS VPC</text>
+                                
+                                <rect x="300" y="200" width="200" height="80" rx="10" fill="#667eea" stroke="#1e3c72" stroke-width="3"/>
+                                <text x="400" y="235" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Compliance Scanner</text>
+                                <text x="400" y="255" text-anchor="middle" fill="white" font-size="12">Python + boto3</text>
+                                
+                                <rect x="600" y="200" width="150" height="80" rx="10" fill="#28a745" stroke="#1e7e34" stroke-width="3"/>
+                                <text x="675" y="235" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Elasticsearch</text>
+                                <text x="675" y="255" text-anchor="middle" fill="white" font-size="12">SIEM Integration</text>
+                                
+                                <rect x="300" y="350" width="200" height="80" rx="10" fill="#764ba2" stroke="#5a2d7a" stroke-width="3"/>
+                                <text x="400" y="385" text-anchor="middle" fill="white" font-size="16" font-weight="bold">Report Builder</text>
+                                <text x="400" y="405" text-anchor="middle" fill="white" font-size="12">Excel Reports</text>
+                                
+                                <line x1="110" y1="110" x2="350" y2="200" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                <line x1="260" y1="110" x2="400" y2="200" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                <line x1="410" y1="110" x2="400" y2="200" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                <line x1="560" y1="110" x2="450" y2="200" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                <line x1="500" y1="280" x2="400" y2="350" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                                <line x1="675" y1="280" x2="500" y2="390" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+                            </svg>
+                        </div>
+                        
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">AWS IAM</div>
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">AWS S3</div>
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">AWS EC2</div>
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">AWS VPC</div>
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">Elasticsearch</div>
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">Python 3.11</div>
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">Docker</div>
+                            <div class="bg-gradient-to-br from-purple-600 to-purple-800 text-white p-4 rounded-lg text-center font-bold shadow-lg">Kubernetes</div>
+                        </div>
+                    </section>
+                    
+                    <section id="prerequisites">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">📋 Prerequisites</h2>
+                        <p class="mb-4">Before we dive in, make sure you have these installed:</p>
+                        
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">1</span>
+                            <strong class="text-white">Python 3.11+</strong>
+                            <div class="command-block mt-2">python3 --version</div>
+                        </div>
+                        
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">2</span>
+                            <strong class="text-white">AWS CLI configured</strong>
+                            <div class="command-block mt-2">aws configure</div>
+                            <p class="mt-2 text-gray-300">You'll need AWS credentials with read-only access to IAM, S3, EC2, and VPC.</p>
+                        </div>
+                        
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">3</span>
+                            <strong class="text-white">Git</strong>
+                            <div class="command-block mt-2">git --version</div>
+                        </div>
+                        
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">4</span>
+                            <strong class="text-white">Docker (optional, for containerized deployment)</strong>
+                            <div class="command-block mt-2">docker --version</div>
+                        </div>
+                        
+                        <div class="bg-blue-900 bg-opacity-30 rounded-lg p-6 mb-6 border-l-4 border-blue-400">
+                            <strong class="text-white">💡 Pro Tip:</strong> <span class="text-gray-300">If you don't have AWS credentials yet, you can still test the tool using sample data! We'll cover that in the testing section.</span>
+                        </div>
+                    </section>
+                    
+                    <section id="setup">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🚀 Step-by-Step Setup</h2>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 1: Clone the Repository</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">1</span>
+                            <p class="text-gray-300 mb-2">First, let's get the code. If you have the repository URL, clone it:</p>
+                            <div class="command-block">git clone https://github.com/your-username/auto-compliance-tool.git</div>
+                            <p class="text-gray-300 mt-2">Or if you're working from a local directory:</p>
+                            <div class="command-block">cd auto-compliance-tool</div>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 2: Set Up Python Virtual Environment</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">2</span>
+                            <p class="text-gray-300 mb-2">Always use a virtual environment to keep dependencies isolated:</p>
+                            <div class="command-block">python3 -m venv venv</div>
+                            <p class="text-gray-300 mt-2">Activate it:</p>
+                            <div class="command-block">source venv/bin/activate  # On macOS/Linux</div>
+                            <div class="command-block">venv\Scripts\activate  # On Windows</div>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 3: Install Dependencies</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">3</span>
+                            <p class="text-gray-300 mb-2">Install all required Python packages:</p>
+                            <div class="command-block">pip install -r requirements.txt</div>
+                            <p class="text-gray-300 mt-2">This installs:</p>
+                            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300">
+                                <li><code>boto3</code> - AWS SDK for Python</li>
+                                <li><code>pandas</code> - Data manipulation</li>
+                                <li><code>openpyxl</code> - Excel file generation</li>
+                                <li><code>elasticsearch</code> - SIEM integration</li>
+                                <li><code>requests</code> - HTTP library</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 4: Configure AWS Credentials</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">4</span>
+                            <p class="text-gray-300 mb-2">Set up your AWS credentials. You have a few options:</p>
+                            
+                            <h4 class="text-lg font-semibold text-white mt-4 mb-2">Option A: Environment Variables (Recommended for testing)</h4>
+                            <div class="command-block">export AWS_ACCESS_KEY_ID="your-access-key"</div>
+                            <div class="command-block">export AWS_SECRET_ACCESS_KEY="your-secret-key"</div>
+                            <div class="command-block">export AWS_DEFAULT_REGION="us-east-1"</div>
+                            
+                            <h4 class="text-lg font-semibold text-white mt-4 mb-2">Option B: AWS CLI Configuration</h4>
+                            <div class="command-block">aws configure</div>
+                            <p class="text-gray-300 mt-2">This will prompt you for your credentials and save them to <code>~/.aws/credentials</code>.</p>
+                            
+                            <div class="bg-yellow-900 bg-opacity-30 rounded-lg p-4 mt-4 border-l-4 border-yellow-500">
+                                <strong class="text-white">⚠️ Security Note:</strong> <span class="text-gray-300">Make sure your AWS credentials have only the minimum required permissions (read-only access to IAM, S3, EC2, VPC). Never commit credentials to version control!</span>
+                            </div>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 5: Configure Baseline Checks</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">5</span>
+                            <p class="text-gray-300 mb-2">The tool uses baseline configurations to determine what to check. Review and customize <code>config/baseline_checks.json</code>:</p>
+                            <pre><code>{
   "iam_policy": {
     "disallow_wildcard_action": true
   },
@@ -607,268 +360,269 @@
     "require_encryption": true
   }
 }</code></pre>
-                    <p>You can customize these based on your organization's compliance requirements (SOC 2, ISO 27001, NIST 800-53, etc.).</p>
+                            <p class="text-gray-300 mt-2">You can customize these based on your organization's compliance requirements (SOC 2, ISO 27001, NIST 800-53, etc.).</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 6: Configure SIEM (Optional)</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">6</span>
+                            <p class="text-gray-300 mb-2">If you have an Elasticsearch/ELK Stack instance, configure it in <code>config/elk_config.json</code> or set environment variables:</p>
+                            <div class="command-block">export ELASTICSEARCH_HOST="your-elasticsearch-host"</div>
+                            <div class="command-block">export ELASTICSEARCH_PORT="9200"</div>
+                            <div class="command-block">export ELASTICSEARCH_USER="elastic"</div>
+                            <div class="command-block">export ELASTICSEARCH_PASSWORD="your-password"</div>
+                            <p class="text-gray-300 mt-2">If you don't have Elasticsearch set up yet, the tool will gracefully fall back to simulated data.</p>
+                        </div>
+                    </section>
+                    
+                    <section id="testing">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🧪 Testing Your Setup</h2>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Quick Test with Sample Data (No AWS Required!)</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">1</span>
+                            <p class="text-gray-300 mb-2">Want to see the tool in action without AWS credentials? We've got you covered:</p>
+                            <div class="command-block">python3 test/sample_data_generator.py</div>
+                            <p class="text-gray-300 mt-2">This generates a comprehensive test dataset with 132 different compliance findings and creates an Excel report. Check the <code>reports/</code> directory for your generated report!</p>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Test with Real AWS Credentials</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">2</span>
+                            <p class="text-gray-300 mb-2">Once your AWS credentials are configured, run the main script:</p>
+                            <div class="command-block">python main.py</div>
+                            <p class="text-gray-300 mt-2">The tool will:</p>
+                            <ol class="list-decimal list-inside mt-2 space-y-1 text-gray-300">
+                                <li>Connect to your AWS account</li>
+                                <li>Scan IAM policies, S3 buckets, EC2 instances, and VPCs</li>
+                                <li>Query your SIEM (if configured)</li>
+                                <li>Generate an Excel report in <code>reports/Compliance_Report_YYYY-MM-DD.xlsx</code></li>
+                            </ol>
+                        </div>
+                        
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-6 mb-6 border-l-4 border-green-500">
+                            <strong class="text-white">✅ Success!</strong> <span class="text-gray-300">If everything worked, you should see a new Excel file in the <code>reports/</code> directory with all your compliance findings organized by category.</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Understanding the Report</h3>
+                        <p class="mb-4 text-gray-300">The Excel report contains multiple sheets:</p>
+                        <ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+                            <li><strong>Summary</strong> - Overview of all findings by status (FAIL, WARN, PASS)</li>
+                            <li><strong>AWS Findings</strong> - Detailed list of all AWS compliance issues</li>
+                            <li><strong>SIEM Findings</strong> - Security events from your SIEM</li>
+                            <li><strong>Recommendations</strong> - Suggested remediation steps</li>
+                        </ul>
+                    </section>
+                    
+                    <section id="deployment">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🚢 Deployment Options</h2>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Option 1: Docker Deployment</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">1</span>
+                            <p class="text-gray-300 mb-2">Build the Docker image:</p>
+                            <div class="command-block">docker build -t compliance-tool .</div>
+                            <p class="text-gray-300 mt-2">Run it:</p>
+                            <div class="command-block">docker run --rm -v $(pwd)/reports:/app/reports -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY compliance-tool</div>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Option 2: Docker Compose (Multi-Container)</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">2</span>
+                            <p class="text-gray-300 mb-2">For a more complete setup with a report viewer:</p>
+                            <div class="command-block">docker-compose up -d</div>
+                            <p class="text-gray-300 mt-2">This starts:</p>
+                            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300">
+                                <li>The compliance scanner</li>
+                                <li>An Nginx web server to view reports at <code>http://localhost:8080</code></li>
+                                <li>A scheduled scanner (runs daily at 2 AM)</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Option 3: Kubernetes Deployment</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">3</span>
+                            <p class="text-gray-300 mb-2">Deploy to a Kubernetes cluster:</p>
+                            <div class="command-block">kubectl apply -f k8s/</div>
+                            <p class="text-gray-300 mt-2">This creates:</p>
+                            <ul class="list-disc list-inside mt-2 space-y-1 text-gray-300">
+                                <li>Namespace: <code>compliance-system</code></li>
+                                <li>Deployment: <code>compliance-scanner</code></li>
+                                <li>CronJob: Daily scheduled scans</li>
+                                <li>PersistentVolumeClaim: For report storage</li>
+                                <li>ConfigMap & Secrets: For configuration</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Option 4: Amazon EKS (Production)</h3>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-green-500">
+                            <span class="inline-block bg-green-500 text-white w-8 h-8 rounded-full text-center leading-8 font-bold mr-3">4</span>
+                            <p class="text-gray-300 mb-2">For a production-ready setup on Amazon EKS:</p>
+                            <div class="command-block">./eks/setup-eks.sh</div>
+                            <p class="text-gray-300 mt-2">This script:</p>
+                            <ol class="list-decimal list-inside mt-2 space-y-1 text-gray-300">
+                                <li>Creates an EKS cluster with eksctl</li>
+                                <li>Configures node groups</li>
+                                <li>Sets up IAM roles</li>
+                                <li>Deploys the compliance tool</li>
+                            </ol>
+                            <p class="text-gray-300 mt-2">Then deploy your application:</p>
+                            <div class="command-block">./eks/deploy-to-eks.sh</div>
+                        </div>
+                        
+                        <div class="bg-blue-900 bg-opacity-30 rounded-lg p-6 mb-6 border-l-4 border-blue-400">
+                            <strong class="text-white">📚 More Info:</strong> <span class="text-gray-300">Check out the <code>eks/EKS_COMPLETE_GUIDE.md</code> for detailed EKS setup instructions, including cost estimates (~$213/month) and troubleshooting tips.</span>
+                        </div>
+                    </section>
+                    
+                    <section id="advanced">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🔧 Advanced Features</h2>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">CI/CD Integration</h3>
+                        <p class="mb-4 text-gray-300">The project includes complete CI/CD pipelines for:</p>
+                        <ul class="list-disc list-inside mb-4 space-y-2 text-gray-300">
+                            <li><strong>GitHub Actions</strong> - See <code>.github/workflows/ci-cd.yml</code></li>
+                            <li><strong>GitLab CI</strong> - See <code>.gitlab-ci.yml</code></li>
+                            <li><strong>Jenkins</strong> - See <code>Jenkinsfile</code></li>
+                        </ul>
+                        <p class="mb-4 text-gray-300">All pipelines include:</p>
+                        <ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+                            <li>Code quality checks (Pylint)</li>
+                            <li>Security scanning (Bandit SAST)</li>
+                            <li>Container scanning (Trivy)</li>
+                            <li>Dependency vulnerability checks (Safety)</li>
+                            <li>Automated testing</li>
+                            <li>Docker image building</li>
+                            <li>Kubernetes deployment</li>
+                        </ul>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Helm Charts</h3>
+                        <p class="mb-2 text-gray-300">For easy Kubernetes deployment with customization:</p>
+                        <div class="command-block mb-4">helm install compliance-tool helm/compliance-tool/</div>
+                        <p class="mb-6 text-gray-300">Customize values in <code>helm/compliance-tool/values.yaml</code> before installing.</p>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Infrastructure as Code with Pulumi</h3>
+                        <p class="mb-2 text-gray-300">Provision the entire AWS infrastructure programmatically:</p>
+                        <div class="command-block mb-4">cd pulumi && pulumi up</div>
+                        <p class="mb-6 text-gray-300">This creates VPC, subnets, NAT gateways, EKS cluster, S3 buckets, and IAM roles - all from code!</p>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Large Dataset Management</h3>
+                        <p class="mb-2 text-gray-300">Generate and manage large compliance datasets:</p>
+                        <div class="command-block mb-4">python main.py --download-dataset 1000</div>
+                        <p class="mb-6 text-gray-300">This generates 1000 findings for testing report generation with large datasets.</p>
+                    </section>
+                    
+                    <section id="troubleshooting">
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🔍 Troubleshooting</h2>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Common Issues</h3>
+                        
+                        <h4 class="text-lg font-semibold text-white mt-4 mb-2">Issue: "AWS credentials not found"</h4>
+                        <div class="bg-yellow-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-yellow-500">
+                            <strong class="text-white">Solution:</strong> <span class="text-gray-300">Make sure your AWS credentials are configured. Run <code>aws configure</code> or set environment variables.</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold text-white mt-4 mb-2">Issue: "Permission denied" errors</h4>
+                        <div class="bg-yellow-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-yellow-500">
+                            <strong class="text-white">Solution:</strong> <span class="text-gray-300">Your AWS credentials need read-only access to IAM, S3, EC2, and VPC. Check your IAM policy.</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold text-white mt-4 mb-2">Issue: "Elasticsearch connection failed"</h4>
+                        <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-blue-400">
+                            <strong class="text-white">Solution:</strong> <span class="text-gray-300">This is okay! The tool will fall back to simulated SIEM data. If you want real Elasticsearch integration, check the <code>ELK_SETUP_GUIDE.md</code>.</span>
+                        </div>
+                        
+                        <h4 class="text-lg font-semibold text-white mt-4 mb-2">Issue: "No module named 'boto3'"</h4>
+                        <div class="bg-yellow-900 bg-opacity-30 rounded-lg p-4 mb-4 border-l-4 border-yellow-500">
+                            <strong class="text-white">Solution:</strong> <span class="text-gray-300">Make sure your virtual environment is activated and you've run <code>pip install -r requirements.txt</code>.</span>
+                        </div>
+                        
+                        <h3 class="text-xl font-semibold text-white mt-6 mb-3">Getting Help</h3>
+                        <p class="mb-4 text-gray-300">For more detailed troubleshooting, check out:</p>
+                        <ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+                            <li><code>COMPREHENSIVE_TESTING_GUIDE.txt</code> - Complete testing guide with troubleshooting</li>
+                            <li><code>eks/EKS_COMPLETE_GUIDE.md</code> - EKS-specific troubleshooting</li>
+                            <li><code>ELK_SETUP_GUIDE.md</code> - Elasticsearch setup and troubleshooting</li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">📚 Additional Resources</h2>
+                        <p class="mb-4 text-gray-300">Here are some helpful links to deepen your understanding:</p>
+                        <ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+                            <li><a href="https://aws.amazon.com/iam/" target="_blank" class="text-blue-400 hover:text-blue-300">AWS IAM Documentation</a></li>
+                            <li><a href="https://docs.aws.amazon.com/s3/" target="_blank" class="text-blue-400 hover:text-blue-300">AWS S3 Documentation</a></li>
+                            <li><a href="https://docs.aws.amazon.com/ec2/" target="_blank" class="text-blue-400 hover:text-blue-300">AWS EC2 Documentation</a></li>
+                            <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" target="_blank" class="text-blue-400 hover:text-blue-300">Elasticsearch Documentation</a></li>
+                            <li><a href="https://kubernetes.io/docs/home/" target="_blank" class="text-blue-400 hover:text-blue-300">Kubernetes Documentation</a></li>
+                            <li><a href="https://docs.docker.com/" target="_blank" class="text-blue-400 hover:text-blue-300">Docker Documentation</a></li>
+                            <li><a href="https://www.pulumi.com/docs/" target="_blank" class="text-blue-400 hover:text-blue-300">Pulumi Documentation</a></li>
+                            <li><a href="https://helm.sh/docs/" target="_blank" class="text-blue-400 hover:text-blue-300">Helm Documentation</a></li>
+                        </ul>
+                    </section>
+                    
+                    <section>
+                        <h2 class="text-2xl font-bold text-white mt-8 mb-4">🎓 What's Next?</h2>
+                        <p class="mb-4 text-gray-300">Now that you have the tool set up, here are some ideas to extend it:</p>
+                        <ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+                            <li><strong>Add more compliance frameworks</strong> - Implement checks for PCI DSS, HIPAA, GDPR</li>
+                            <li><strong>Automated remediation</strong> - Create scripts to automatically fix common issues</li>
+                            <li><strong>Slack/Teams integration</strong> - Send alerts when critical findings are discovered</li>
+                            <li><strong>Multi-account scanning</strong> - Extend to scan multiple AWS accounts</li>
+                            <li><strong>Custom dashboards</strong> - Build Grafana dashboards for compliance metrics</li>
+                            <li><strong>API endpoints</strong> - Expose the scanner as a REST API</li>
+                        </ul>
+                    </section>
+                    
+                    <div class="bg-green-900 bg-opacity-30 rounded-lg p-6 mt-8 border-l-4 border-green-500">
+                        <h3 class="text-xl font-semibold text-white mb-2">🎉 Congratulations!</h3>
+                        <p class="text-gray-300">You've successfully set up an automated AWS compliance reporting tool! This is a production-ready solution that can save you hours of manual auditing work.</p>
+                        <p class="text-gray-300 mt-2">If you found this guide helpful, consider contributing back to the project or sharing it with your team. Happy compliance scanning! 🔒</p>
+                    </div>
                 </div>
-                
-                <h3>Step 6: Configure SIEM (Optional)</h3>
-                <div class="step">
-                    <span class="step-number">6</span>
-                    <p>If you have an Elasticsearch/ELK Stack instance, configure it in <code>config/elk_config.json</code> or set environment variables:</p>
-                    <div class="command-block">export ELASTICSEARCH_HOST="your-elasticsearch-host"</div>
-                    <div class="command-block">export ELASTICSEARCH_PORT="9200"</div>
-                    <div class="command-block">export ELASTICSEARCH_USER="elastic"</div>
-                    <div class="command-block">export ELASTICSEARCH_PASSWORD="your-password"</div>
-                    <p>If you don't have Elasticsearch set up yet, the tool will gracefully fall back to simulated data.</p>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
                 </div>
-            </section>
-            
-            <section id="testing">
-                <h2>🧪 Testing Your Setup</h2>
-                
-                <h3>Quick Test with Sample Data (No AWS Required!)</h3>
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <p>Want to see the tool in action without AWS credentials? We've got you covered:</p>
-                    <div class="command-block">python3 test/sample_data_generator.py</div>
-                    <p>This generates a comprehensive test dataset with 132 different compliance findings and creates an Excel report. Check the <code>reports/</code> directory for your generated report!</p>
-                </div>
-                
-                <h3>Test with Real AWS Credentials</h3>
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <p>Once your AWS credentials are configured, run the main script:</p>
-                    <div class="command-block">python main.py</div>
-                    <p>The tool will:</p>
-                    <ol>
-                        <li>Connect to your AWS account</li>
-                        <li>Scan IAM policies, S3 buckets, EC2 instances, and VPCs</li>
-                        <li>Query your SIEM (if configured)</li>
-                        <li>Generate an Excel report in <code>reports/Compliance_Report_YYYY-MM-DD.xlsx</code></li>
-                    </ol>
-                </div>
-                
-                <div class="success-box">
-                    <strong>✅ Success!</strong> If everything worked, you should see a new Excel file in the <code>reports/</code> directory with all your compliance findings organized by category.
-                </div>
-                
-                <h3>Understanding the Report</h3>
-                <p>The Excel report contains multiple sheets:</p>
-                <ul>
-                    <li><strong>Summary</strong> - Overview of all findings by status (FAIL, WARN, PASS)</li>
-                    <li><strong>AWS Findings</strong> - Detailed list of all AWS compliance issues</li>
-                    <li><strong>SIEM Findings</strong> - Security events from your SIEM</li>
-                    <li><strong>Recommendations</strong> - Suggested remediation steps</li>
-                </ul>
-            </section>
-            
-            <section id="deployment">
-                <h2>🚢 Deployment Options</h2>
-                
-                <h3>Option 1: Docker Deployment</h3>
-                <div class="step">
-                    <span class="step-number">1</span>
-                    <p>Build the Docker image:</p>
-                    <div class="command-block">docker build -t compliance-tool .</div>
-                    <p>Run it:</p>
-                    <div class="command-block">docker run --rm -v $(pwd)/reports:/app/reports -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY compliance-tool</div>
-                </div>
-                
-                <h3>Option 2: Docker Compose (Multi-Container)</h3>
-                <div class="step">
-                    <span class="step-number">2</span>
-                    <p>For a more complete setup with a report viewer:</p>
-                    <div class="command-block">docker-compose up -d</div>
-                    <p>This starts:</p>
-                    <ul>
-                        <li>The compliance scanner</li>
-                        <li>An Nginx web server to view reports at <code>http://localhost:8080</code></li>
-                        <li>A scheduled scanner (runs daily at 2 AM)</li>
-                    </ul>
-                </div>
-                
-                <h3>Option 3: Kubernetes Deployment</h3>
-                <div class="step">
-                    <span class="step-number">3</span>
-                    <p>Deploy to a Kubernetes cluster:</p>
-                    <div class="command-block">kubectl apply -f k8s/</div>
-                    <p>This creates:</p>
-                    <ul>
-                        <li>Namespace: <code>compliance-system</code></li>
-                        <li>Deployment: <code>compliance-scanner</code></li>
-                        <li>CronJob: Daily scheduled scans</li>
-                        <li>PersistentVolumeClaim: For report storage</li>
-                        <li>ConfigMap & Secrets: For configuration</li>
-                    </ul>
-                </div>
-                
-                <h3>Option 4: Amazon EKS (Production)</h3>
-                <div class="step">
-                    <span class="step-number">4</span>
-                    <p>For a production-ready setup on Amazon EKS:</p>
-                    <div class="command-block">./eks/setup-eks.sh</div>
-                    <p>This script:</p>
-                    <ol>
-                        <li>Creates an EKS cluster with eksctl</li>
-                        <li>Configures node groups</li>
-                        <li>Sets up IAM roles</li>
-                        <li>Deploys the compliance tool</li>
-                    </ol>
-                    <p>Then deploy your application:</p>
-                    <div class="command-block">./eks/deploy-to-eks.sh</div>
-                </div>
-                
-                <div class="info-box">
-                    <strong>📚 More Info:</strong> Check out the <code>eks/EKS_COMPLETE_GUIDE.md</code> for detailed EKS setup instructions, including cost estimates (~$213/month) and troubleshooting tips.
-                </div>
-            </section>
-            
-            <section id="advanced">
-                <h2>🔧 Advanced Features</h2>
-                
-                <h3>CI/CD Integration</h3>
-                <p>The project includes complete CI/CD pipelines for:</p>
-                <ul>
-                    <li><strong>GitHub Actions</strong> - See <code>.github/workflows/ci-cd.yml</code></li>
-                    <li><strong>GitLab CI</strong> - See <code>.gitlab-ci.yml</code></li>
-                    <li><strong>Jenkins</strong> - See <code>Jenkinsfile</code></li>
-                </ul>
-                <p>All pipelines include:</p>
-                <ul>
-                    <li>Code quality checks (Pylint)</li>
-                    <li>Security scanning (Bandit SAST)</li>
-                    <li>Container scanning (Trivy)</li>
-                    <li>Dependency vulnerability checks (Safety)</li>
-                    <li>Automated testing</li>
-                    <li>Docker image building</li>
-                    <li>Kubernetes deployment</li>
-                </ul>
-                
-                <h3>Helm Charts</h3>
-                <p>For easy Kubernetes deployment with customization:</p>
-                <div class="command-block">helm install compliance-tool helm/compliance-tool/</div>
-                <p>Customize values in <code>helm/compliance-tool/values.yaml</code> before installing.</p>
-                
-                <h3>Infrastructure as Code with Pulumi</h3>
-                <p>Provision the entire AWS infrastructure programmatically:</p>
-                <div class="command-block">cd pulumi && pulumi up</div>
-                <p>This creates VPC, subnets, NAT gateways, EKS cluster, S3 buckets, and IAM roles - all from code!</p>
-                
-                <h3>Large Dataset Management</h3>
-                <p>Generate and manage large compliance datasets:</p>
-                <div class="command-block">python main.py --download-dataset 1000</div>
-                <p>This generates 1000 findings for testing report generation with large datasets.</p>
-            </section>
-            
-            <section id="troubleshooting">
-                <h2>🔍 Troubleshooting</h2>
-                
-                <h3>Common Issues</h3>
-                
-                <h4>Issue: "AWS credentials not found"</h4>
-                <div class="warning-box">
-                    <strong>Solution:</strong> Make sure your AWS credentials are configured. Run <code>aws configure</code> or set environment variables.
-                </div>
-                
-                <h4>Issue: "Permission denied" errors</h4>
-                <div class="warning-box">
-                    <strong>Solution:</strong> Your AWS credentials need read-only access to IAM, S3, EC2, and VPC. Check your IAM policy.
-                </div>
-                
-                <h4>Issue: "Elasticsearch connection failed"</h4>
-                <div class="info-box">
-                    <strong>Solution:</strong> This is okay! The tool will fall back to simulated SIEM data. If you want real Elasticsearch integration, check the <code>ELK_SETUP_GUIDE.md</code>.
-                </div>
-                
-                <h4>Issue: "No module named 'boto3'"</h4>
-                <div class="warning-box">
-                    <strong>Solution:</strong> Make sure your virtual environment is activated and you've run <code>pip install -r requirements.txt</code>.
-                </div>
-                
-                <h3>Getting Help</h3>
-                <p>For more detailed troubleshooting, check out:</p>
-                <ul>
-                    <li><code>COMPREHENSIVE_TESTING_GUIDE.txt</code> - Complete testing guide with troubleshooting</li>
-                    <li><code>eks/EKS_COMPLETE_GUIDE.md</code> - EKS-specific troubleshooting</li>
-                    <li><code>ELK_SETUP_GUIDE.md</code> - Elasticsearch setup and troubleshooting</li>
-                </ul>
-            </section>
-            
-            <section>
-                <h2>📚 Additional Resources</h2>
-                <p>Here are some helpful links to deepen your understanding:</p>
-                <ul>
-                    <li><a href="https://aws.amazon.com/iam/" target="_blank">AWS IAM Documentation</a></li>
-                    <li><a href="https://docs.aws.amazon.com/s3/" target="_blank">AWS S3 Documentation</a></li>
-                    <li><a href="https://docs.aws.amazon.com/ec2/" target="_blank">AWS EC2 Documentation</a></li>
-                    <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" target="_blank">Elasticsearch Documentation</a></li>
-                    <li><a href="https://kubernetes.io/docs/home/" target="_blank">Kubernetes Documentation</a></li>
-                    <li><a href="https://docs.docker.com/" target="_blank">Docker Documentation</a></li>
-                    <li><a href="https://www.pulumi.com/docs/" target="_blank">Pulumi Documentation</a></li>
-                    <li><a href="https://helm.sh/docs/" target="_blank">Helm Documentation</a></li>
-                </ul>
-            </section>
-            
-            <section>
-                <h2>🎓 What's Next?</h2>
-                <p>Now that you have the tool set up, here are some ideas to extend it:</p>
-                <ul>
-                    <li><strong>Add more compliance frameworks</strong> - Implement checks for PCI DSS, HIPAA, GDPR</li>
-                    <li><strong>Automated remediation</strong> - Create scripts to automatically fix common issues</li>
-                    <li><strong>Slack/Teams integration</strong> - Send alerts when critical findings are discovered</li>
-                    <li><strong>Multi-account scanning</strong> - Extend to scan multiple AWS accounts</li>
-                    <li><strong>Custom dashboards</strong> - Build Grafana dashboards for compliance metrics</li>
-                    <li><strong>API endpoints</strong> - Expose the scanner as a REST API</li>
-                </ul>
-            </section>
-            
-            <div class="success-box" style="margin-top: 40px;">
-                <h3 style="margin-top: 0;">🎉 Congratulations!</h3>
-                <p>You've successfully set up an automated AWS compliance reporting tool! This is a production-ready solution that can save you hours of manual auditing work.</p>
-                <p>If you found this guide helpful, consider contributing back to the project or sharing it with your team. Happy compliance scanning! 🔒</p>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
             </div>
         </div>
-        
-        <footer>
-            <p><strong>Automated AWS Compliance Reporting Tool</strong></p>
-            <p>Built for cybersecurity professionals who value automation and security</p>
-            <div class="social-links">
-                <a href="#" title="GitHub">📦 GitHub</a>
-                <a href="#" title="Documentation">📚 Docs</a>
-                <a href="#" title="Issues">🐛 Issues</a>
-            </div>
-            <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">© 2025 | Made with ❤️ for the security community</p>
-        </footer>
-    </div>
-    
+    </footer>
+
     <script>
-        // Add some interactivity
-        document.addEventListener('DOMContentLoaded', function() {
-            // Smooth scroll for table of contents links
-            document.querySelectorAll('.toc a').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
-                        });
-                    }
-                });
-            });
-            
-            // Add hover effects to tech cards
-            document.querySelectorAll('.tech-card').forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.05)';
-                    this.style.transition = 'transform 0.3s ease';
-                });
-                card.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
+        // Smooth scroll for table of contents links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
     </script>
 </body>
 </html>
-
