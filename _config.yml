@@ -227,6 +227,8 @@ exclude:
   - ".DS_Store"
   - "_old_site"
   - "pages/posts"  # Exclude old HTML posts, we'll convert them
+  - "feed.xml"  # Exclude root feed.xml, jekyll-feed generates it
+  - "assets/feed.xml"  # Exclude assets feed.xml if it exists
 
 jekyll-archives:
   enabled: [categories, tags]
