@@ -51,7 +51,13 @@ jobs:
         
     - name: Build Jekyll site
       run: |
-        bundle exec jekyll build --future --verbose 2>&1 | tee build.log || (cat build.log && exit 1)
+        set -e  # Exit on error
+        bundle exec jekyll build --future --verbose 2>&1 | tee build.log
+        if [ ${PIPESTATUS[0]} -ne 0 ]; then
+          echo "❌ Build failed. Showing build log:"
+          cat build.log
+          exit 1
+        fi
       env:
         JEKYLL_ENV: production
         
