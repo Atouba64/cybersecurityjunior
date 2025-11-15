@@ -15,18 +15,16 @@ layout: default
 <!-- Get pinned posts (if any) - count towards limit -->
 {% if all_pinned.size > 0 %}
   {% assign pinned_count = all_pinned.size | at_most: total_posts_limit %}
-  {% for i in (0..pinned_count) limit: pinned_count %}
-    {% assign posts = posts | push: all_pinned[i] %}
+  {% for post in all_pinned limit: pinned_count %}
+    {% assign posts = posts | push: post %}
   {% endfor %}
 {% endif %}
 
 <!-- Get normal posts - fill remaining slots up to 6 total -->
 {% assign remaining_slots = total_posts_limit | minus: posts.size %}
 {% if remaining_slots > 0 %}
-  {% for i in (0..remaining_slots) limit: remaining_slots %}
-    {% if i < all_normal.size %}
-      {% assign posts = posts | push: all_normal[i] %}
-    {% endif %}
+  {% for post in all_normal limit: remaining_slots %}
+    {% assign posts = posts | push: post %}
   {% endfor %}
 {% endif %}
 
