@@ -1,6 +1,6 @@
 const swconf = {
   
-    cacheName: 'chirpy-1763199577',resources: [
+    cacheName: 'chirpy-1763199594',resources: [
       '/assets/css/jekyll-theme-chirpy.css',
       '/',
       
