@@ -7,9 +7,18 @@ Jekyll::Hooks.register :posts, :post_init do |post|
   # If file has been modified, use git log
   # Otherwise, use the post date
   begin
-    lastmod_date = `git log -1 --pretty="%ad" --date=iso "#{ post.path }" 2>/dev/null`.strip
+    # Check if git is available
+    unless system('which git > /dev/null 2>&1')
+      post.data['last_modified_at'] = post.data['date']
+      post.data['lastmod'] = post.data['date']
+      next
+    end
     
-    if lastmod_date && !lastmod_date.empty?
+    # Try to get git log, but don't fail if it doesn't work
+    git_cmd = "git log -1 --pretty=\"%ad\" --date=iso \"#{ post.path }\" 2>/dev/null"
+    lastmod_date = `#{git_cmd}`.strip
+    
+    if lastmod_date && !lastmod_date.empty? && !lastmod_date.include?('fatal:')
       # Parse and format the date properly
       post.data['last_modified_at'] = lastmod_date
     else
