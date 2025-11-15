@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS IAM Fundamentals: Your First Step to Cloud Security - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .article-body h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        .article-body p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+        .article-body ul, .article-body ol {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
+            color: #d1d5db;
+        }
+        .article-body ul li {
+            list-style-type: disc;
+        }
+        .article-body ol li {
+            list-style-type: decimal;
+        }
+        .article-body blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #9ca3af;
+        }
+        .article-body code {
+            background-color: rgba(107, 114, 128, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            font-family: monospace;
+            color: #fbbf24;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/FF9900/FFFFFF?text=AWS+IAM+Fundamentals" alt="AWS IAM Fundamentals: Your First Step to Cloud Security">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-orange-100 text-orange-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">AWS</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">AWS IAM Fundamentals: Your First Step to Cloud Security</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-11-15">November 15, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
+                </div>
+
+                <div class="article-body">
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>Hey there!</strong> If you're diving into cloud security, AWS IAM (Identity and Access Management) is probably the first thing you need to understand. It's like the foundation of a house - if it's weak, everything else crumbles. But don't worry, I'm going to explain it in a way that actually makes sense, with real-world examples you can relate to.</blockquote>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What is IAM, Really?</h2>
+<p class="text-gray-300 mb-4">Imagine you're running a company. You have:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Employees</strong> who need access to different parts of the building</li>
+<li class="mb-2"><strong>Contractors</strong> who only need temporary access</li>
+<li class="mb-2"><strong>Visitors</strong> who should only see the lobby</li>
+<li class="mb-2"><strong>Security guards</strong> who need access everywhere</li>
+</ul>
+<p class="text-gray-300 mb-4">AWS IAM is your digital security system that does exactly this for your cloud resources. It controls:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>WHO</strong> can access your AWS resources (users, groups, roles)</li>
+<li class="mb-2"><strong>WHAT</strong> they can do (permissions and policies)</li>
+<li class="mb-2"><strong>WHEN</strong> they can do it (conditions)</li>
+<li class="mb-2"><strong>WHERE</strong> they can access from (IP restrictions)</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">The Building Blocks of IAM</h2>
+<p class="text-gray-300 mb-4">Let me break down the core concepts with simple analogies:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Users: The People in Your System</h3>
+<p class="text-gray-300 mb-4">A <strong>User</strong> is like an employee badge. Each person gets their own unique badge that identifies them.</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Creating a user is like issuing a badge
+aws iam create-user --user-name security-analyst
+</code></pre>
+<strong>Real-world example:</strong> Sarah is a security analyst. She needs her own AWS account to scan for compliance issues. You create a user called <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">security-analyst</code> for her.
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Groups: Organizing by Job Function</h3>
+<strong>Groups</strong> are like departments. Instead of giving permissions to each person individually, you give them to the department, and everyone in that department gets the same access.
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Create a group for security team
+aws iam create-group --group-name SecurityTeam
+
+# Add Sarah to the group
+aws iam add-user-to-group --user-name security-analyst --group-name SecurityTeam
+</code></pre>
+<strong>Real-world example:</strong> You have 5 security analysts. Instead of configuring permissions 5 times, you create a "SecurityTeam" group, give it the permissions once, and add all 5 analysts to it. When a new analyst joins? Just add them to the group - they automatically get the right permissions!
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Roles: Temporary Access Badges</h3>
+<strong>Roles</strong> are like visitor badges. They're temporary and can be "assumed" by different entities when needed.
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Create a role that can be assumed by EC2 instances
+aws iam create-role --role-name ComplianceScannerRole \
+  --assume-role-policy-document file://trust-policy.json
+</code></pre>
+<strong>Real-world example:</strong> Your compliance scanning tool runs on an EC2 instance. Instead of storing AWS credentials in the code (which is dangerous!), you create a role. The EC2 instance "assumes" this role and gets temporary permissions to scan your AWS resources.
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Policies: The Rule Book</h3>
+<strong>Policies</strong> are the actual rules that define what someone can or cannot do. Think of them as the employee handbook.
+<p class="text-gray-300 mb-4">Here's a simple policy that allows reading S3 buckets:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::my-compliance-bucket/*",
+        "arn:aws:s3:::my-compliance-bucket"
+      ]
+    }
+  ]
+}
+</code></pre>
+<strong>Breaking it down:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Effect: Allow</code> - This permission is allowed (could also be "Deny")</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Action</code> - What they can do (<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">s3:GetObject</code> = read files, <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">s3:ListBucket</code> = list files)</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Resource</code> - Which specific resources (in this case, one S3 bucket)</li>
+</ul>
+<strong>Real-world example:</strong> Your compliance tool needs to read reports from a specific S3 bucket. This policy says "You can read files from <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">my-compliance-bucket</code>, but nothing else."
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">The Principle of Least Privilege</h2>
+<p class="text-gray-300 mb-4">This is the golden rule of IAM: <strong>Give people only the permissions they absolutely need, nothing more.</strong></p>
+<strong>Bad example:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Effect": "Allow",
+  "Action": "*",
+  "Resource": "*"
+}
+</code></pre>
+<p class="text-gray-300 mb-4">This is like giving someone a master key to your entire building. They can do anything, anywhere. <strong>Never do this!</strong></p>
+<strong>Good example:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Effect": "Allow",
+  "Action": [
+    "s3:GetObject"
+  ],
+  "Resource": "arn:aws:s3:::reports-bucket/compliance/*"
+}
+</code></pre>
+<p class="text-gray-300 mb-4">This says "You can only read files from the compliance folder in the reports bucket." Much safer!</p>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Common IAM Patterns You'll See</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Pattern 1: Read-Only Access for Auditors</h3>
+<p class="text-gray-300 mb-4">Your compliance auditor needs to check your AWS setup but shouldn't be able to change anything:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:Get*",
+        "iam:List*",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "ec2:Describe*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+</code></pre>
+<p class="text-gray-300 mb-4">Notice all the actions start with <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Get</code>, <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">List</code>, or <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Describe</code> - these are read-only. No <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Create</code>, <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Delete</code>, or <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Modify</code> actions.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Pattern 2: Service Role for Automation</h3>
+<p class="text-gray-300 mb-4">Your Python script running on an EC2 instance needs to scan your resources:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+</code></pre>
+<p class="text-gray-300 mb-4">This is a <strong>trust policy</strong> - it says "EC2 instances can assume this role." Then you attach permissions to the role.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Pattern 3: Time-Based Access</h3>
+<p class="text-gray-300 mb-4">Maybe you want to restrict access to business hours only:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": "*",
+      "Condition": {
+        "DateGreaterThan": {
+          "aws:CurrentTime": "09:00Z"
+        },
+        "DateLessThan": {
+          "aws:CurrentTime": "17:00Z"
+        }
+      }
+    }
+  ]
+}
+</code></pre>
+<p class="text-gray-300 mb-4">This says "You can access S3, but only between 9 AM and 5 PM UTC."</p>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Hands-On: Creating Your First IAM Setup</h2>
+<p class="text-gray-300 mb-4">Let's build a real example step-by-step. You're setting up a compliance scanning tool:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 1: Create a User for the Tool</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">aws iam create-user --user-name compliance-scanner
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 2: Create a Policy</h3>
+<p class="text-gray-300 mb-4">Save this as <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">compliance-readonly-policy.json</code>:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadOnlyAccess",
+      "Effect": "Allow",
+      "Action": [
+        "iam:Get*",
+        "iam:List*",
+        "s3:GetObject",
+        "s3:ListBucket",
+        "ec2:Describe*",
+        "ec2:GetConsoleOutput",
+        "vpc:Describe*"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+</code></pre>
+<p class="text-gray-300 mb-4">Create the policy:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">aws iam create-policy \
+  --policy-name ComplianceReadOnly \
+  --policy-document file://compliance-readonly-policy.json
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 3: Attach Policy to User</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">aws iam attach-user-policy \
+  --user-name compliance-scanner \
+  --policy-arn arn:aws:iam::YOUR_ACCOUNT_ID:policy/ComplianceReadOnly
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 4: Create Access Keys (for programmatic access)</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">aws iam create-access-key --user-name compliance-scanner
+</code></pre>
+<strong>⚠️ Security Warning:</strong> Save these keys immediately and securely! You won't be able to see the secret key again.
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Common IAM Security Mistakes (And How to Avoid Them)</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Mistake 1: Using Root Account for Everything</h3>
+<strong>Don't do this:</strong> Using your root AWS account (the one you signed up with) for daily tasks.
+<strong>Why it's bad:</strong> Root account has unlimited power. If compromised, attackers have full control.
+<strong>Do this instead:</strong> Create IAM users with specific permissions.
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Mistake 2: Wildcard Permissions</h3>
+<strong>Don't do this:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Action": "*",
+  "Resource": "*"
+}
+</code></pre>
+<strong>Do this instead:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Action": [
+    "s3:GetObject",
+    "s3:ListBucket"
+  ],
+  "Resource": "arn:aws:s3:::specific-bucket/*"
+}
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Mistake 3: Storing Credentials in Code</h3>
+<strong>Don't do this:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-python"># BAD!
+aws_access_key = "AKIAIOSFODNN7EXAMPLE"
+aws_secret_key = "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
+</code></pre>
+<strong>Do this instead:</strong> Use IAM roles! Your EC2 instance assumes a role automatically.
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Mistake 4: Not Rotating Access Keys</h3>
+<strong>Don't do this:</strong> Using the same access keys for years.
+<strong>Do this instead:</strong> Rotate keys every 90 days. AWS can help with this:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">aws iam create-access-key --user-name compliance-scanner
+# Use new key, then delete old one
+aws iam delete-access-key --user-name compliance-scanner --access-key-id OLD_KEY_ID
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Testing Your IAM Setup</h2>
+<p class="text-gray-300 mb-4">Want to test if your permissions work? Use the AWS CLI:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Test S3 access
+aws s3 ls s3://my-bucket
+
+# Test IAM access
+aws iam list-users
+
+# Test EC2 access
+aws ec2 describe-instances
+</code></pre>
+<p class="text-gray-300 mb-4">If you get "Access Denied," check your policies. If it works, you're good to go!</p>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Real-World Scenario: Building Access for a Compliance Tool</h2>
+<p class="text-gray-300 mb-4">Let's say you're building that automated compliance tool from the main tutorial. Here's the IAM setup you'd need:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Create a Role for EC2</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Attach Read-Only Policies</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Attach AWS managed policy for read-only access
+aws iam attach-role-policy \
+  --role-name ComplianceScannerRole \
+  --policy-arn arn:aws:iam::aws:policy/ReadOnlyAccess
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Create Instance Profile</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">aws iam create-instance-profile --instance-profile-name ComplianceScannerProfile
+aws iam add-role-to-instance-profile \
+  --instance-profile-name ComplianceScannerProfile \
+  --role-name ComplianceScannerRole
+</code></pre>
+<p class="text-gray-300 mb-4">Now when you launch an EC2 instance with this instance profile, it automatically has the right permissions - no keys needed!</p>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Visual Learning: The IAM Flow</h2>
+<p class="text-gray-300 mb-4">Here's how IAM works in practice:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">User/Service → Assumes Role → Gets Temporary Credentials → Accesses AWS Resource
+     ↓              ↓                    ↓                        ↓
+  "Sarah"    "ScannerRole"    "Temporary Token"        "Read S3 Bucket"
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Key Takeaways</h2>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Users</strong> = Individual people or services</li>
+<li class="mb-2"><strong>Groups</strong> = Collections of users (like departments)</li>
+<li class="mb-2"><strong>Roles</strong> = Temporary, assumable permissions</li>
+<li class="mb-2"><strong>Policies</strong> = The actual rules (what's allowed/denied)</li>
+<li class="mb-2"><strong>Least Privilege</strong> = Give only what's needed</li>
+<li class="mb-2"><strong>Never use root account</strong> for daily tasks</li>
+<li class="mb-2"><strong>Use roles, not access keys</strong> when possible</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Practice Exercise</h2>
+<p class="text-gray-300 mb-4">Try this yourself:</p>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Create a new IAM user called <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">test-reader</code></li>
+<li class="mb-2">Create a policy that allows reading only from one specific S3 bucket</li>
+<li class="mb-2">Attach the policy to the user</li>
+<li class="mb-2">Test it by trying to list that bucket (should work) and another bucket (should fail)</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Resources to Learn More</h2>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><a href="https://docs.aws.amazon.com/iam/" class="text-blue-400 hover:text-blue-300 underline">AWS IAM Documentation</a> - The official guide</li>
+<li class="mb-2"><a href="https://policysim.aws.amazon.com/" class="text-blue-400 hover:text-blue-300 underline">IAM Policy Simulator</a> - Test your policies before deploying</li>
+<li class="mb-2"><a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html" class="text-blue-400 hover:text-blue-300 underline">AWS IAM Best Practices</a> - Security recommendations</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What's Next?</h2>
+<p class="text-gray-300 mb-4">Now that you understand IAM basics, you're ready to:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Learn about AWS S3 security (our next post!)</li>
+<li class="mb-2">Understand how EC2 security groups work</li>
+<li class="mb-2">Build that compliance scanning tool with proper IAM setup</li>
+</ul>
+<p class="text-gray-300 mb-4">Remember: IAM is the foundation. Master this, and the rest of AWS security becomes much easier to understand!</p>
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>💡 Pro Tip:</strong> Always test your IAM policies in a test account first. AWS provides a Policy Simulator tool that lets you test "what if" scenarios without actually making changes. It's a lifesaver!</blockquote>
+<hr class="my-8 border-gray-700">
+<em>Ready to dive deeper? Check out our next post on AWS S3 Security Basics, where we'll learn how to properly secure your cloud storage!</em>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
