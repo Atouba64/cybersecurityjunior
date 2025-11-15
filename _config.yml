@@ -14,7 +14,7 @@ timezone: America/New_York
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: CybersecurityJunior # the main title
+title: Cybersecurityjunior # the main title
 
 tagline: Start Your Journey into Cybersecurity Today # it will display as the subtitle
 
@@ -146,7 +146,7 @@ pwa:
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 10
+paginate: 50  # Show more posts per page to ensure all are visible
 
 # The base URL of your site
 baseurl: ""  # Change this if your site is served from a subdirectory (e.g., "/blog")
@@ -169,6 +169,9 @@ collections:
   tabs:
     output: true
     sort_by: order
+  posts:
+    output: true
+    permalink: /posts/:name/
 
 defaults:
   - scope:
