@@ -18,7 +18,11 @@ jobs:
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2'
-        bundler-cache: true
+        bundler-cache: false  # We'll handle bundler version explicitly
+        
+    - name: Install Bundler
+      run: |
+        gem install bundler -v '2.7.2'
         
     - name: Install dependencies
       run: |
