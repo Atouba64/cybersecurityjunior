@@ -21,12 +21,14 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-      
+      with:
+        fetch-depth: 0  # Fetch full history for git log in plugins
+        
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: '3.2'
-        bundler-cache: false  # We'll handle bundler version explicitly
+        bundler-cache: false
         
     - name: Install Bundler
       run: |
@@ -42,9 +44,14 @@ jobs:
       run: |
         bundle install --jobs 4 --retry 3
         
+    - name: Configure Git (for plugins)
+      run: |
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        
     - name: Build Jekyll site
       run: |
-        bundle exec jekyll build --future --verbose
+        bundle exec jekyll build --future --verbose 2>&1 | tee build.log || (cat build.log && exit 1)
       env:
         JEKYLL_ENV: production
         
@@ -54,8 +61,13 @@ jobs:
           echo "❌ Build failed: _site directory not found"
           exit 1
         fi
+        file_count=$(find _site -type f | wc -l)
+        if [ "$file_count" -lt 10 ]; then
+          echo "❌ Build may have failed: Only $file_count files generated (expected many more)"
+          exit 1
+        fi
         echo "✓ Build successful: _site directory exists"
-        echo "Generated files: $(find _site -type f | wc -l)"
+        echo "✓ Generated files: $file_count"
         find _site -name "*.html" -type f | head -5
         
     - name: Setup Pages
