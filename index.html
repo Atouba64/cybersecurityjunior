@@ -80,8 +80,11 @@ layout: default
 
             <div class="card-text content mt-0 mb-3">
               <p>
-                {% include no-linenos.html content=post.content %}
-                {{ content | markdownify | strip_html | truncate: 200 | escape }}
+                {% if post.excerpt %}
+                  {{ post.excerpt | strip_html | truncate: 200 | escape }}
+                {% else %}
+                  {{ post.content | strip_html | truncate: 200 | escape }}
+                {% endif %}
               </p>
             </div>
 
@@ -120,10 +123,11 @@ layout: default
 </div>
 <!-- #post-list -->
 
-{% if all_normal.size > 6 or all_pinned.size > 0 %}
-  <footer class="text-center">
+{% assign total_posts_count = all_normal.size | plus: all_pinned.size %}
+{% if total_posts_count > 6 %}
+  <div class="mt-5 text-center">
     <a href="{{ '/posts' | relative_url }}" class="btn btn-outline-primary btn-lg">
-      View All Posts <i class="fas fa-arrow-right"></i>
+      View All Posts <i class="fas fa-arrow-right ms-2"></i>
     </a>
-  </footer>
+  </div>
 {% endif %}

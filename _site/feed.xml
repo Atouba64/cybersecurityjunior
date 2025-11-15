@@ -1,17 +1,17 @@
 
 
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <id>http://0.0.0.0:4000/</id>
+  <id>https://atouba64.github.io/</id>
   <title>Cybersecurityjunior</title>
   <subtitle>From beginner tips and career transitions to advanced homelabs. Follow my journey and learn with me as I navigate the world of cyber.</subtitle>
-  <updated>2025-11-15T04:34:39-05:00</updated>
+  <updated>2025-11-15T04:38:52-05:00</updated>
   <author>
     <name>Mabele Liango</name>
-    <uri>http://0.0.0.0:4000/</uri>
+    <uri>https://atouba64.github.io/</uri>
   </author>
-  <link rel="self" type="application/atom+xml" href="http://0.0.0.0:4000/feed.xml"/>
+  <link rel="self" type="application/atom+xml" href="https://atouba64.github.io/feed.xml"/>
   <link rel="alternate" type="text/html" hreflang="en"
-    href="http://0.0.0.0:4000/"/>
+    href="https://atouba64.github.io/"/>
   <generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator>
   <rights> © 2025 Mabele Liango </rights>
   <icon>/assets/img/favicons/favicon.ico</icon>
@@ -20,127 +20,141 @@
 
   
   <entry>
-    <title>How I Passed the DevSecOps Interview (And How You Can, Too)</title>
-    <link href="http://0.0.0.0:4000/posts/how-i-passed-the-devsecops-interview/" rel="alternate" type="text/html" title="How I Passed the DevSecOps Interview (And How You Can, Too)" />
-    <published>2025-11-14T00:00:00-05:00</published>
+    <title>Compliance Frameworks: SOC 2, ISO 27001, and NIST Explained</title>
+    <link href="https://atouba64.github.io/posts/compliance-frameworks-explained/" rel="alternate" type="text/html" title="Compliance Frameworks: SOC 2, ISO 27001, and NIST Explained" />
+    <published>2025-11-25T09:00:00-05:00</published>
   
-    <updated>2025-11-14T00:00:00-05:00</updated>
+    <updated>2025-11-15T03:28:20-05:00</updated>
   
-    <id>http://0.0.0.0:4000/posts/how-i-passed-the-devsecops-interview/</id>
-    <content type="text/html" src="http://0.0.0.0:4000/posts/how-i-passed-the-devsecops-interview/" />
+    <id>https://atouba64.github.io/posts/compliance-frameworks-explained/</id>
+    <content type="text/html" src="https://atouba64.github.io/posts/compliance-frameworks-explained/" />
     <author>
       <name>Mabele Liango</name>
     </author>
 
   
-    
-    <category term="Career Tips" />
-    
-  
-
-  <summary>So, you landed the interview for that “Cloud Security Engineer” or “DevSecOps Engineer” role. Congratulations! Now comes the hard part. These interviews are intense. They aren’t just about what you know; they’re about how you think and how you connect your skills.  I just went through two of these interviews back-to-back. I’m a cybersecurity professional, and English isn’t even my first languag...</summary>
-
-  </entry>
-
-  
-  <entry>
-    <title>Building an Automated AWS Compliance Tool: A Complete Setup Guide</title>
-    <link href="http://0.0.0.0:4000/posts/building-an-automated-aws-compliance-tool/" rel="alternate" type="text/html" title="Building an Automated AWS Compliance Tool: A Complete Setup Guide" />
-    <published>2025-11-01T10:00:00-04:00</published>
-  
-    <updated>2025-11-15T02:27:56-05:00</updated>
-  
-    <id>http://0.0.0.0:4000/posts/building-an-automated-aws-compliance-tool/</id>
-    <content type="text/html" src="http://0.0.0.0:4000/posts/building-an-automated-aws-compliance-tool/" />
-    <author>
-      <name>Mabele Liango</name>
-    </author>
-
-  
-    
-    <category term="DevSecOps" />
-    
-    <category term="AWS" />
-    
-    <category term="Automation" />
     
     <category term="Compliance" />
     
+    <category term="Security" />
+    
+    <category term="Business" />
+    
   
 
-  <summary>Hey there, fellow security professionals! If you’re tired of manually checking AWS configurations for compliance issues, or if you’re looking to automate your SOC 2 and ISO 27001 audit preparation, you’re in the right place. I’m going to walk you through setting up a production-ready automated compliance reporting tool that scans your AWS environment and generates detailed Excel reports.   📑 Ta...</summary>
+  <summary>Here’s the reality: Your customers want to know their data is safe. Your partners need assurance. Regulators require proof. Compliance frameworks provide that proof. But they can seem overwhelming - SOC 2, ISO 27001, NIST, PCI DSS, HIPAA… Let’s break them down so you understand what they actually mean and why they matter.   What is Compliance, Really?  Compliance means following rules, standard...</summary>
 
   </entry>
 
   
   <entry>
-    <title>Setting Up My First Home Lab</title>
-    <link href="http://0.0.0.0:4000/posts/setting-up-my-first-home-lab/" rel="alternate" type="text/html" title="Setting Up My First Home Lab" />
-    <published>2025-10-27T00:00:00-04:00</published>
+    <title>Infrastructure as Code: Managing Cloud Resources with Code</title>
+    <link href="https://atouba64.github.io/posts/infrastructure-as-code-basics/" rel="alternate" type="text/html" title="Infrastructure as Code: Managing Cloud Resources with Code" />
+    <published>2025-11-24T09:00:00-05:00</published>
   
-    <updated>2025-10-27T00:00:00-04:00</updated>
+    <updated>2025-11-15T03:28:20-05:00</updated>
   
-    <id>http://0.0.0.0:4000/posts/setting-up-my-first-home-lab/</id>
-    <content type="text/html" src="http://0.0.0.0:4000/posts/setting-up-my-first-home-lab/" />
+    <id>https://atouba64.github.io/posts/infrastructure-as-code-basics/</id>
+    <content type="text/html" src="https://atouba64.github.io/posts/infrastructure-as-code-basics/" />
     <author>
       <name>Mabele Liango</name>
     </author>
 
   
     
-    <category term="Home Lab" />
+    <category term="Infrastructure" />
+    
+    <category term="DevOps" />
+    
+    <category term="Cloud Security" />
     
   
 
-  <summary>This is it! The first major step in my hands-on learning journey. Building a home lab felt incredibly intimidating, but I decided to just dive in. My main goal was to create a sandboxed environment where I could practice offensive and defensive techniques without, you know, breaking the law or my own network.  My Goals for the Lab  I wanted to keep it simple and budget-friendly. My primary obje...</summary>
+  <summary>The old way: You need a VPC, some EC2 instances, and an S3 bucket. You log into AWS console, click around for an hour, create everything manually, and hope you remember what you did. The new way: You write code that defines your infrastructure. Run a command, and everything is created. Need to change something? Update the code. Need to recreate it? Run the code again. That’s Infrastructure as C...</summary>
 
   </entry>
 
   
   <entry>
-    <title>My Transition from IT to Cybersecurity</title>
-    <link href="http://0.0.0.0:4000/posts/my-transition-from-it-to-cybersecurity/" rel="alternate" type="text/html" title="My Transition from IT to Cybersecurity" />
-    <published>2025-10-25T00:00:00-04:00</published>
+    <title>CI/CD Security: Building Secure Deployment Pipelines</title>
+    <link href="https://atouba64.github.io/posts/cicd-security-fundamentals/" rel="alternate" type="text/html" title="CI/CD Security: Building Secure Deployment Pipelines" />
+    <published>2025-11-23T09:00:00-05:00</published>
   
-    <updated>2025-10-25T00:00:00-04:00</updated>
+    <updated>2025-11-15T03:28:20-05:00</updated>
   
-    <id>http://0.0.0.0:4000/posts/my-transition-from-it-to-cybersecurity/</id>
-    <content type="text/html" src="http://0.0.0.0:4000/posts/my-transition-from-it-to-cybersecurity/" />
+    <id>https://atouba64.github.io/posts/cicd-security-fundamentals/</id>
+    <content type="text/html" src="https://atouba64.github.io/posts/cicd-security-fundamentals/" />
     <author>
       <name>Mabele Liango</name>
     </author>
 
   
     
-    <category term="Career Transition" />
+    <category term="CI/CD" />
+    
+    <category term="DevSecOps" />
+    
+    <category term="Security" />
     
   
 
-  <summary>It wasn’t easy, but it was worth it. After 5 years in general IT support, I felt stuck. I was good at fixing computers and helping users, but I wanted something more challenging, more strategic. Cybersecurity called to me like a siren song—complex, ever-changing, and absolutely critical.  The Wake-Up Call  It started with a ransomware attack at my company. Watching our IT team scramble to conta...</summary>
+  <summary>The challenge: You’ve built an amazing application. Now you need to deploy it. Manually deploying is slow and error-prone. CI/CD automates this. But here’s the problem: if your pipeline isn’t secure, attackers can inject malicious code, steal secrets, or deploy vulnerable software. Let’s learn how to build secure CI/CD pipelines.   What is CI/CD, Really?  CI/CD stands for:    CI (Continuous Int...</summary>
 
   </entry>
 
   
   <entry>
-    <title>Passing the Security+ Exam</title>
-    <link href="http://0.0.0.0:4000/posts/security-plus-exam/" rel="alternate" type="text/html" title="Passing the Security+ Exam" />
-    <published>2025-10-23T10:00:00-04:00</published>
+    <title>Elasticsearch &amp; SIEM: Security Monitoring for Beginners</title>
+    <link href="https://atouba64.github.io/posts/elasticsearch-siem-basics/" rel="alternate" type="text/html" title="Elasticsearch &amp;amp; SIEM: Security Monitoring for Beginners" />
+    <published>2025-11-22T09:00:00-05:00</published>
   
-    <updated>2025-10-23T10:00:00-04:00</updated>
+    <updated>2025-11-15T03:28:20-05:00</updated>
   
-    <id>http://0.0.0.0:4000/posts/security-plus-exam/</id>
-    <content type="text/html" src="http://0.0.0.0:4000/posts/security-plus-exam/" />
+    <id>https://atouba64.github.io/posts/elasticsearch-siem-basics/</id>
+    <content type="text/html" src="https://atouba64.github.io/posts/elasticsearch-siem-basics/" />
     <author>
       <name>Mabele Liango</name>
     </author>
 
   
     
-    <category term="Certifications" />
+    <category term="SIEM" />
+    
+    <category term="Security Monitoring" />
+    
+    <category term="Elasticsearch" />
     
   
 
-  <summary>After months of studying, practice tests, and more coffee than I care to admit, I finally passed the CompTIA Security+ (SY0-601) exam! Here’s my complete study plan, the resources I used, and what I wish I knew before taking this beast of a test.  Why Security+?  I chose Security+ as my first cybersecurity certification because it’s vendor-neutral, widely recognized, and covers a broad range of...</summary>
+  <summary>Here’s the reality: Security events happen constantly. Failed login attempts, unusual network traffic, configuration changes - thousands of events every minute. Manually reviewing logs is impossible. SIEM (Security Information and Event Management) systems collect, analyze, and alert on these events automatically. Elasticsearch is often the engine behind SIEM solutions. Let’s learn how it works...</summary>
+
+  </entry>
+
+  
+  <entry>
+    <title>AWS VPC Networking: Building Secure Cloud Networks</title>
+    <link href="https://atouba64.github.io/posts/aws-vpc-networking-fundamentals/" rel="alternate" type="text/html" title="AWS VPC Networking: Building Secure Cloud Networks" />
+    <published>2025-11-21T09:00:00-05:00</published>
+  
+    <updated>2025-11-15T03:28:20-05:00</updated>
+  
+    <id>https://atouba64.github.io/posts/aws-vpc-networking-fundamentals/</id>
+    <content type="text/html" src="https://atouba64.github.io/posts/aws-vpc-networking-fundamentals/" />
+    <author>
+      <name>Mabele Liango</name>
+    </author>
+
+  
+    
+    <category term="AWS" />
+    
+    <category term="Cloud Security" />
+    
+    <category term="Networking" />
+    
+  
+
+  <summary>Think of it this way: When you create an AWS account, you get a default VPC - like a basic apartment building. It works, but it’s not optimized for security. Building your own VPC is like designing a custom office building with proper security zones, controlled access, and network segmentation. Let’s learn how to build secure VPC architectures.   What is a VPC, Really?  A VPC (Virtual Private C...</summary>
 
   </entry>
 
