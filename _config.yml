@@ -145,7 +145,7 @@ pwa:
     deny_paths:
       # - "/example"  # URLs match `<SITE_URL>/example/*` will not be cached by the PWA
 
-paginate: 50  # Pagination for home layout (homepage uses 6, posts page uses pagination)
+paginate: 6  # Pagination for home layout (homepage shows 6 posts per page)
 
 # The base URL of your site
 baseurl: ""  # Change this if your site is served from a subdirectory (e.g., "/blog")
