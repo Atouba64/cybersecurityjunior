@@ -50,7 +50,7 @@ jobs:
           
       - name: Build Jekyll site
         run: |
-          bundle exec jekyll build --future
+          bundle exec jekyll build --future --verbose
         env:
           JEKYLL_ENV: production
           
@@ -66,6 +66,10 @@ jobs:
             exit 1
           fi
           echo "✓ Build successful: $file_count files generated"
+          echo "Checking index.html..."
+          head -20 _site/index.html | grep -i "doctype\|html" | head -3
+          echo "Posts on homepage: $(grep -c 'card-wrapper card' _site/index.html || echo 0)"
+          echo "Posts on /posts/ page: $(grep -c 'card-wrapper card' _site/posts/index.html || echo 0)"
           
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -81,4 +85,3 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
-
