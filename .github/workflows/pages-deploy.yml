@@ -48,10 +48,8 @@ jobs:
         uses: actions/upload-pages-artifact@v3
 
   deploy:
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
