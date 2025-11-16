@@ -23,8 +23,7 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://atouba64.github.io"  # Base URL for your GitHub Pages site
-baseurl: "/cybersecurityjunior"  # Repository name as subdirectory
+url: "https://atouba64.github.io"  # GitHub Pages base URL
 github:
   username: Atouba64 # change to your GitHub username
 
