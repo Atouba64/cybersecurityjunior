@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CI/CD Security: Building Secure Deployment Pipelines - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .article-body h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        .article-body p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+        .article-body ul, .article-body ol {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
+            color: #d1d5db;
+        }
+        .article-body ul li {
+            list-style-type: disc;
+        }
+        .article-body ol li {
+            list-style-type: decimal;
+        }
+        .article-body blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #9ca3af;
+        }
+        .article-body code {
+            background-color: rgba(107, 114, 128, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            font-family: monospace;
+            color: #fbbf24;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/2088FF/FFFFFF?text=CI%2FCD+Security" alt="CI/CD Security: Building Secure Deployment Pipelines">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-violet-100 text-violet-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">CI/CD</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">CI/CD Security: Building Secure Deployment Pipelines</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-11-23">November 23, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
+                </div>
+
+                <div class="article-body">
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>The challenge:</strong> You've built an amazing application. Now you need to deploy it. Manually deploying is slow and error-prone. CI/CD automates this. But here's the problem: if your pipeline isn't secure, attackers can inject malicious code, steal secrets, or deploy vulnerable software. Let's learn how to build secure CI/CD pipelines.</blockquote>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What is CI/CD, Really?</h2>
+<strong>CI/CD</strong> stands for:
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>CI (Continuous Integration)</strong> - Automatically build and test code when changes are pushed</li>
+<li class="mb-2"><strong>CD (Continuous Deployment)</strong> - Automatically deploy code that passes tests</li>
+</ul>
+<strong>Think of it like this:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Without CI/CD:</strong> Write code → Manually test → Manually deploy → Hope it works</li>
+<li class="mb-2"><strong>With CI/CD:</strong> Write code → Push to Git → Pipeline automatically tests → Automatically deploys if tests pass</li>
+</ul>
+<strong>The security problem:</strong> If your pipeline isn't secure, it becomes an attack vector. Attackers can:
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Inject malicious code</li>
+<li class="mb-2">Steal secrets (API keys, passwords)</li>
+<li class="mb-2">Deploy backdoors</li>
+<li class="mb-2">Access production systems</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">CI/CD Security Principles</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Shift Left Security</h3>
+<strong>"Shift left"</strong> means adding security early in the development process, not at the end.
+<strong>Bad approach:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">Code → Deploy → Security Review → Oops, found vulnerabilities!
+</code></pre>
+<strong>Good approach:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">Code → Security Scan → Fix Issues → Deploy
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Least Privilege</h3>
+<p class="text-gray-300 mb-4">Give your pipeline only the permissions it needs, nothing more.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Secrets Management</h3>
+<p class="text-gray-300 mb-4">Never hardcode secrets. Use secret management systems.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">4. Code Scanning</h3>
+<p class="text-gray-300 mb-4">Automatically scan code for vulnerabilities before deployment.</p>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">GitHub Actions: Secure Pipeline Example</h2>
+<p class="text-gray-300 mb-4">Here's a secure CI/CD pipeline for the compliance tool:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">.github/workflows/ci-cd.yml</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  PYTHON_VERSION: '3.11'
+  DOCKER_IMAGE: compliance-tool
+
+jobs:
+  # Job 1: Code Quality Checks
+  code-quality:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pylint flake8
+      
+      - name: Run Pylint
+        run: pylint **/*.py --fail-under=7.0
+      
+      - name: Run Flake8
+        run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
+  # Job 2: Security Scanning
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Run Bandit (SAST)
+        uses: securecodewarrior/github-action-bandit@v1
+        with:
+          path: .
+          exit_zero: false
+      
+      - name: Run Safety (Dependency Check)
+        run: |
+          pip install safety
+          safety check --json
+      
+      - name: Run Trivy (Container Scan)
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+      
+      - name: Upload Trivy results
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: 'trivy-results.sarif'
+
+  # Job 3: Run Tests
+  test:
+    runs-on: ubuntu-latest
+    needs: [code-quality, security-scan]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install pytest pytest-cov
+      
+      - name: Run tests
+        run: pytest tests/ --cov=. --cov-report=xml
+      
+      - name: Upload coverage
+        uses: codecov/codecov-action@v3
+        with:
+          file: ./coverage.xml
+
+  # Job 4: Build Docker Image
+  build:
+    runs-on: ubuntu-latest
+    needs: [test]
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      
+      - name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest
+          cache-from: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:buildcache,mode=max
+
+  # Job 5: Deploy to Kubernetes
+  deploy:
+    runs-on: ubuntu-latest
+    needs: [build]
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+      
+      - name: Set up kubectl
+        uses: azure/setup-kubectl@v3
+      
+      - name: Deploy to EKS
+        run: |
+          aws eks update-kubeconfig --name compliance-cluster
+          kubectl set image deployment/compliance-scanner \
+            scanner=${{ secrets.DOCKER_USERNAME }}/${{ env.DOCKER_IMAGE }}:latest \
+            -n compliance-system
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Security Best Practices in CI/CD</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Use Secrets, Never Hardcode</h3>
+<strong>Bad:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">- name: Deploy
+  run: |
+    aws configure set aws_access_key_id "AKIA..."
+    aws configure set aws_secret_access_key "secret..."
+</code></pre>
+<strong>Good:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">- name: Configure AWS
+  uses: aws-actions/configure-aws-credentials@v2
+  with:
+    aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Scan Dependencies</h3>
+<p class="text-gray-300 mb-4">Always scan dependencies for vulnerabilities:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">- name: Safety check
+  run: |
+    pip install safety
+    safety check --json
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Scan Container Images</h3>
+<p class="text-gray-300 mb-4">Scan Docker images before deployment:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">- name: Trivy scan
+  uses: aquasecurity/trivy-action@master
+  with:
+    image-ref: 'my-image:latest'
+    format: 'sarif'
+    output: 'trivy-results.sarif'
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">4. Use IAM Roles (Better than Access Keys)</h3>
+<p class="text-gray-300 mb-4">For AWS, use OIDC instead of access keys:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">- name: Configure AWS credentials
+  uses: aws-actions/configure-aws-credentials@v2
+  with:
+    role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsRole
+    aws-region: us-east-1
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">5. Require Approvals for Production</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">deploy-production:
+  runs-on: ubuntu-latest
+  environment: production  # Requires approval
+  steps:
+    - name: Deploy
+      run: ./deploy.sh
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">GitLab CI Example</h2>
+<p class="text-gray-300 mb-4">Here's the same pipeline in GitLab CI:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">.gitlab-ci.yml</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">stages:
+  - quality
+  - security
+  - test
+  - build
+  - deploy
+
+variables:
+  DOCKER_IMAGE: compliance-tool
+  PYTHON_VERSION: "3.11"
+
+code-quality:
+  stage: quality
+  image: python:${PYTHON_VERSION}
+  script:
+    - pip install -r requirements.txt
+    - pip install pylint flake8
+    - pylint **/*.py --fail-under=7.0
+    - flake8 . --count --select=E9,F63,F7,F82
+  only:
+    - merge_requests
+    - main
+
+security-scan:
+  stage: security
+  image: python:${PYTHON_VERSION}
+  script:
+    - pip install safety bandit
+    - safety check
+    - bandit -r . -f json -o bandit-report.json
+  artifacts:
+    reports:
+      sast: bandit-report.json
+  only:
+    - merge_requests
+    - main
+
+test:
+  stage: test
+  image: python:${PYTHON_VERSION}
+  script:
+    - pip install -r requirements.txt
+    - pip install pytest pytest-cov
+    - pytest tests/ --cov=. --cov-report=xml
+  coverage: '/TOTAL.*\s+(\d+%)$/'
+  artifacts:
+    reports:
+      coverage_report:
+        coverage_format: cobertura
+        path: coverage.xml
+  only:
+    - merge_requests
+    - main
+
+build:
+  stage: build
+  image: docker:latest
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+    - docker build -t $CI_REGISTRY_IMAGE:latest .
+    - docker push $CI_REGISTRY_IMAGE:latest
+  only:
+    - main
+
+deploy:
+  stage: deploy
+  image: bitnami/kubectl:latest
+  script:
+    - kubectl set image deployment/compliance-scanner \
+        scanner=$CI_REGISTRY_IMAGE:latest \
+        -n compliance-system
+  environment:
+    name: production
+  only:
+    - main
+  when: manual  # Requires manual approval
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Security Scanning Tools</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Bandit (Python SAST)</h3>
+<p class="text-gray-300 mb-4">Scans Python code for security issues:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">pip install bandit
+bandit -r . -f json -o bandit-report.json
+</code></pre>
+<strong>Finds:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Hardcoded passwords</li>
+<li class="mb-2">SQL injection risks</li>
+<li class="mb-2">Insecure random number generation</li>
+<li class="mb-2">And more</li>
+</ul>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Safety (Dependency Check)</h3>
+<p class="text-gray-300 mb-4">Checks Python dependencies for known vulnerabilities:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">pip install safety
+safety check
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Trivy (Container Scanning)</h3>
+<p class="text-gray-300 mb-4">Scans Docker images for vulnerabilities:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">trivy image my-image:latest
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">4. Snyk (Multi-language)</h3>
+<p class="text-gray-300 mb-4">Scans code, dependencies, and containers:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">snyk test
+snyk monitor
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Secure Deployment Practices</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Blue-Green Deployment</h3>
+<p class="text-gray-300 mb-4">Deploy to a new environment, test it, then switch traffic:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">deploy-blue:
+  script:
+    - kubectl apply -f k8s/blue/
+    - ./test-deployment.sh blue
+    - kubectl switch blue
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Canary Deployment</h3>
+<p class="text-gray-300 mb-4">Deploy to a small percentage, monitor, then roll out:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">deploy-canary:
+  script:
+    - kubectl set image deployment/app app=my-image:new -n production
+    - kubectl scale deployment/app --replicas=1 -n production
+    - sleep 300  # Monitor for 5 minutes
+    - kubectl scale deployment/app --replicas=10 -n production
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Rollback Strategy</h3>
+<p class="text-gray-300 mb-4">Always have a rollback plan:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">rollback:
+  script:
+    - kubectl rollout undo deployment/app -n production
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Key Takeaways</h2>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>CI/CD = Automation</strong> - But must be secure</li>
+<li class="mb-2"><strong>Shift Left Security</strong> - Scan early, not late</li>
+<li class="mb-2"><strong>Use Secrets Management</strong> - Never hardcode</li>
+<li class="mb-2"><strong>Scan Everything</strong> - Code, dependencies, containers</li>
+<li class="mb-2"><strong>Least Privilege</strong> - Minimal permissions</li>
+<li class="mb-2"><strong>Require Approvals</strong> - For production deployments</li>
+<li class="mb-2"><strong>Have Rollback Plans</strong> - Things will break</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Practice Exercise</h2>
+<p class="text-gray-300 mb-4">Try this yourself:</p>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Create a GitHub Actions workflow</li>
+<li class="mb-2">Add code quality checks</li>
+<li class="mb-2">Add security scanning (Bandit, Safety)</li>
+<li class="mb-2">Add container scanning (Trivy)</li>
+<li class="mb-2">Configure secrets properly</li>
+<li class="mb-2">Add deployment step</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Resources to Learn More</h2>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><a href="https://docs.github.com/en/actions/security-guides" class="text-blue-400 hover:text-blue-300 underline">GitHub Actions Security</a></li>
+<li class="mb-2"><a href="https://docs.gitlab.com/ee/ci/security/" class="text-blue-400 hover:text-blue-300 underline">GitLab CI/CD Security</a></li>
+<li class="mb-2"><a href="https://owasp.org/www-project-top-10-ci-cd-security-risks/" class="text-blue-400 hover:text-blue-300 underline">OWASP CI/CD Security</a></li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What's Next?</h2>
+<p class="text-gray-300 mb-4">Now that you understand CI/CD security, you're ready to:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Build production-ready pipelines</li>
+<li class="mb-2">Integrate security scanning</li>
+<li class="mb-2">Deploy securely to cloud platforms</li>
+</ul>
+<p class="text-gray-300 mb-4">Remember: Secure CI/CD is about automation AND security. Don't sacrifice one for the other!</p>
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>💡 Pro Tip:</strong> Start with a simple pipeline, then gradually add security checks. Don't try to implement everything at once. Get the basics working first, then enhance security!</blockquote>
+<hr class="my-8 border-gray-700">
+<em>Ready to manage infrastructure as code? Check out our next post on Infrastructure as Code, where we'll learn Terraform and Pulumi!</em>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

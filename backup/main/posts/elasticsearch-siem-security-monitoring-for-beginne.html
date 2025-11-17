@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elasticsearch & SIEM: Security Monitoring for Beginners - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .article-body h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        .article-body p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+        .article-body ul, .article-body ol {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
+            color: #d1d5db;
+        }
+        .article-body ul li {
+            list-style-type: disc;
+        }
+        .article-body ol li {
+            list-style-type: decimal;
+        }
+        .article-body blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #9ca3af;
+        }
+        .article-body code {
+            background-color: rgba(107, 114, 128, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            font-family: monospace;
+            color: #fbbf24;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/005571/FFFFFF?text=Elasticsearch+%26+SIEM" alt="Elasticsearch & SIEM: Security Monitoring for Beginners">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">SIEM</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Elasticsearch & SIEM: Security Monitoring for Beginners</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-11-22">November 22, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
+                </div>
+
+                <div class="article-body">
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>Here's the reality:</strong> Security events happen constantly. Failed login attempts, unusual network traffic, configuration changes - thousands of events every minute. Manually reviewing logs is impossible. SIEM (Security Information and Event Management) systems collect, analyze, and alert on these events automatically. Elasticsearch is often the engine behind SIEM solutions. Let's learn how it works.</blockquote>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What is SIEM, Really?</h2>
+<strong>SIEM</strong> stands for Security Information and Event Management. Think of it as:
+<strong>Real-world analogy:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Logs</strong> = Security camera footage</li>
+<li class="mb-2"><strong>SIEM</strong> = The system that watches all cameras 24/7</li>
+<li class="mb-2"><strong>Alerts</strong> = Notifications when something suspicious happens</li>
+<li class="mb-2"><strong>Dashboards</strong> = The control room where you see everything</li>
+</ul>
+<strong>What SIEM does:</strong>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Collects</strong> logs from all your systems (servers, network devices, applications)</li>
+<li class="mb-2"><strong>Stores</strong> them in a searchable database (Elasticsearch)</li>
+<li class="mb-2"><strong>Analyzes</strong> them for patterns and anomalies</li>
+<li class="mb-2"><strong>Alerts</strong> you when something suspicious happens</li>
+<li class="mb-2"><strong>Visualizes</strong> data in dashboards</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">The ELK Stack</h2>
+<strong>ELK</strong> stands for:
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Elasticsearch</strong> - Search and analytics engine</li>
+<li class="mb-2"><strong>Logstash</strong> - Data processing pipeline</li>
+<li class="mb-2"><strong>Kibana</strong> - Visualization and dashboards</li>
+</ul>
+<strong>How they work together:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">Logs → Logstash (processes) → Elasticsearch (stores) → Kibana (visualizes)
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Understanding Elasticsearch</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">What is Elasticsearch?</h3>
+<p class="text-gray-300 mb-4">Elasticsearch is a search engine built on Apache Lucene. Think of it like Google, but for your logs.</p>
+<strong>Key concepts:</strong>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Index</strong> - Like a database (e.g., "security-logs")</li>
+<li class="mb-2"><strong>Document</strong> - Like a row in a database (a single log entry)</li>
+<li class="mb-2"><strong>Field</strong> - Like a column (e.g., "timestamp", "source_ip")</li>
+<li class="mb-2"><strong>Query</strong> - Search for specific data</li>
+</ol>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Example Document</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-json">{
+  "timestamp": "2025-11-22T10:30:00Z",
+  "source_ip": "192.168.1.100",
+  "event_type": "failed_login",
+  "username": "admin",
+  "message": "Authentication failed for user admin"
+}
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Setting Up Elasticsearch (Docker)</h2>
+<p class="text-gray-300 mb-4">Let's set up a simple Elasticsearch instance for testing:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">docker-compose.yml</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">version: '3.8'
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false  # Disable for testing
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      - elasticsearch
+
+volumes:
+  es_data:
+</code></pre>
+<strong>Run it:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">docker-compose up -d
+</code></pre>
+<strong>Access:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Elasticsearch: http://localhost:9200</li>
+<li class="mb-2">Kibana: http://localhost:5601</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Sending Logs to Elasticsearch with Python</h2>
+<p class="text-gray-300 mb-4">Here's how to send security events from your compliance tool:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-python">from elasticsearch import Elasticsearch
+from datetime import datetime
+import json
+
+# Connect to Elasticsearch
+es = Elasticsearch(
+    ['http://localhost:9200'],
+    # For production, add authentication:
+    # http_auth=('elastic', 'password')
+)
+
+def index_security_event(event_type, source_ip, message, severity='info'):
+    """Index a security event to Elasticsearch."""
+    document = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'event_type': event_type,
+        'source_ip': source_ip,
+        'message': message,
+        'severity': severity
+    }
+    
+    try:
+        # Index the document
+        response = es.index(
+            index='security-events',
+            document=document
+        )
+        print(f"✅ Event indexed: {response['_id']}")
+        return response['_id']
+    except Exception as e:
+        print(f"❌ Error indexing event: {e}")
+        return None
+
+def index_compliance_finding(finding_type, resource, status, details):
+    """Index a compliance finding."""
+    document = {
+        'timestamp': datetime.utcnow().isoformat(),
+        'finding_type': finding_type,
+        'resource': resource,
+        'status': status,  # PASS, FAIL, WARN
+        'details': details
+    }
+    
+    try:
+        response = es.index(
+            index='compliance-findings',
+            document=document
+        )
+        return response['_id']
+    except Exception as e:
+        print(f"❌ Error indexing finding: {e}")
+        return None
+
+# Example: Index compliance findings from scan
+def index_scan_results(scan_results):
+    """Index all findings from a compliance scan."""
+    for finding in scan_results:
+        index_compliance_finding(
+            finding_type=finding['type'],
+            resource=finding['resource'],
+            status=finding['status'],
+            details=finding['details']
+        )
+
+# Example usage
+if __name__ == "__main__":
+    # Index a security event
+    index_security_event(
+        event_type='failed_login',
+        source_ip='192.168.1.100',
+        message='Multiple failed login attempts',
+        severity='high'
+    )
+    
+    # Index a compliance finding
+    index_compliance_finding(
+        finding_type='s3_public_access',
+        resource='s3://my-bucket',
+        status='FAIL',
+        details='Bucket has public access enabled'
+    )
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Querying Elasticsearch</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Search for Events</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-python">def search_security_events(query, size=10):
+    """Search for security events."""
+    try:
+        response = es.search(
+            index='security-events',
+            body={
+                'query': {
+                    'match': {
+                        'message': query
+                    }
+                },
+                'size': size,
+                'sort': [
+                    {'timestamp': {'order': 'desc'}}
+                ]
+            }
+        )
+        
+        return response['hits']['hits']
+    except Exception as e:
+        print(f"Error searching: {e}")
+        return []
+
+def get_failed_logins_last_hour():
+    """Get all failed login attempts in the last hour."""
+    from datetime import datetime, timedelta
+    
+    one_hour_ago = (datetime.utcnow() - timedelta(hours=1)).isoformat()
+    
+    try:
+        response = es.search(
+            index='security-events',
+            body={
+                'query': {
+                    'bool': {
+                        'must': [
+                            {'match': {'event_type': 'failed_login'}},
+                            {'range': {'timestamp': {'gte': one_hour_ago}}}
+                        ]
+                    }
+                },
+                'size': 100
+            }
+        )
+        
+        return response['hits']['hits']
+    except Exception as e:
+        print(f"Error querying: {e}")
+        return []
+
+def get_compliance_failures():
+    """Get all compliance failures."""
+    try:
+        response = es.search(
+            index='compliance-findings',
+            body={
+                'query': {
+                    'match': {
+                        'status': 'FAIL'
+                    }
+                },
+                'size': 1000
+            }
+        )
+        
+        return response['hits']['hits']
+    except Exception as e:
+        print(f"Error querying: {e}")
+        return []
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Building a Simple SIEM Dashboard</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Create Index Template</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-python">def create_security_index_template():
+    """Create an index template for security events."""
+    template = {
+        'index_patterns': ['security-events-*'],
+        'template': {
+            'settings': {
+                'number_of_shards': 1,
+                'number_of_replicas': 0
+            },
+            'mappings': {
+                'properties': {
+                    'timestamp': {'type': 'date'},
+                    'event_type': {'type': 'keyword'},
+                    'source_ip': {'type': 'ip'},
+                    'message': {'type': 'text'},
+                    'severity': {'type': 'keyword'}
+                }
+            }
+        }
+    }
+    
+    try:
+        es.indices.put_index_template(
+            name='security-events-template',
+            body=template
+        )
+        print("✅ Index template created")
+    except Exception as e:
+        print(f"Error creating template: {e}")
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Aggregate Statistics</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-python">def get_security_statistics():
+    """Get security statistics from Elasticsearch."""
+    try:
+        # Count by event type
+        response = es.search(
+            index='security-events',
+            body={
+                'size': 0,
+                'aggs': {
+                    'event_types': {
+                        'terms': {
+                            'field': 'event_type',
+                            'size': 10
+                        }
+                    },
+                    'by_severity': {
+                        'terms': {
+                            'field': 'severity',
+                            'size': 5
+                        }
+                    }
+                }
+            }
+        )
+        
+        return {
+            'event_types': response['aggregations']['event_types']['buckets'],
+            'by_severity': response['aggregations']['by_severity']['buckets']
+        }
+    except Exception as e:
+        print(f"Error getting statistics: {e}")
+        return {}
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Integrating with Compliance Tool</h2>
+<p class="text-gray-300 mb-4">Here's how to integrate Elasticsearch with your compliance scanner:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-python">import boto3
+from elasticsearch import Elasticsearch
+from datetime import datetime
+
+def scan_and_index_compliance():
+    """Scan AWS resources and index findings to Elasticsearch."""
+    es = Elasticsearch(['http://localhost:9200'])
+    s3_client = boto3.client('s3')
+    
+    # Scan S3 buckets
+    buckets = s3_client.list_buckets()
+    
+    findings = []
+    
+    for bucket in buckets['Buckets']:
+        bucket_name = bucket['Name']
+        
+        # Check for public access
+        try:
+            public_access = s3_client.get_public_access_block(Bucket=bucket_name)
+            # ... check logic ...
+            
+            finding = {
+                'timestamp': datetime.utcnow().isoformat(),
+                'resource_type': 's3_bucket',
+                'resource_id': bucket_name,
+                'check_type': 'public_access',
+                'status': 'PASS',  # or 'FAIL'
+                'details': 'Public access is blocked'
+            }
+            
+            # Index to Elasticsearch
+            es.index(
+                index='compliance-findings',
+                document=finding
+            )
+            
+            findings.append(finding)
+            
+        except Exception as e:
+            print(f"Error checking bucket {bucket_name}: {e}")
+    
+    return findings
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Security Best Practices</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Enable Authentication</h3>
+<p class="text-gray-300 mb-4">Always enable authentication in production:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">environment:
+  - xpack.security.enabled=true
+  - ELASTIC_PASSWORD=your-secure-password
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Use HTTPS</h3>
+<p class="text-gray-300 mb-4">Configure TLS/SSL for encrypted communication.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Limit Access</h3>
+<p class="text-gray-300 mb-4">Use firewall rules to restrict access to Elasticsearch (port 9200).</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">4. Regular Backups</h3>
+<p class="text-gray-300 mb-4">Backup your Elasticsearch indices regularly.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">5. Monitor Performance</h3>
+<p class="text-gray-300 mb-4">Monitor Elasticsearch cluster health and performance.</p>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Key Takeaways</h2>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>SIEM = Security Monitoring System</strong> - Collects and analyzes logs</li>
+<li class="mb-2"><strong>Elasticsearch = Search Engine</strong> - Stores and searches logs</li>
+<li class="mb-2"><strong>Index = Database</strong> - Organizes your data</li>
+<li class="mb-2"><strong>Query = Search</strong> - Find specific events</li>
+<li class="mb-2"><strong>Dashboards = Visualization</strong> - See your data</li>
+<li class="mb-2"><strong>Always authenticate</strong> - Don't leave Elasticsearch open</li>
+<li class="mb-2"><strong>Use proper indexing</strong> - Organize data efficiently</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Practice Exercise</h2>
+<p class="text-gray-300 mb-4">Try this yourself:</p>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Set up Elasticsearch with Docker</li>
+<li class="mb-2">Create a Python script that sends security events</li>
+<li class="mb-2">Query for specific events</li>
+<li class="mb-2">Create aggregations (count by type, severity, etc.)</li>
+<li class="mb-2">Build a simple dashboard query</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Resources to Learn More</h2>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html" class="text-blue-400 hover:text-blue-300 underline">Elasticsearch Documentation</a></li>
+<li class="mb-2"><a href="https://elasticsearch-py.readthedocs.io/" class="text-blue-400 hover:text-blue-300 underline">Elasticsearch Python Client</a></li>
+<li class="mb-2"><a href="https://www.elastic.co/learn" class="text-blue-400 hover:text-blue-300 underline">ELK Stack Tutorial</a></li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What's Next?</h2>
+<p class="text-gray-300 mb-4">Now that you understand SIEM basics, you're ready to:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Build comprehensive security dashboards</li>
+<li class="mb-2">Create automated alerting rules</li>
+<li class="mb-2">Integrate with other security tools</li>
+</ul>
+<p class="text-gray-300 mb-4">Remember: SIEM is about turning noise (logs) into signal (actionable intelligence)!</p>
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>💡 Pro Tip:</strong> Start small with Elasticsearch. Index a few events, learn to query them, then gradually scale up. Don't try to index everything at once - you'll get overwhelmed!</blockquote>
+<hr class="my-8 border-gray-700">
+<em>Ready to secure your deployments? Check out our next post on CI/CD Security, where we'll learn how to build secure deployment pipelines!</em>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
