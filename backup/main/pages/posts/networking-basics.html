@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Networking Basics I Wish I Knew Sooner - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/EC4899/FFFFFF?text=Networking+Fundamentals" alt="Networking Fundamentals">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-pink-100 text-pink-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Networking</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Networking Basics I Wish I Knew Sooner</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-10-17">October 17, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
+                </div>
+                
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-300">
+                    <p class="text-xl mb-6">
+                        You can't secure what you don't understand. When I started in cybersecurity, I realized I had huge gaps in my networking knowledge. I could configure a router, but I didn't truly understand how data flows through networks. This post breaks down the networking fundamentals that every cybersecurity professional needs to know.
+                    </p>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">The OSI Model (Simplified)</h2>
+                    <p class="mb-4">
+                        The OSI model is like a blueprint for how data travels across networks. Here's how I think about it:
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">📋 The 7 Layers (Top to Bottom)</h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex justify-between items-center">
+                                <span>7. Application</span>
+                                <span class="text-gray-400">- HTTP, HTTPS, FTP</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>6. Presentation</span>
+                                <span class="text-gray-400">- Encryption, Compression</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>5. Session</span>
+                                <span class="text-gray-400">- Session Management</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>4. Transport</span>
+                                <span class="text-gray-400">- TCP, UDP</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>3. Network</span>
+                                <span class="text-gray-400">- IP, Routing</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>2. Data Link</span>
+                                <span class="text-gray-400">- Ethernet, MAC</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span>1. Physical</span>
+                                <span class="text-gray-400">- Cables, Wireless</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">TCP vs UDP</h2>
+                    <p class="mb-4">
+                        Understanding the difference between TCP and UDP is crucial for security analysis:
+                    </p>
+                    <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="bg-blue-900 bg-opacity-30 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">🔄 TCP (Transmission Control Protocol)</h3>
+                            <ul class="list-disc list-inside space-y-1 text-sm">
+                                <li>Connection-oriented</li>
+                                <li>Reliable delivery</li>
+                                <li>Error checking</li>
+                                <li>Flow control</li>
+                                <li>Used by: HTTP, HTTPS, SSH</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-900 bg-opacity-30 rounded-lg p-4">
+                            <h3 class="text-lg font-semibold text-white mb-2">⚡ UDP (User Datagram Protocol)</h3>
+                            <ul class="list-disc list-inside space-y-1 text-sm">
+                                <li>Connectionless</li>
+                                <li>Fast delivery</li>
+                                <li>No error checking</li>
+                                <li>No flow control</li>
+                                <li>Used by: DNS, DHCP, Streaming</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">IP Addressing Made Simple</h2>
+                    <p class="mb-4">
+                        IP addresses are like phone numbers for computers. Here's what you need to know:
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">🌐 IPv4 Addresses</h3>
+                        <div class="space-y-3 text-sm">
+                            <div>
+                                <strong>Format:</strong> 192.168.1.100 (4 numbers, 0-255 each)
+                            </div>
+                            <div>
+                                <strong>Private Ranges:</strong>
+                                <ul class="list-disc list-inside ml-4 mt-1">
+                                    <li>10.0.0.0 - 10.255.255.255</li>
+                                    <li>172.16.0.0 - 172.31.255.255</li>
+                                    <li>192.168.0.0 - 192.168.255.255</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong>Subnet Masks:</strong> /24 = 255.255.255.0 (256 addresses)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Common Ports You Should Know</h2>
+                    <p class="mb-4">
+                        Ports are like apartment numbers in a building (IP address). Here are the most important ones:
+                    </p>
+                    <div class="grid md:grid-cols-3 gap-4 mb-6">
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <h3 class="font-semibold text-white mb-2">Web Traffic</h3>
+                            <ul class="space-y-1 text-sm">
+                                <li>80 - HTTP</li>
+                                <li>443 - HTTPS</li>
+                                <li>8080 - HTTP Alt</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <h3 class="font-semibold text-white mb-2">System Services</h3>
+                            <ul class="space-y-1 text-sm">
+                                <li>22 - SSH</li>
+                                <li>23 - Telnet</li>
+                                <li>53 - DNS</li>
+                                <li>67/68 - DHCP</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-4">
+                            <h3 class="font-semibold text-white mb-2">Email</h3>
+                            <ul class="space-y-1 text-sm">
+                                <li>25 - SMTP</li>
+                                <li>110 - POP3</li>
+                                <li>143 - IMAP</li>
+                                <li>993 - IMAPS</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">DNS: The Internet's Phone Book</h2>
+                    <p class="mb-4">
+                        DNS (Domain Name System) converts human-readable names to IP addresses:
+                    </p>
+                    <ol class="list-decimal list-inside mb-6 space-y-2">
+                        <li><strong>Query:</strong> You type "google.com"</li>
+                        <li><strong>DNS Lookup:</strong> Your computer asks DNS server for IP</li>
+                        <li><strong>Response:</strong> DNS returns "142.250.191.14"</li>
+                        <li><strong>Connection:</strong> Your computer connects to that IP</li>
+                    </ol>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Network Security Implications</h2>
+                    <p class="mb-4">
+                        Understanding networking helps you understand attacks:
+                    </p>
+                    <div class="bg-red-900 bg-opacity-30 rounded-lg p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">🚨 Common Attack Vectors</h3>
+                        <ul class="list-disc list-inside space-y-2 text-sm">
+                            <li><strong>Port Scanning:</strong> Checking which ports are open</li>
+                            <li><strong>DNS Spoofing:</strong> Redirecting DNS queries to malicious servers</li>
+                            <li><strong>Man-in-the-Middle:</strong> Intercepting traffic between two parties</li>
+                            <li><strong>ARP Poisoning:</strong> Corrupting ARP tables to redirect traffic</li>
+                            <li><strong>DDoS:</strong> Overwhelming services with traffic</li>
+                        </ul>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Tools That Help</h2>
+                    <p class="mb-4">
+                        These tools helped me understand networking better:
+                    </p>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li><strong>Wireshark:</strong> See actual network traffic</li>
+                        <li><strong>nmap:</strong> Scan networks and discover services</li>
+                        <li><strong>ping/traceroute:</strong> Test connectivity and routing</li>
+                        <li><strong>netstat:</strong> See active connections on your machine</li>
+                        <li><strong>tcpdump:</strong> Command-line packet capture</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Practical Exercise</h2>
+                    <p class="mb-4">
+                        Try this simple exercise to see networking in action:
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">🔬 Hands-On Lab</h3>
+                        <ol class="list-decimal list-inside space-y-2 text-sm">
+                            <li>Open Wireshark and start capturing</li>
+                            <li>Open a web browser and visit a website</li>
+                            <li>Stop the capture and look at the packets</li>
+                            <li>Find the DNS query and HTTP request</li>
+                            <li>Notice the TCP handshake (SYN, SYN-ACK, ACK)</li>
+                        </ol>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Why This Matters for Security</h2>
+                    <p class="mb-6">
+                        You can't effectively secure a network if you don't understand how it works. Knowing networking fundamentals helps you:
+                    </p>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Identify suspicious traffic patterns</li>
+                        <li>Understand how attacks work</li>
+                        <li>Configure firewalls and security tools</li>
+                        <li>Investigate security incidents</li>
+                        <li>Design secure network architectures</li>
+                    </ul>
+                    
+                    <div class="bg-blue-900 bg-opacity-30 rounded-lg p-6 mt-8">
+                        <h3 class="text-lg font-semibold text-white mb-2">💡 Key Takeaway</h3>
+                        <p class="text-gray-300">
+                            Don't try to memorize everything at once. Start with the basics—TCP/IP, common ports, and DNS. Build your understanding gradually through hands-on practice. The goal isn't to become a network engineer, but to understand enough to be an effective security professional.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

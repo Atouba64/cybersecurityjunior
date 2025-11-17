@@ -23,7 +23,7 @@ description: >- # used by seo meta and the atom feed
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
-url: "https://cybersecurityjunior.com"  # Production site URL
+url: "https://atouba64.github.io"  # GitHub Pages base URL
 github:
   username: Atouba64 # change to your GitHub username
 
@@ -225,7 +225,6 @@ exclude:
   - "package*.json"
   - ".DS_Store"
   - "_old_site"
-  - "backup"
   - "pages/posts"  # Exclude old HTML posts, we'll convert them
   - "feed.xml"  # Exclude root feed.xml, jekyll-feed generates it
   - "assets/feed.xml"  # Exclude assets feed.xml if it exists

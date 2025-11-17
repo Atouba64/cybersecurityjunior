@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Setting Up My First Home Lab - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/3B82F6/FFFFFF?text=Home+Lab+Setup" alt="Home Lab Setup">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Home Lab</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Setting Up My First Home Lab</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-10-27">October 27, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
+                </div>
+                
+                <div class="prose prose-lg lg:prose-xl max-w-none text-gray-300">
+                    <p class="text-xl mb-6">
+                        This is it! The first major step in my hands-on learning journey. Building a home lab felt incredibly intimidating, but I decided to just dive in. My main goal was to create a sandboxed environment where I could practice offensive and defensive techniques without, you know, breaking the law or my own network.
+                    </p>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">My Goals for the Lab</h2>
+                    <p class="mb-4">
+                        I wanted to keep it simple and budget-friendly. My primary objectives were:
+                    </p>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Learn virtualization (I chose Proxmox)</li>
+                        <li>Understand network segmentation (using pfSense)</li>
+                        <li>Build a basic Active Directory environment (a classic target)</li>
+                        <li>Deploy a vulnerable machine to attack (like Metasploitable)</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">The Hardware</h2>
+                    <p class="mb-4">
+                        You don't need a massive server rack! I started with an old desktop PC I had lying around.
+                    </p>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li><strong>Model:</strong> Old Dell OptiPlex</li>
+                        <li><strong>CPU:</strong> Intel i5 (8th Gen)</li>
+                        <li><strong>RAM:</strong> 16GB (I did upgrade this, cost about $40)</li>
+                        <li><strong>Storage:</strong> 500GB SSD</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">The Software Stack</h2>
+                    <p class="mb-4">
+                        Here's what I installed and why:
+                    </p>
+                    <div class="bg-gray-800 rounded-lg p-6 mb-6">
+                        <h3 class="text-lg font-semibold text-white mb-3">Proxmox VE</h3>
+                        <p class="mb-4">The hypervisor that runs everything. Free, powerful, and perfect for learning.</p>
+                        
+                        <h3 class="text-lg font-semibold text-white mb-3">pfSense</h3>
+                        <p class="mb-4">Firewall and router. Essential for network segmentation and security testing.</p>
+                        
+                        <h3 class="text-lg font-semibold text-white mb-3">Windows Server 2019</h3>
+                        <p class="mb-4">For Active Directory. The bread and butter of enterprise environments.</p>
+                        
+                        <h3 class="text-lg font-semibold text-white mb-3">Metasploitable 3</h3>
+                        <p class="mb-4">Intentionally vulnerable Linux box for practicing attacks safely.</p>
+                    </div>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Network Architecture</h2>
+                    <p class="mb-4">
+                        I created three separate VLANs:
+                    </p>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li><strong>Management VLAN:</strong> For accessing Proxmox and pfSense</li>
+                        <li><strong>Lab VLAN:</strong> Where my vulnerable machines live</li>
+                        <li><strong>Attacker VLAN:</strong> Where I run my Kali Linux VM</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Lessons Learned</h2>
+                    <p class="mb-4">
+                        This project taught me more than I expected:
+                    </p>
+                    <ul class="list-disc list-inside mb-6 space-y-2">
+                        <li>Virtualization concepts and resource allocation</li>
+                        <li>Network fundamentals and VLAN configuration</li>
+                        <li>Firewall rules and network security</li>
+                        <li>Active Directory basics and user management</li>
+                        <li>Linux administration and service configuration</li>
+                    </ul>
+                    
+                    <h2 class="text-2xl font-bold text-white mt-8 mb-4">Next Steps</h2>
+                    <p class="mb-6">
+                        Getting this up and running took a whole weekend and a lot of troubleshooting, but the feeling of seeing my virtual machines talking to each other (and attacking each other) was incredible. Next up, I'll be documenting how I installed and configured Active Directory, and then we'll dive into some actual penetration testing!
+                    </p>
+                    
+                    <div class="bg-blue-900 bg-opacity-30 rounded-lg p-6 mt-8">
+                        <h3 class="text-lg font-semibold text-white mb-2">💡 Pro Tip</h3>
+                        <p class="text-gray-300">
+                            Start small! You don't need enterprise-grade hardware to learn. An old desktop with 16GB RAM can run 3-4 VMs comfortably. Focus on understanding the concepts rather than having the latest hardware.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How I Passed the DevSecOps Interview - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .article-body h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        .article-body p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+        .article-body ul, .article-body ol {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
+            color: #d1d5db;
+        }
+        .article-body ul li {
+            list-style-type: disc;
+        }
+        .article-body ol li {
+            list-style-type: decimal;
+        }
+        .article-body blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #9ca3af;
+        }
+        .article-body code {
+            background-color: rgba(107, 114, 128, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            font-family: monospace;
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/800x400/3b82f6/ffffff?text=Cloud+%2B+Security+%2B+Automation" alt="Cloud Security Automation Concept">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Career Tips</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">How I Passed the DevSecOps Interview (And How You Can, Too)</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-11-14">November 14, 2025</time> by <span class="font-medium text-white">Mabele Liango</span>
+                    </p>
+                </div>
+
+                <div class="article-body text-gray-800">
+                    <p class="text-xl mb-6 text-gray-300">So, you landed the interview for that "Cloud Security Engineer" or "DevSecOps Engineer" role. Congratulations! Now comes the hard part. These interviews are intense. They aren't just about what you know; they're about *how you think* and *how you connect your skills*.</p>
+
+                    <p class="text-gray-300">I just went through two of these interviews back-to-back. I'm a cybersecurity professional, and English isn't even my first language, which can make technical interviews extra stressful. But I learned that the right preparation makes all the difference. It's not about memorizing 100 AWS services. It's about having a playbook.</p>
+
+                    <p class="text-gray-300">Here is the exact playbook I used to prepare. I hope it helps you, too.</p>
+
+                    <h2>1. The "Big Secret": You're Not a Candidate, You're a "Persona"</h2>
+
+                    <p class="text-gray-300">This was the biggest insight. The job description (JD) isn't just a list of requirements; it's a **character sheet**. The company is looking for a specific *persona*. My job wasn't to be "Mabele, the guy who knows Python," it was to *be* the person they described.</p>
+
+                    <p class="text-gray-300">Look at these two personas from my interviews:</p>
+                    <ul class="text-gray-300">
+                        <li><strong>Role 1 (Black Book):</strong> The JD used words like "partner with developers" and "foster a culture."
+                            <br><strong>My Persona:</strong> I became the **"AWS Security Partner."** Every answer was about collaboration, partnership, and enabling developers safely.</li>
+                        <li><strong>Role 2 (EUNA):</strong> The JD used words like "doer/driver," "proactive," and "automation."
+                            <br><strong>My Persona:</strong> I became the **"Proactive Automation Expert."** Every answer was about building scripts, not waiting for tasks, and my automation-first mindset.</li>
+                    </ul>
+
+                    <p class="text-gray-300">Your resume is your **backstory**. The interview is your **performance**. Read the JD and find 3-5 keywords that define your persona. Write them down. Be that person.</p>
+                    
+                    <img src="https://placehold.co/800x300/e0e7ff/3730a3?text=Job+Description:+%22Partner%22...%22Automate%22...%22Comply%22" alt="Highlighting keywords in a job description" class="w-full rounded-lg shadow-md mb-8">
+                    
+                    <h2>2. Your Superpower: The STAR Method (Situation, Task, Action, Result)</h2>
+                    
+                    <p class="text-gray-300">If you are a non-native English speaker like me, the **STAR method** is your best friend. It replaces the need for a big vocabulary with pure, undeniable *logic*. It shows *how you think*.</p>
+
+                    <p class="text-gray-300">When you get a scenario question like, "Tell me about a time...", don't just tell a story. Structure it.</p>
+                    
+                    <blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300">
+                        <strong>(S) Situation:</strong> "The developer was frustrated..."<br>
+                        <strong>(T) Task:</strong> "My job was to be a partner, not a blocker..."<br>
+                        <strong>(A) Action:</strong> "So, my first action was to listen. Second, I... Third, I..."<br>
+                        <strong>(R) Result:</strong> "The result was we built trust, and the code was deployed securely."
+                    </blockquote>
+
+                    <p class="text-gray-300"><strong>My Pro-Tip:</strong> I add a 5th letter, **'A' for Automation**. After your "Result," add this: "And the *final* step was, I wrote a Python script to automate that check so the problem could never happen again." This is how you prove you have the DevSecOps mindset.</p>
+
+                    <h2>3. Your Resume is Your "Proof" - Every Answer Must Connect</h2>
+
+                    <p class="text-gray-300">Your resume isn't just to get the interview; it's your *script*. You must connect every answer you give back to a specific bullet point or project on your resume. This builds incredible credibility.</p>
+                    
+                    <p class="text-gray-300">Look how it works:</p>
+                    <div class="bg-gray-800 rounded-lg p-4 mb-4">
+                        <p class="text-gray-300 mb-2"><strong>Interviewer:</strong> "Do you have experience with compliance?"</p>
+                        <p class="text-gray-400 mb-2"><strong>Bad Answer:</strong> "Yes, I know SOC 2."</p>
+                        <p class="text-gray-300"><strong>Good Answer:</strong> "Yes. My **project, the 'Automated Compliance Reporting Tool,'** is a perfect example. I used Python and Boto3 to automatically query AWS for our SOC 2 evidence..."</p>
+                    </div>
+                    
+                    <div class="bg-gray-800 rounded-lg p-4 mb-4">
+                        <p class="text-gray-300 mb-2"><strong>Interviewer:</strong> "How do you secure a CI/CD pipeline?"</p>
+                        <p class="text-gray-400 mb-2"><strong>Bad Answer:</strong> "I would use SAST tools."</p>
+                        <p class="text-gray-300"><strong>Good Answer:</strong> "In my **current role,** one of my bullets is 'assisting in securing CI/CD pipelines.' I do this by integrating **SonarQube** and **Snyk** (both on my skills list) into the GitLab pipeline to scan code before it's merged."</p>
+                    </div>
+                    
+                    <p class="text-gray-300">See? You're not just *saying* you can do it; you're *proving* you have *done it*. Have a 30-second STAR story for every single skill on your resume.</p>
+
+                    <h2>4. The 5 Pillars of the DevSecOps Interview</h2>
+
+                    <p class="text-gray-300">These roles are "T-shaped." You need to be *deep* in one or two areas (like AWS Security or Python Automation) and *broad* in all the others. My interviews covered these 5 pillars every time.</p>
+                    
+                    <img src="https://placehold.co/800x350/f3f4f6/1f2937?text=The+T-Shaped+DevSecOps+Engineer" alt="T-Shaped Professional Diagram" class="w-full rounded-lg shadow-md mb-8">
+
+                    <h3>Pillar 1: Cloud (AWS, Azure, GCP)</h3>
+                    <p class="text-gray-300">You MUST be an expert. They won't just ask "What is S3?" They will ask *scenario* questions.</p>
+                    <ul class="text-gray-300">
+                        <li>"How do you give a Lambda function access to a private RDS database?" (Answer: Put it in the VPC, configure Security Groups).</li>
+                        <li>"How do you give a CI/CD pipeline access to AWS?" (Answer: OIDC and an IAM Role, NOT access keys).</li>
+                        <li>"How is GuardDuty different from Config?" (Answer: GuardDuty is a *detector*, Config is an *auditor*).</li>
+                    </ul>
+
+                    <h3>Pillar 2: Automation (Python, Bash, PowerShell)</h3>
+                    <p class="text-gray-300">You MUST be a "doer." They want to know you build things.</p>
+                    <ul class="text-gray-300">
+                        <li>"Tell me about a script you wrote." (This is where you use your STAR story about your compliance tool or a patching script).</li>
+                        <li>"What Python libraries do you use?" (Answer: `Boto3` for AWS, `requests` for APIs).</li>
+                    </ul>
+
+                    <h3>Pillar 3: CI/CD & IaC (The "Dev" part)</h3>
+                    <p class="text-gray-300">You are the "Sec" in "DevSecOps."</p>
+                    <ul class="text-gray-300">
+                        <li>"How do you secure a pipeline?" (Answer: Integrate SAST like SonarQube, and SCA like Snyk).</li>
+                        <li>"How do you secure Terraform?" (Answer: Use `tfsec` in the pipeline, and a secure S3 backend with locking).</li>
+                        <li>"What's wrong with this Dockerfile?" (Answer: It's running as `root`! Use a multi-stage build and a non-root user).</li>
+                    </ul>
+
+                    <h3>Pillar 4: Compliance (The "Ops" part)</h3>
+                    <p class="text-gray-300">You work with public-sector clients. This is non-negotiable.</p>
+                    <ul class="text-gray-300">
+                        <li>"What's the difference between NIST and SOC 2?" (Answer: NIST is a *voluntary framework*, SOC 2 is a *mandatory audit* to prove security to clients).</li>
+                        <li>"How do you prove 'Access Control' to an auditor?" (Answer: "I show them my automated reports from my compliance tool...").</li>
+                    </ul>
+
+                    <h3>Pillar 5: The "Soft" Scenarios (The "Glue")</h3>
+                    <p class="text-gray-300">This is where you prove you are the "Partner" persona.</p>
+                    <ul class="text-gray-300">
+                        <li>"A developer is frustrated. Your scan is blocking him. What do you do?" (Answer: "I don't just say 'no.' I *partner* with them. I look at the code *with* them...").</li>
+                        <li>"Tell me about a mistake." (Answer: "I ran a patch script on all servers at once... I learned to use a canary deployment...").</li>
+                    </ul>
+
+                    <h2>5. How to Handle "I Don't Know"</h2>
+                    
+                    <p class="text-gray-300">You will get a question you don't know. It's a test. Do *not* lie. Do *not* panic. This is your chance to show you are "hungry" and "curious."</p>
+
+                    <p class="text-gray-300">Use this 3-step script:</p>
+                    <ol class="text-gray-300">
+                        <li><strong>Be Honest:</strong> "That is a great question. To be 100% honest, I have not had hands-on experience with that specific tool (e.g., AWS AppFabric)."</li>
+                        <li><strong>Explain What You DO Know (The Theory):</strong> "From my studies, I understand it's a service that helps centralize security for SaaS apps like Slack..."</li>
+                        <li><strong>State Your Learning Process:</strong> "If I was tasked to learn it, my process would be to read the AWS docs, watch the 're:Invent' video, and then go build it in my personal AWS account. I am a very fast learner."</li>
+                    </ol>
+                    
+                    <p class="text-gray-300">This answer is *better* than a perfect technical definition. It shows integrity and a growth mindset.</p>
+
+                    <h2>Final Thoughts</h2>
+                    <p class="text-gray-300">The interview is not a test. It is a conversation to see if you are the person they are looking for. Use your resume as your proof, use STAR as your logic, and use the job description as your "persona."</p>
+                    
+                    <p class="text-gray-300">You have the skills. Now go show them.</p>
+
+                    <hr class="my-8 border-gray-700">
+
+                    <h3 class="text-xl font-semibold text-white mt-6 mb-4">External Resources</h3>
+                    <ul class="text-gray-300">
+                        <li><a href="https://aws.amazon.com/certification/certified-security-specialty/" class="text-blue-400 hover:text-blue-300">AWS Certified Security - Specialty</a> (What I'm studying for)</li>
+                        <li><a href="https://owasp.org/www-project-top-ten/" class="text-blue-400 hover:text-blue-300">OWASP Top 10</a> (You *must* know this)</li>
+                        <li><a href="https://github.com/aquasecurity/tfsec" class="text-blue-400 hover:text-blue-300">tfsec by Aqua Security</a> (Great IaC scanner to know)</li>
+                    </ul>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

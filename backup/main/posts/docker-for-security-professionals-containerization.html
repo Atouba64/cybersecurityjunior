@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Docker for Security Professionals: Containerization Made Simple - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .article-body h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        .article-body p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+        .article-body ul, .article-body ol {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
+            color: #d1d5db;
+        }
+        .article-body ul li {
+            list-style-type: disc;
+        }
+        .article-body ol li {
+            list-style-type: decimal;
+        }
+        .article-body blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #9ca3af;
+        }
+        .article-body code {
+            background-color: rgba(107, 114, 128, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            font-family: monospace;
+            color: #fbbf24;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/2496ED/FFFFFF?text=Docker+Containerization" alt="Docker for Security Professionals: Containerization Made Simple">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-cyan-100 text-cyan-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Docker</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Docker for Security Professionals: Containerization Made Simple</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-11-18">November 18, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
+                </div>
+
+                <div class="article-body">
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>Here's the problem:</strong> You write a Python script on your Mac. It works perfectly. You send it to your colleague who uses Windows. It doesn't work. Different Python versions, missing libraries, path issues - the classic "works on my machine" problem. Docker solves this. Your script runs the same way everywhere. Let me show you how.</blockquote>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What is Docker, Really?</h2>
+<p class="text-gray-300 mb-4">Think of Docker like this:</p>
+<strong>Without Docker:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Your app needs Python 3.11</li>
+<li class="mb-2">Your colleague has Python 3.9</li>
+<li class="mb-2">Your server has Python 3.10</li>
+<li class="mb-2">Everyone has different library versions</li>
+<li class="mb-2">Chaos ensues</li>
+</ul>
+<strong>With Docker:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">You package your app with Python 3.11</li>
+<li class="mb-2">It runs the same on Mac, Windows, Linux, AWS, anywhere</li>
+<li class="mb-2">No "works on my machine" problems</li>
+<li class="mb-2">Consistent, reproducible environments</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">The Core Concepts</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Images: The Blueprint</h3>
+<p class="text-gray-300 mb-4">An <strong>image</strong> is like a recipe. It contains:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">The operating system (usually Linux)</li>
+<li class="mb-2">Your application code</li>
+<li class="mb-2">All dependencies</li>
+<li class="mb-2">Configuration files</li>
+</ul>
+<p class="text-gray-300 mb-4">Think of it as a snapshot of everything your app needs to run.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Containers: The Running Instance</h3>
+<p class="text-gray-300 mb-4">A <strong>container</strong> is a running instance of an image. Like how a house is built from a blueprint, a container is created from an image.</p>
+<strong>Key point:</strong> You can run multiple containers from the same image. Each one is isolated and independent.
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Dockerfile: The Recipe</h3>
+<p class="text-gray-300 mb-4">A <strong>Dockerfile</strong> is the instructions for building an image. It's like a recipe card:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile">FROM python:3.11-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install -r requirements.txt
+COPY . .
+CMD ["python", "main.py"]
+</code></pre>
+<p class="text-gray-300 mb-4">This says:</p>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Start with Python 3.11</li>
+<li class="mb-2">Set working directory to /app</li>
+<li class="mb-2">Copy requirements file</li>
+<li class="mb-2">Install dependencies</li>
+<li class="mb-2">Copy application code</li>
+<li class="mb-2">Run the application</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Your First Docker Container</h2>
+<p class="text-gray-300 mb-4">Let's containerize a simple Python script:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 1: Create a Simple Python Script</h3>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">hello_security.py</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-python">#!/usr/bin/env python3
+import sys
+import platform
+
+print("=" * 50)
+print("Security Compliance Scanner")
+print("=" * 50)
+print(f"Running on: {platform.system()}")
+print(f"Python version: {sys.version}")
+print("✅ Scanner initialized successfully!")
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 2: Create a Dockerfile</h3>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">Dockerfile</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile"># Use Python 3.11 as base image
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Copy the script
+COPY hello_security.py .
+
+# Run the script
+CMD ["python", "hello_security.py"]
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 3: Build the Image</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">docker build -t security-scanner:latest .
+</code></pre>
+<strong>Breaking it down:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">docker build</code> - Build command</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">-t security-scanner:latest</code> - Tag (name:version)</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">.</code> - Build context (current directory)</li>
+</ul>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 4: Run the Container</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">docker run security-scanner:latest
+</code></pre>
+<strong>Output:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">==================================================
+Security Compliance Scanner
+==================================================
+Running on: Linux
+Python version: 3.11.0 (default, ...)
+✅ Scanner initialized successfully!
+</code></pre>
+<strong>Real-world example:</strong> You've just created a containerized version of your script. It will run the same way on your laptop, your colleague's Windows machine, and your AWS EC2 instance!
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Containerizing the Compliance Tool</h2>
+<p class="text-gray-300 mb-4">Let's containerize a real security tool - our compliance scanner:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 1: Project Structure</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">compliance-tool/
+├── Dockerfile
+├── requirements.txt
+├── main.py
+├── config/
+│   └── baseline_checks.json
+└── reports/
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 2: requirements.txt</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">boto3&gt;=1.28.0
+pandas&gt;=2.0.0
+openpyxl&gt;=3.1.0
+elasticsearch&gt;=8.8.0
+requests&gt;=2.31.0
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 3: Dockerfile</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile"># Use Python 3.11 slim image (smaller, faster)
+FROM python:3.11-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies (if needed)
+RUN apt-get update &amp;&amp; apt-get install -y \
+    gcc \
+    &amp;&amp; rm -rf /var/lib/apt/lists/*
+
+# Copy requirements first (for better caching)
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy application code
+COPY . .
+
+# Create reports directory
+RUN mkdir -p /app/reports
+
+# Set environment variables
+ENV PYTHONUNBUFFERED=1
+
+# Run the application
+CMD ["python", "main.py"]
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 4: Build and Run</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Build the image
+docker build -t compliance-tool:1.0 .
+
+# Run the container
+docker run --rm \
+  -v $(pwd)/reports:/app/reports \
+  -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+  -e AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+  compliance-tool:1.0
+</code></pre>
+<strong>What this does:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">--rm</code> - Remove container after it stops</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">-v $(pwd)/reports:/app/reports</code> - Mount reports directory (persist data)</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">-e</code> - Pass environment variables (AWS credentials)</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Docker Compose: Multi-Container Applications</h2>
+<p class="text-gray-300 mb-4">Docker Compose lets you run multiple containers together. Perfect for complex applications!</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">docker-compose.yml</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">version: '3.8'
+
+services:
+  # Compliance scanner
+  scanner:
+    build: .
+    image: compliance-tool:latest
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=us-east-1
+    volumes:
+      - ./reports:/app/reports
+    depends_on:
+      - nginx
+  
+  # Web server to view reports
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "8080:80"
+    volumes:
+      - ./reports:/usr/share/nginx/html/reports:ro
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    restart: unless-stopped
+  
+  # Scheduled scanner (runs daily)
+  scheduler:
+    image: compliance-tool:latest
+    command: python main.py
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    volumes:
+      - ./reports:/app/reports
+    restart: unless-stopped
+</code></pre>
+<strong>Run it:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash">docker-compose up -d
+</code></pre>
+<p class="text-gray-300 mb-4">This starts:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Your compliance scanner</li>
+<li class="mb-2">An Nginx web server (view reports at http://localhost:8080)</li>
+<li class="mb-2">A scheduled scanner</li>
+</ul>
+<strong>Real-world example:</strong> This is exactly how you'd deploy the compliance tool in production. One command starts everything!
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Security Best Practices</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Don't Run as Root</h3>
+<strong>Bad:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile">FROM python:3.11
+# Runs as root by default - DANGEROUS!
+</code></pre>
+<strong>Good:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile">FROM python:3.11-slim
+
+# Create non-root user
+RUN useradd -m -u 1000 appuser
+
+# Switch to non-root user
+USER appuser
+
+WORKDIR /app
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Use .dockerignore</h3>
+<p class="text-gray-300 mb-4">Create a <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">.dockerignore</code> file (like <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">.gitignore</code>):</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">__pycache__
+*.pyc
+.git
+.env
+*.log
+reports/*
+.DS_Store
+</code></pre>
+<p class="text-gray-300 mb-4">This prevents sensitive files from being copied into the image.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Don't Store Secrets in Images</h3>
+<strong>Bad:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile">ENV AWS_ACCESS_KEY_ID="AKIA..."
+ENV AWS_SECRET_ACCESS_KEY="secret..."
+</code></pre>
+<strong>Good:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Pass as environment variables at runtime
+docker run -e AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID ...
+</code></pre>
+<p class="text-gray-300 mb-4">Or use Docker secrets (for Docker Swarm) or mounted files.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">4. Use Multi-Stage Builds</h3>
+<p class="text-gray-300 mb-4">Keep images small:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile"># Stage 1: Build
+FROM python:3.11 as builder
+WORKDIR /build
+COPY requirements.txt .
+RUN pip install --user -r requirements.txt
+
+# Stage 2: Runtime
+FROM python:3.11-slim
+WORKDIR /app
+# Copy only installed packages from builder
+COPY --from=builder /root/.local /root/.local
+COPY . .
+ENV PATH=/root/.local/bin:$PATH
+CMD ["python", "main.py"]
+</code></pre>
+<p class="text-gray-300 mb-4">This creates a smaller final image (no build tools).</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">5. Scan Images for Vulnerabilities</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Use Trivy to scan images
+docker run --rm \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  aquasec/trivy image compliance-tool:latest
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Common Docker Commands</h2>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># List running containers
+docker ps
+
+# List all containers (including stopped)
+docker ps -a
+
+# List images
+docker images
+
+# Stop a container
+docker stop container-name
+
+# Remove a container
+docker rm container-name
+
+# Remove an image
+docker rmi image-name
+
+# View logs
+docker logs container-name
+
+# Execute command in running container
+docker exec -it container-name /bin/bash
+
+# Build image
+docker build -t my-image:tag .
+
+# Run container
+docker run -d --name my-container my-image:tag
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Real-World Example: Complete Compliance Tool Setup</h2>
+<p class="text-gray-300 mb-4">Here's a production-ready setup:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Dockerfile</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-dockerfile">FROM python:3.11-slim
+
+# Create non-root user
+RUN useradd -m -u 1000 scanner &amp;&amp; \
+    mkdir -p /app/reports &amp;&amp; \
+    chown -R scanner:scanner /app
+
+WORKDIR /app
+
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt &amp;&amp; \
+    rm -rf /root/.cache
+
+# Copy application
+COPY --chown=scanner:scanner . .
+
+# Switch to non-root user
+USER scanner
+
+# Health check
+HEALTHCHECK --interval=30s --timeout=3s \
+  CMD python -c "import sys; sys.exit(0)"
+
+CMD ["python", "main.py"]
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">docker-compose.yml</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">version: '3.8'
+
+services:
+  scanner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: compliance-tool:latest
+    container_name: compliance-scanner
+    environment:
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_DEFAULT_REGION=${AWS_DEFAULT_REGION:-us-east-1}
+    volumes:
+      - ./reports:/app/reports
+    restart: unless-stopped
+    networks:
+      - compliance-network
+
+networks:
+  compliance-network:
+    driver: bridge
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Debugging Containers</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">View Logs</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Follow logs
+docker logs -f container-name
+
+# Last 100 lines
+docker logs --tail 100 container-name
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Enter Container</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Get a shell inside the container
+docker exec -it container-name /bin/bash
+
+# Check what's running
+docker exec container-name ps aux
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Inspect Container</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># View container details
+docker inspect container-name
+
+# View container stats
+docker stats container-name
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Key Takeaways</h2>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Docker = Consistency</strong> - Same environment everywhere</li>
+<li class="mb-2"><strong>Images = Blueprints</strong> - Define what your app needs</li>
+<li class="mb-2"><strong>Containers = Running Instances</strong> - Actual running applications</li>
+<li class="mb-2"><strong>Dockerfile = Recipe</strong> - Instructions for building images</li>
+<li class="mb-2"><strong>Don't run as root</strong> - Security best practice</li>
+<li class="mb-2"><strong>Use .dockerignore</strong> - Don't copy unnecessary files</li>
+<li class="mb-2"><strong>Multi-stage builds</strong> - Keep images small</li>
+<li class="mb-2"><strong>Scan for vulnerabilities</strong> - Use Trivy or similar tools</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Practice Exercise</h2>
+<p class="text-gray-300 mb-4">Try this yourself:</p>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Create a simple Python script</li>
+<li class="mb-2">Write a Dockerfile for it</li>
+<li class="mb-2">Build the image</li>
+<li class="mb-2">Run the container</li>
+<li class="mb-2">Modify the script and rebuild</li>
+<li class="mb-2">Use Docker Compose to run multiple containers</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Resources to Learn More</h2>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><a href="https://docs.docker.com/" class="text-blue-400 hover:text-blue-300 underline">Docker Documentation</a></li>
+<li class="mb-2"><a href="https://docs.docker.com/develop/dev-best-practices/" class="text-blue-400 hover:text-blue-300 underline">Docker Best Practices</a></li>
+<li class="mb-2"><a href="https://docs.docker.com/engine/security/" class="text-blue-400 hover:text-blue-300 underline">Docker Security</a></li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What's Next?</h2>
+<p class="text-gray-300 mb-4">Now that you understand Docker, you're ready to:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Deploy containers to Kubernetes (our next post!)</li>
+<li class="mb-2">Build CI/CD pipelines with Docker</li>
+<li class="mb-2">Create production-ready containerized applications</li>
+</ul>
+<p class="text-gray-300 mb-4">Remember: Docker is about consistency and portability. Master it, and deployment becomes much easier!</p>
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>💡 Pro Tip:</strong> Start with simple containers, then gradually add complexity. Don't try to containerize everything at once. Learn the basics first, then build up!</blockquote>
+<hr class="my-8 border-gray-700">
+<em>Ready to orchestrate containers at scale? Check out our next post on Kubernetes, where we'll learn how to manage containerized applications in production!</em>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
