@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kubernetes for Security: Orchestrating Containers at Scale - Cybersecurityjunior</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        header {
+            background: rgba(26, 26, 46, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .article-body h2 {
+            font-size: 1.875rem;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+        .article-body h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            color: white;
+        }
+        .article-body p {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+        }
+        .article-body ul, .article-body ol {
+            font-size: 1.125rem;
+            line-height: 1.75;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style-position: outside;
+            color: #d1d5db;
+        }
+        .article-body ul li {
+            list-style-type: disc;
+        }
+        .article-body ol li {
+            list-style-type: decimal;
+        }
+        .article-body blockquote {
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: #9ca3af;
+        }
+        .article-body code {
+            background-color: rgba(107, 114, 128, 0.3);
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+            font-family: monospace;
+            color: #fbbf24;
+        }
+        pre {
+            background: #1e1e1e;
+            color: #f8f8f2;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+        pre code {
+            background: transparent;
+            padding: 0;
+            color: inherit;
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <header class="shadow-md sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../../index.html" class="flex items-center">
+                        <img src="../../assets/cybersecurityjunior.png" alt="Cybersecurityjunior Logo" class="w-10 h-10 rounded-full object-cover">
+                        <span class="text-2xl font-bold text-white ml-1">Cybersecurity<span class="text-blue-400">junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="../about/about.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">About Us</a>
+                    <a href="blog.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Blog</a>
+                    <a href="../contact/contact.html" class="text-white hover:text-blue-300 px-3 py-2 rounded-md text-base font-bold transition-colors drop-shadow-lg">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+        <article class="glass-card rounded-xl shadow-lg overflow-hidden">
+            <img class="w-full h-64 object-cover" src="https://placehold.co/1000x400/326CE5/FFFFFF?text=Kubernetes+Orchestration" alt="Kubernetes for Security: Orchestrating Containers at Scale">
+            <div class="p-8 sm:p-12">
+                <div class="mb-6">
+                    <span class="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-3 py-1 rounded-full mb-4">Kubernetes</span>
+                    <h1 class="text-4xl md:text-5xl font-extrabold text-white mb-3">Kubernetes for Security: Orchestrating Containers at Scale</h1>
+                    <p class="text-lg text-gray-300">
+                        Published on <time datetime="2025-11-19">November 19, 2025</time> by <span class="font-medium text-white">Cybersecurityjunior</span>
+                    </p>
+                </div>
+
+                <div class="article-body">
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>The problem:</strong> You have a compliance scanning tool running in a Docker container. It works great. But what if you need to scan 50 AWS accounts? Or run scans every hour? Or handle failures automatically? Managing containers manually doesn't scale. Kubernetes (K8s) is your solution. It's like having a smart system that manages your containers for you - automatically.</blockquote>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What is Kubernetes, Really?</h2>
+<p class="text-gray-300 mb-4">Think of Kubernetes like this:</p>
+<strong>Without Kubernetes:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">You manually start containers</li>
+<li class="mb-2">You manually restart them when they crash</li>
+<li class="mb-2">You manually scale up/down</li>
+<li class="mb-2">You manually handle networking</li>
+<li class="mb-2">Lots of manual work</li>
+</ul>
+<strong>With Kubernetes:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">You declare what you want ("I want 3 instances of my scanner")</li>
+<li class="mb-2">Kubernetes makes it happen</li>
+<li class="mb-2">It restarts crashed containers automatically</li>
+<li class="mb-2">It scales based on demand</li>
+<li class="mb-2">It handles networking automatically</li>
+<li class="mb-2">It's self-healing and self-managing</li>
+</ul>
+<strong>Real-world analogy:</strong> Kubernetes is like a smart warehouse manager. You say "I need 10 scanners running," and the manager:
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Finds available workers (nodes)</li>
+<li class="mb-2">Assigns them tasks (pods)</li>
+<li class="mb-2">Monitors their health</li>
+<li class="mb-2">Replaces them if they fail</li>
+<li class="mb-2">Balances the workload</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Core Kubernetes Concepts</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Cluster: The Big Picture</h3>
+<p class="text-gray-300 mb-4">A <strong>cluster</strong> is your entire Kubernetes setup. It consists of:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Control Plane</strong> (master) - The brain that makes decisions</li>
+<li class="mb-2"><strong>Nodes</strong> (workers) - The machines that run your containers</li>
+</ul>
+<p class="text-gray-300 mb-4">Think of it as a company:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Control Plane = Management</li>
+<li class="mb-2">Nodes = Employees doing the work</li>
+</ul>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Pods: The Smallest Unit</h3>
+<p class="text-gray-300 mb-4">A <strong>pod</strong> is the smallest deployable unit in Kubernetes. It's usually one container, but can contain multiple related containers.</p>
+<strong>Key point:</strong> Pods are ephemeral (temporary). They can be created, destroyed, and recreated. Don't store important data in pods!
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Deployments: Managing Pods</h3>
+<p class="text-gray-300 mb-4">A <strong>Deployment</strong> manages a set of pods. It ensures a specified number of pods are running.</p>
+<strong>Real-world example:</strong> You want 3 instances of your compliance scanner running. You create a Deployment that says "keep 3 pods running." If one crashes, Kubernetes automatically creates a new one.
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Services: Exposing Pods</h3>
+<p class="text-gray-300 mb-4">A <strong>Service</strong> provides a stable network endpoint for pods. Even if pods are recreated with new IPs, the service provides a consistent address.</p>
+<strong>Real-world example:</strong> Your scanner needs to be accessible. You create a Service that gives it a stable IP address and DNS name, even when pods restart.
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Your First Kubernetes Deployment</h2>
+<p class="text-gray-300 mb-4">Let's deploy the compliance scanner to Kubernetes:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 1: Create a Deployment</h3>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">deployment.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compliance-scanner
+  labels:
+    app: compliance-scanner
+spec:
+  replicas: 2  # Run 2 instances
+  selector:
+    matchLabels:
+      app: compliance-scanner
+  template:
+    metadata:
+      labels:
+        app: compliance-scanner
+    spec:
+      containers:
+      - name: scanner
+        image: compliance-tool:latest
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: aws-credentials
+              key: access-key-id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aws-credentials
+              key: secret-access-key
+        volumeMounts:
+        - name: reports
+          mountPath: /app/reports
+      volumes:
+      - name: reports
+        persistentVolumeClaim:
+          claimName: reports-pvc
+</code></pre>
+<strong>Breaking it down:</strong>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">replicas: 2</code> - Run 2 instances</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">image: compliance-tool:latest</code> - The container image</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">env</code> - Environment variables (from secrets)</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">volumes</code> - Persistent storage for reports</li>
+</ul>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 2: Create a Service</h3>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">service.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: v1
+kind: Service
+metadata:
+  name: compliance-scanner-service
+spec:
+  selector:
+    app: compliance-scanner
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 8080
+  type: ClusterIP  # Internal access only
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 3: Create a PersistentVolumeClaim (for reports)</h3>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">pvc.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: reports-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10Gi
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 4: Create Secrets (for AWS credentials)</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Create secret from literal values
+kubectl create secret generic aws-credentials \
+  --from-literal=access-key-id='YOUR_ACCESS_KEY' \
+  --from-literal=secret-access-key='YOUR_SECRET_KEY'
+</code></pre>
+<strong>⚠️ Security Note:</strong> Never commit secrets to Git! Use Kubernetes secrets or external secret management.
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Step 5: Deploy Everything</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Apply all configurations
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+kubectl apply -f pvc.yaml
+
+# Check status
+kubectl get pods
+kubectl get services
+kubectl get pvc
+</code></pre>
+<strong>Expected output:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-">NAME                                READY   STATUS    RESTARTS   AGE
+compliance-scanner-7d8f9b4c5-abc12   1/1     Running   0          10s
+compliance-scanner-7d8f9b4c5-xyz34   1/1     Running   0          10s
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Common Kubernetes Commands</h2>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Get pods
+kubectl get pods
+
+# Get all resources
+kubectl get all
+
+# Describe a pod (detailed info)
+kubectl describe pod compliance-scanner-abc12
+
+# View logs
+kubectl logs compliance-scanner-abc12
+
+# Follow logs (like tail -f)
+kubectl logs -f compliance-scanner-abc12
+
+# Execute command in pod
+kubectl exec -it compliance-scanner-abc12 -- /bin/bash
+
+# Delete a pod (will be recreated by Deployment)
+kubectl delete pod compliance-scanner-abc12
+
+# Scale deployment
+kubectl scale deployment compliance-scanner --replicas=5
+
+# Update image
+kubectl set image deployment/compliance-scanner scanner=compliance-tool:v2.0
+
+# Rollback update
+kubectl rollout undo deployment/compliance-scanner
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Scheduled Jobs: CronJobs</h2>
+<p class="text-gray-300 mb-4">Want to run your scanner on a schedule? Use a CronJob:</p>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">cronjob.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: compliance-scanner-cron
+spec:
+  schedule: "0 2 * * *"  # Run daily at 2 AM
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: scanner
+            image: compliance-tool:latest
+            env:
+            - name: AWS_ACCESS_KEY_ID
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: access-key-id
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-credentials
+                  key: secret-access-key
+          restartPolicy: OnFailure
+</code></pre>
+<strong>Schedule syntax:</strong> <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">"minute hour day month weekday"</code>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">"0 2 <em> </em> *"</code> - Daily at 2 AM</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">"0 <em>/6 </em> <em> </em>"</code> - Every 6 hours</li>
+<li class="mb-2"><code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">"0 9 <em> </em> 1"</code> - Every Monday at 9 AM</li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">ConfigMaps: Configuration Management</h2>
+<p class="text-gray-300 mb-4">Store configuration separately from code:</p>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">configmap.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scanner-config
+data:
+  baseline_checks.json: |
+    {
+      "iam_policy": {
+        "disallow_wildcard_action": true
+      },
+      "s3_bucket": {
+        "require_server_side_encryption": true
+      }
+    }
+  scan_interval: "3600"
+</code></pre>
+<p class="text-gray-300 mb-4">Use in deployment:</p>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">containers:
+- name: scanner
+  image: compliance-tool:latest
+  envFrom:
+  - configMapRef:
+      name: scanner-config
+  volumeMounts:
+  - name: config
+    mountPath: /app/config
+volumes:
+- name: config
+  configMap:
+    name: scanner-config
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Security Best Practices</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">1. Use Non-Root Users</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  fsGroup: 1000
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">2. Limit Resources</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">resources:
+  requests:
+    memory: "256Mi"
+    cpu: "250m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+</code></pre>
+<p class="text-gray-300 mb-4">This prevents one pod from consuming all resources.</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">3. Use Network Policies</h3>
+<p class="text-gray-300 mb-4">Control network traffic between pods:</p>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">network-policy.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: scanner-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: compliance-scanner
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: nginx
+    ports:
+    - protocol: TCP
+      port: 8080
+  egress:
+  - to:
+    - podSelector:
+        matchLabels:
+          app: elasticsearch
+    ports:
+    - protocol: TCP
+      port: 9200
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">4. Use Secrets, Not Environment Variables</h3>
+<strong>Bad:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">env:
+- name: AWS_SECRET_ACCESS_KEY
+  value: "AKIA..."  # DON'T DO THIS!
+</code></pre>
+<strong>Good:</strong>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">env:
+- name: AWS_SECRET_ACCESS_KEY
+  valueFrom:
+    secretKeyRef:
+      name: aws-credentials
+      key: secret-access-key
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Complete Production Setup</h2>
+<p class="text-gray-300 mb-4">Here's a production-ready configuration:</p>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Namespace</h3>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">namespace.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: v1
+kind: Namespace
+metadata:
+  name: compliance-system
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Deployment (with all best practices)</h3>
+<code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">deployment-production.yaml</code>:
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-yaml">apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compliance-scanner
+  namespace: compliance-system
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  selector:
+    matchLabels:
+      app: compliance-scanner
+  template:
+    metadata:
+      labels:
+        app: compliance-scanner
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1000
+        fsGroup: 1000
+      containers:
+      - name: scanner
+        image: compliance-tool:1.0.0
+        imagePullPolicy: Always
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          capabilities:
+            drop:
+            - ALL
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: aws-credentials
+              key: access-key-id
+        - name: AWS_SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: aws-credentials
+              key: secret-access-key
+        volumeMounts:
+        - name: reports
+          mountPath: /app/reports
+        - name: tmp
+          mountPath: /tmp
+        livenessProbe:
+          exec:
+            command:
+            - python
+            - -c
+            - "import sys; sys.exit(0)"
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        readinessProbe:
+          exec:
+            command:
+            - python
+            - -c
+            - "import sys; sys.exit(0)"
+          initialDelaySeconds: 5
+          periodSeconds: 5
+      volumes:
+      - name: reports
+        persistentVolumeClaim:
+          claimName: reports-pvc
+      - name: tmp
+        emptyDir: {}
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Monitoring and Observability</h2>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">View Pod Logs</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># All pods
+kubectl logs -l app=compliance-scanner
+
+# Specific pod
+kubectl logs compliance-scanner-abc12
+
+# Previous container (if crashed)
+kubectl logs compliance-scanner-abc12 --previous
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Check Resource Usage</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Top pods by CPU/memory
+kubectl top pods
+
+# Top nodes
+kubectl top nodes
+</code></pre>
+<h3 class="text-xl font-semibold text-white mt-6 mb-3">Describe Resources</h3>
+<pre class="bg-gray-800 rounded-lg p-4 overflow-x-auto mb-6"><code class="language-bash"># Get detailed info
+kubectl describe pod compliance-scanner-abc12
+kubectl describe deployment compliance-scanner
+kubectl describe service compliance-scanner-service
+</code></pre>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Key Takeaways</h2>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><strong>Kubernetes = Container Orchestration</strong> - Manages containers at scale</li>
+<li class="mb-2"><strong>Pods = Running Containers</strong> - The actual workloads</li>
+<li class="mb-2"><strong>Deployments = Pod Managers</strong> - Ensure pods stay running</li>
+<li class="mb-2"><strong>Services = Network Endpoints</strong> - Expose pods to network</li>
+<li class="mb-2"><strong>Secrets = Secure Credentials</strong> - Never hardcode secrets</li>
+<li class="mb-2"><strong>ConfigMaps = Configuration</strong> - Separate config from code</li>
+<li class="mb-2"><strong>CronJobs = Scheduled Tasks</strong> - Run jobs on schedule</li>
+<li class="mb-2"><strong>Always use non-root</strong> - Security best practice</li>
+<li class="mb-2"><strong>Limit resources</strong> - Prevent resource exhaustion</li>
+<li class="mb-2"><strong>Use namespaces</strong> - Organize resources</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Practice Exercise</h2>
+<p class="text-gray-300 mb-4">Try this yourself:</p>
+<ol class="list-decimal list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Create a simple deployment with 2 replicas</li>
+<li class="mb-2">Create a service to expose it</li>
+<li class="mb-2">Scale it to 5 replicas</li>
+<li class="mb-2">Create a CronJob that runs hourly</li>
+<li class="mb-2">Check logs and status</li>
+</ol>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">Resources to Learn More</h2>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2"><a href="https://kubernetes.io/docs/home/" class="text-blue-400 hover:text-blue-300 underline">Kubernetes Documentation</a></li>
+<li class="mb-2"><a href="https://kubernetes.io/docs/tutorials/" class="text-blue-400 hover:text-blue-300 underline">Kubernetes Tutorial</a></li>
+<li class="mb-2"><a href="https://kubernetes.io/docs/concepts/security/pod-security-standards/" class="text-blue-400 hover:text-blue-300 underline">Kubernetes Best Practices</a></li>
+</ul>
+<h2 class="text-2xl font-bold text-white mt-8 mb-4">What's Next?</h2>
+<p class="text-gray-300 mb-4">Now that you understand Kubernetes, you're ready to:</p>
+<ul class="list-disc list-inside mb-6 space-y-2 text-gray-300">
+<li class="mb-2">Deploy to cloud Kubernetes (EKS, GKE, AKS)</li>
+<li class="mb-2">Set up CI/CD pipelines</li>
+<li class="mb-2">Monitor and scale applications</li>
+<li class="mb-2">Build production-ready systems</li>
+</ul>
+<p class="text-gray-300 mb-4">Remember: Kubernetes is powerful but complex. Start simple, learn the basics, then gradually add complexity!</p>
+<blockquote class="bg-blue-900 bg-opacity-30 rounded-lg p-4 border-l-4 border-blue-400 text-gray-300 mb-6"><strong>💡 Pro Tip:</strong> Use <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">kubectl explain</code> to understand any Kubernetes resource. For example: <code class="bg-gray-800 text-yellow-400 px-2 py-1 rounded">kubectl explain deployment.spec</code> shows you all available options for deployments!</blockquote>
+<hr class="my-8 border-gray-700">
+<em>Ready to secure your deployments? Check out our next post on CI/CD Security, where we'll learn how to build secure deployment pipelines!</em>
+                </div>
+
+                <div class="mt-12 pt-8 border-t border-gray-700">
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center">
+                        <div>
+                            <h3 class="text-lg font-semibold text-white mb-2">Share this post</h3>
+                            <div class="flex space-x-4">
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Twitter</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
+                                <a href="#" class="text-gray-400 hover:text-white transition-colors">Reddit</a>
+                            </div>
+                        </div>
+                        <a href="blog.html" class="mt-4 sm:mt-0 text-blue-400 font-semibold hover:text-blue-300 inline-flex items-center group">
+                            <svg class="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                            Back to All Posts
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </main>
+
+    <footer class="bg-gray-900 bg-opacity-50 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <div class="text-center text-sm text-gray-400">
+                <p>&copy; 2025 Cybersecurityjunior. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
