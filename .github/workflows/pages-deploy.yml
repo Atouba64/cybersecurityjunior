@@ -29,11 +29,16 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
-          bundler-cache: true
+          ruby-version: 3.2
+          bundler-cache: false
+
+      - name: Install Bundler
+        run: gem install bundler -v '2.7.2' || gem install bundler -v '2.5.3'
 
       - name: Install dependencies
-        run: bundle install
+        run: |
+          bundle config set --local deployment 'true'
+          bundle install
 
       - name: Setup Pages
         id: pages
@@ -41,8 +46,14 @@ jobs:
         with:
           enablement: true
 
+      - name: Configure Git for plugins
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
       - name: Build with Jekyll
         run: |
+          set -e
           if [ -n "${{ steps.pages.outputs.base_path }}" ]; then
             bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --future
           else
@@ -57,9 +68,6 @@ jobs:
           path: ./_site
 
   deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
     steps:
