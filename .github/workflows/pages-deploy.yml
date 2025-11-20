@@ -35,9 +35,16 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
 
       - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --future
+        run: |
+          if [ -n "${{ steps.pages.outputs.base_path }}" ]; then
+            bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}" --future
+          else
+            bundle exec jekyll build --future
+          fi
         env:
           JEKYLL_ENV: production
 
