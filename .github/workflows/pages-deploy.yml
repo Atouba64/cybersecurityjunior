@@ -1,4 +1,4 @@
-name: Deploy Jekyll site to Pages
+name: Deploy Static Site to Pages
 
 on:
   push:
@@ -16,29 +16,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          submodules: recursive
-          lfs: false
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.2
-          bundler-cache: false
-
-      - name: Install Bundler
-        run: gem install bundler -v '2.7.2' || gem install bundler -v '2.5.3'
-
-      - name: Install dependencies
-        run: |
-          bundle config set --local deployment 'true'
-          bundle install
 
       - name: Setup Pages
         id: pages
@@ -46,58 +28,11 @@ jobs:
         with:
           enablement: true
 
-      - name: Configure Git for plugins
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Build with Jekyll
-        run: |
-          set -e
-          # Build without baseurl override to match local development
-          bundle exec jekyll build --future 2>&1 | tee build.log
-          
-          # Verify build output
-          echo "=== Build Verification ==="
-          echo "Checking _site directory..."
-          ls -la _site/ | head -20
-          
-          echo ""
-          echo "Checking homepage..."
-          if [ -f "_site/index.html" ]; then
-            echo "✓ index.html exists"
-            echo "First 50 lines of index.html:"
-            head -50 _site/index.html
-          else
-            echo "✗ index.html NOT FOUND"
-            exit 1
-          fi
-          
-          echo ""
-          echo "Checking posts/index.html..."
-          if [ -f "_site/posts/index.html" ]; then
-            echo "✓ posts/index.html exists"
-          else
-            echo "✗ posts/index.html NOT FOUND"
-            exit 1
-          fi
-          
-          echo ""
-          echo "Counting posts..."
-          POST_COUNT=$(find _site/posts -name "*.html" -type f | wc -l)
-          echo "Found $POST_COUNT post HTML files"
-        env:
-          JEKYLL_ENV: production
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./_site
+          path: .
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
