@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Passing the Security+ Exam"
 date: 2025-10-23 10:00:00 -0400
 categories: [Certifications]

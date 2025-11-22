@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "The Power of Wireshark"
 date: 2025-10-21 10:00:00 -0400
 categories: [Discovery]

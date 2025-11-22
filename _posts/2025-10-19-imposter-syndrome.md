@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Imposter Syndrome is Real"
 date: 2025-10-19 10:00:00 -0400
 categories: [My Journey]

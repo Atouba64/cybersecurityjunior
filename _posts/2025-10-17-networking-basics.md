@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Networking Basics I Wish I Knew Sooner"
 date: 2025-10-17 10:00:00 -0400
 categories: [Networking]
