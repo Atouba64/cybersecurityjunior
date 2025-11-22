@@ -1,0 +1,71 @@
+/* ============================================
+   Custom Styles for Site Title and Tagline
+   ============================================
+   
+   You can modify the font properties below to customize:
+   - Site Title (the main title under the logo)
+   - Site Subtitle/Tagline (the text under the title)
+   
+   Common font-family options:
+   - 'Arial', sans-serif
+   - 'Georgia', serif
+   - 'Times New Roman', serif
+   - 'Courier New', monospace
+   - 'Roboto', sans-serif (requires Google Fonts link)
+   - 'Open Sans', sans-serif (requires Google Fonts link)
+   - 'Montserrat', sans-serif (requires Google Fonts link)
+*/
+
+/* Site Title - The main title "Cybersecurityjunior" */
+.site-title {
+  /* Font family - Change this to your desired font */
+  font-family: 'Arial', sans-serif;
+  color: green;
+  
+  /* Font weight: normal (400), bold (700), or 100-900 */
+  font-weight: 900;
+  
+  /* Font size - adjust as needed (1.75rem = 28px) */
+  font-size: 1.68rem;
+  
+  /* Letter spacing - adjust spacing between letters */
+  letter-spacing: 0.25px;
+  
+  /* Line height - spacing between lines */
+  line-height: 1.1;
+  
+  /* Text transform: none, uppercase, lowercase, capitalize */
+  text-transform: none;
+  
+  /* Font style: normal or italic */
+  font-style: normal;
+}
+
+/* Site Subtitle/Tagline - "Start Your Journey into Cybersecurity Today" */
+.site-subtitle {
+  /* Font family - Change this to your desired font */
+  font-family: 'Arial', sans-serif;
+  
+  /* Font weight: normal (400), bold (700), or 100-900 */
+  font-weight: normal;
+  
+  /* Font size - adjust as needed (95% = relative to parent) */
+  font-size: 95%;
+  
+  /* Word spacing - spacing between words */
+  word-spacing: 1px;
+  
+  /* Letter spacing - spacing between letters */
+  letter-spacing: 0px;
+  
+  /* Font style: normal or italic */
+  font-style: italic;
+  
+  /* Line height - spacing between lines */
+  line-height: 1.4;
+  
+  /* Text transform: none, uppercase, lowercase, capitalize */
+  text-transform: none;
+  color: green;
+}
+
