@@ -176,6 +176,7 @@ PLATFORMS
   x86_64-linux-android
   x86_64-linux-gnu
   x86_64-linux-musl
+  x86_86-linux
 
 DEPENDENCIES
   jekyll (~> 4.3)
