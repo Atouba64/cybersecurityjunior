@@ -5,16 +5,4 @@
 [build.environment]
   RUBY_VERSION = "3.3"
   JEKYLL_ENV = "production"
-  NODE_VERSION = "18"
-
-# Jekyll build settings
-[build.processing]
-  skip_processing = false
-
-# Redirects for Jekyll
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  force = false
 
