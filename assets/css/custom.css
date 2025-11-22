@@ -17,55 +17,84 @@
 */
 
 /* Site Title - The main title "Cybersecurityjunior" */
+/* Using higher specificity to override theme styles */
+#sidebar .site-title,
+.profile-wrapper .site-title,
 .site-title {
   /* Font family - Change this to your desired font */
-  font-family: 'Arial', sans-serif;
-  color: green;
+  font-family: 'Courier New', 'Courier', monospace !important;
   
   /* Font weight: normal (400), bold (700), or 100-900 */
-  font-weight: 900;
+  font-weight: 900 !important;
   
-  /* Font size - adjust as needed (1.75rem = 28px) */
-  font-size: 1.68rem;
+  /* Font size - slightly reduced to fit better (1.5rem = 24px) */
+  font-size: 1.5rem !important;
   
-  /* Letter spacing - adjust spacing between letters */
-  letter-spacing: 0.25px;
+  /* Letter spacing - reduced for better fit */
+  letter-spacing: 0.25px !important;
   
   /* Line height - spacing between lines */
-  line-height: 1.1;
+  line-height: 1.2 !important;
   
   /* Text transform: none, uppercase, lowercase, capitalize */
-  text-transform: none;
+  text-transform: none !important;
   
   /* Font style: normal or italic */
-  font-style: normal;
+  font-style: normal !important;
+  
+  /* Allow text to wrap to multiple lines */
+  white-space: normal !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  
+  /* Ensure full width is available */
+  width: 100% !important;
+  max-width: 100% !important;
+  
+  /* Prevent text overflow */
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+/* Profile wrapper - ensure it allows text wrapping */
+#sidebar .profile-wrapper,
+.profile-wrapper {
+  /* Ensure full width is available for title */
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+  /* Keep theme padding but ensure text can wrap */
+  overflow: visible !important;
 }
 
 /* Site Subtitle/Tagline - "Start Your Journey into Cybersecurity Today" */
+/* Using higher specificity to override theme styles */
+#sidebar .site-subtitle,
+.profile-wrapper .site-subtitle,
 .site-subtitle {
   /* Font family - Change this to your desired font */
-  font-family: 'Arial', sans-serif;
+  font-family: 'Courier New', 'Courier', monospace !important;
   
   /* Font weight: normal (400), bold (700), or 100-900 */
-  font-weight: normal;
+  font-weight: normal !important;
   
   /* Font size - adjust as needed (95% = relative to parent) */
-  font-size: 95%;
+  font-size: 98% !important;
   
   /* Word spacing - spacing between words */
-  word-spacing: 1px;
+  word-spacing: 0.5px !important;
   
   /* Letter spacing - spacing between letters */
-  letter-spacing: 0px;
+  letter-spacing: 0px !important;
   
   /* Font style: normal or italic */
-  font-style: italic;
+  font-style: Bold !important;
   
   /* Line height - spacing between lines */
-  line-height: 1.4;
+  line-height: 1.4 !important;
   
   /* Text transform: none, uppercase, lowercase, capitalize */
-  text-transform: none;
-  color: green;
+  text-transform: none !important;
+  color: greenyellow !important;
 }
 
