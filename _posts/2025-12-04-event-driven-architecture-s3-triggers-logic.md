@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Event-Driven Architecture: S3 Triggers and Logic"
-date: 2025-12-04 10:00:00 -0400
+date: 2025-11-21 18:00:00 -0400
 categories: [System Design]
 tags: [EventDriven, S3, Lambda, Architecture, Automation]
 excerpt: "In traditional programming, if you want to process a file, you write a script that checks a folder. In the cloud, we invert this control. We don't check for files; the file announces its arrival."

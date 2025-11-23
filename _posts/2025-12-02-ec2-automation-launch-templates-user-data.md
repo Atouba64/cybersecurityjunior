@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "EC2 Automation: Launch Templates and User Data"
-date: 2025-12-02 10:00:00 -0400
+date: 2025-11-22 18:00:00 -0400
 categories: [Compute]
 tags: [EC2, Automation, Python, DevOps, Linux]
 excerpt: "In the era of the cloud, we do not manually install software on servers. We automate the provisioning process so that a server is ready to work the second it boots up."

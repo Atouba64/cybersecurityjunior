@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "FinOps: The 'Garbage Collector' Script"
-date: 2025-12-12 10:00:00 -0400
+date: 2025-11-17 14:00:00 -0400
 categories: [Cloud Management]
 tags: [FinOps, CostOptimization, Python, AWS, Scripting]
 excerpt: "The final skill of a Cloud Architect is not technical; it is financial. It is easy to build a system that works; it is hard to build a system that is profitable."

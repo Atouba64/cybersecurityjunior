@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Goodbye Manual Deploys: GitHub Actions & OIDC"
-date: 2025-12-15 10:00:00 -0400
+date: 2025-11-16 14:00:00 -0400
 categories: [DevOps]
 tags: [GitHubActions, CI/CD, OIDC, Security, DevOps]
 excerpt: "For years, the standard way to deploy from GitHub to AWS was to generate Access Keys and paste them into GitHub Secrets. This works, but it's dangerous."

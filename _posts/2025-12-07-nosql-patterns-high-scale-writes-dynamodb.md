@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "NoSQL Patterns: High-Scale Writes to DynamoDB"
-date: 2025-12-07 10:00:00 -0400
+date: 2025-11-19 14:00:00 -0400
 categories: [Database]
 tags: [DynamoDB, NoSQL, DatabaseDesign, Python, BigData]
 excerpt: "Our data is extracted and transformed. Now it needs a home. While S3 is great for storage, it's terrible for querying real-time applications."

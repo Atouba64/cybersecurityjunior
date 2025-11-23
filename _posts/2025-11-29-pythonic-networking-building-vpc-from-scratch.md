@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Pythonic Networking: Building a VPC from Scratch"
-date: 2025-11-29 10:00:00 -0400
+date: 2025-11-21 10:00:00 -0400
 categories: [Infrastructure]
 tags: [VPC, Networking, Python, InfrastructureAsCode, AWS]
 excerpt: "The Virtual Private Cloud (VPC) is the foundation of your cloud security posture. While the AWS console wizard makes it easy, relying on defaults is a security antipattern."

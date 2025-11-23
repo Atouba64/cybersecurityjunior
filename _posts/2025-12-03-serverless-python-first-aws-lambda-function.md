@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Serverless Python: Your First AWS Lambda Function"
-date: 2025-12-03 10:00:00 -0400
+date: 2025-11-21 14:00:00 -0400
 categories: [Serverless Computing]
 tags: [Lambda, Serverless, Python, CloudCompute, AWS]
 excerpt: "Imagine running your Python code without ever installing an operating system, patching a server, or paying for idle time. This is the promise of AWS Lambda."

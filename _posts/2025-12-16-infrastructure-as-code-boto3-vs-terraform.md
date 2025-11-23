@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Infrastructure as Code: Boto3 vs. Terraform"
-date: 2025-12-16 10:00:00 -0400
+date: 2025-11-16 18:00:00 -0400
 categories: [DevOps]
 tags: [Terraform, Boto3, IaC, CareerAdvice]
 excerpt: "Throughout this series, we have used Boto3 to build everything. But in a production enterprise environment, writing 500 lines of Python to deploy a VPC is inefficient."

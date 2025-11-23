@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Moving to Containers: Docker, ECR, and Boto3"
-date: 2025-12-13 10:00:00 -0400
+date: 2025-11-17 18:00:00 -0400
 categories: [Containers]
 tags: [Docker, ECR, Containers, Python, AWS]
 excerpt: "Serverless is great, but sometimes you need a heavy lifter. Whether it's a legacy application or a machine learning model, sometimes you need a container."

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Advanced Networking: Transit Gateways and Peering"
-date: 2025-12-01 10:00:0 -0400
+date: 2025-11-22 14:00:00 -0400
 categories: [Advanced Networking]
 tags: [TransitGateway, VPC, EnterpriseArchitecture, Python, NetworkDesign]
 excerpt: "As your cloud footprint grows, you will eventually outgrow a single VPC. The simple path is VPC Peering, but as the number of VPCs increases, the mesh becomes a management nightmare."

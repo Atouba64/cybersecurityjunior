@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Capstone: Serverless ETL 'Ghost Project'"
-date: 2025-12-08 10:00:00 -0400
+date: 2025-11-19 18:00:00 -0400
 categories: [Data Engineering]
 tags: [ETL, Project, GhostProject, DataScience, Portfolio]
 excerpt: "A carpenter measures twice and cuts once; a cloud architect diagrams twice and codes once. Today, we assemble the skills from the previous 12 posts into a comprehensive portfolio piece."

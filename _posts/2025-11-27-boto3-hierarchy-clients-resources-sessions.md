@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Boto3 Hierarchy: Clients, Resources, and Sessions"
-date: 2025-11-27 10:00:00 -0400
+date: 2025-11-19 10:00:00 -0400
 categories: [Python]
 tags: [Python, AWS, Boto3, SoftwareArchitecture, CodingBestPractices]
 excerpt: "When you begin automating AWS with Python, you're immediately presented with a choice: Client or Resource? The documentation often mixes them, leading to franken-scripts that are hard to maintain."

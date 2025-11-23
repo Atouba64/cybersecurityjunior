@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CI/CD Security: Building Secure Deployment Pipelines"
-date: 2025-11-23 10:00:00 -0400
+date: 2025-11-22 10:00:00 -0400
 categories: [CI/CD, DevSecOps, Security]
 tags: [cicd, devsecops, security, github-actions, gitlab-ci, jenkins, automation]
 image: https://placehold.co/1000x400/2088FF/FFFFFF?text=CI%2FCD+Security

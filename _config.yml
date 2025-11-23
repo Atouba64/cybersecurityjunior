@@ -183,7 +183,6 @@ exclude:
   - "_old_site"
   - "backup"
   - "pages/posts"
-  - "posts"
   - "feed.xml"
   - "assets/feed.xml"
 

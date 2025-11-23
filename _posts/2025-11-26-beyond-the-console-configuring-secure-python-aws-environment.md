@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Beyond the Console: Configuring a Secure Python AWS Environment"
-date: 2025-11-26 10:00:00 -0400
+date: 2025-11-18 10:00:00 -0400
 categories: [Cloud Engineering]
 tags: [AWS, Python, Boto3, CyberSecurity, InfrastructureAsCode]
 excerpt: "Welcome to the world of automated defense. If you've reached the ceiling of what's efficient to do manually in the AWS Management Console, it's time to learn to speak the cloud's language—Python."

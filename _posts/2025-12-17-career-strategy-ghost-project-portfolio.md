@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Career Strategy: The 'Ghost Project' Portfolio"
-date: 2025-12-17 10:00:00 -0400
+date: 2025-11-15 10:00:00 -0400
 categories: [Career]
 tags: [Career, Resume, Interviewing, Portfolio]
 excerpt: "The 'Experience Paradox' is real: you need experience to get a job, but you need a job to get experience. The solution? Build the experience yourself."

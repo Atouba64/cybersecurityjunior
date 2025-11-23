@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automating Governance: The IAM Auditor Script"
-date: 2025-11-28 10:00:00 -0400
+date: 2025-11-20 10:00:00 -0400
 categories: [Cloud Security]
 tags: [IAM, SecurityAudit, PythonAutomation, CyberSecurity, Compliance]
 excerpt: "In the cloud, identity is the new perimeter. A single forgotten access key, generated for a contractor three years ago, can lead to a total account compromise."

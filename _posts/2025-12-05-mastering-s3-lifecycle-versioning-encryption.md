@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Mastering S3: Lifecycle, Versioning, and Encryption"
-date: 2025-12-05 10:00:00 -0400
+date: 2025-11-20 14:00:00 -0400
 categories: [Storage]
 tags: [S3, DataEngineering, CloudStorage, Python, FinOps]
 excerpt: "Amazon S3 is more than just a hard drive in the cloud. If you're only using it to manually store files, you're missing its true potential as a programmable data lake."

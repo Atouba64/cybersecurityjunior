@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Compliance Frameworks: SOC 2, ISO 27001, and NIST Explained"
-date: 2025-11-25 10:00:00 -0400
+date: 2025-11-20 10:00:00 -0400
 categories: [Compliance, Security, Business]
 tags: [compliance, soc2, iso27001, nist, security-frameworks, auditing]
 image: https://placehold.co/1000x400/1F2937/FFFFFF?text=Compliance+Frameworks

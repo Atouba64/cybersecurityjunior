@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Automated Defense: GuardDuty & IPS Blocking"
-date: 2025-12-09 10:00:00 -0400
+date: 2025-11-18 14:00:00 -0400
 categories: [Cloud Security]
 tags: [GuardDuty, SecurityAutomation, Python, IncidentResponse, NACL]
 excerpt: "In a modern cyber-security landscape, human reaction time is too slow. If an attacker is enumerating your bucket, you cannot wait for an email alert to wake you up."

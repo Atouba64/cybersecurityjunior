@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Identity Hygiene: Rotating IAM Keys with Lambda"
-date: 2025-12-11 10:00:00 -0400
+date: 2025-11-17 10:00:00 -0400
 categories: [Identity Management]
 tags: [IAM, KeyRotation, Python, Lambda, SecurityBestPractices]
 excerpt: "Static access keys are a ticking time bomb. The longer they exist, the higher the probability they will be leaked."

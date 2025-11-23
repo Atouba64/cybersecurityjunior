@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Firewall Auditor: Detecting Security Group Sprawl"
-date: 2025-11-30 10:00:00 -0400
+date: 2025-11-22 10:00:00 -0400
 categories: [Network Security]
 tags: [NetworkSecurity, Python, AWS, Audit, FinOps]
 excerpt: "One of the most common findings in a cloud security audit is 'Security Group Sprawl.' Developers create a group for a quick test, open port 22 to the world, detach it, and then forget it exists."

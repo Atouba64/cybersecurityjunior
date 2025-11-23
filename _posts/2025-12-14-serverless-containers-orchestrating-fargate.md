@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Serverless Containers: Orchestrating Fargate"
-date: 2025-12-14 10:00:00 -0400
+date: 2025-11-16 10:00:00 -0400
 categories: [Containers]
 tags: [ECS, Fargate, Orchestration, Python, AWS]
 excerpt: "We have our Docker image in the registry. Now we need to run it. Fargate allows us to run containers without managing the underlying servers."
