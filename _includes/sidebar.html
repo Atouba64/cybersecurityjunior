@@ -12,8 +12,12 @@
     </a>
 
     <a class="site-title d-block" href="{{ '/' | relative_url }}">
-      <span class="site-title-line">Cybersecurity</span>
-      <span class="site-title-line">Junior</span>
+      {%- assign title_parts = site.title | split: 'Junior' -%}
+      {%- if title_parts.size > 1 -%}
+        Cybersecurity<br>Junior
+      {%- else -%}
+        {{ site.title }}
+      {%- endif -%}
     </a>
     <p class="site-subtitle fst-italic mb-0">{{ site.tagline }}</p>
   </header>

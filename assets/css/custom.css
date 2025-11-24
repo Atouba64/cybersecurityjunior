@@ -16,7 +16,8 @@
    - 'Montserrat', sans-serif (requires Google Fonts link)
 */
 
-/* Site Title - Split into two lines: "Cybersecurity" and "Junior" */
+/* Site Title - The main title "CybersecurityJunior" */
+/* Split into "Cybersecurity" and "Junior" on separate lines with no space */
 /* Using higher specificity to override theme styles */
 #sidebar .site-title,
 .profile-wrapper .site-title,
@@ -27,13 +28,13 @@
   /* Font weight: normal (400), bold (700), or 100-900 */
   font-weight: 900 !important;
   
-  /* Font size - responsive sizing */
+  /* Font size - responsive sizing for all devices */
   font-size: 1.5rem !important;
   
   /* Letter spacing - reduced for better fit */
   letter-spacing: 0.25px !important;
   
-  /* Line height - spacing between lines */
+  /* Line height - spacing between lines (important for two-line title) */
   line-height: 1.3 !important;
   
   /* Text transform: none, uppercase, lowercase, capitalize */
@@ -42,9 +43,11 @@
   /* Font style: normal or italic */
   font-style: normal !important;
   
-  /* Display as flex column to stack lines */
-  display: flex !important;
-  flex-direction: column !important;
+  /* Allow line breaks (for <br> tag) */
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
   
   /* Ensure full width is available */
   width: 100% !important;
@@ -54,63 +57,57 @@
   overflow: visible !important;
   text-overflow: clip !important;
   
-  /* Center align the text */
-  text-align: center !important;
-}
-
-/* Individual title lines */
-.site-title-line {
+  /* Display as block to allow line breaks */
   display: block !important;
-  width: 100% !important;
-  white-space: nowrap !important;
-  overflow: visible !important;
-  text-overflow: clip !important;
 }
 
-/* First line "Cybersecurity" */
-.site-title-line:first-child {
-  margin-bottom: 0 !important;
+/* Ensure <br> tag in title doesn't add extra spacing */
+#sidebar .site-title br,
+.profile-wrapper .site-title br,
+.site-title br {
+  line-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* Second line "Junior" */
-.site-title-line:last-child {
-  margin-top: 0 !important;
-}
-
-/* Responsive font sizing for different screen sizes */
-/* Mobile phones (default) */
-@media (max-width: 575px) {
+/* Mobile devices (phones) - ensure proper display */
+@media (max-width: 575.98px) {
   #sidebar .site-title,
   .profile-wrapper .site-title,
   .site-title {
-    font-size: 1.2rem !important;
+    font-size: 1.3rem !important;
+    line-height: 1.4 !important;
   }
 }
 
-/* Tablets and small screens */
-@media (min-width: 576px) and (max-width: 991px) {
+/* Tablets - ensure proper display */
+@media (min-width: 576px) and (max-width: 991.98px) {
   #sidebar .site-title,
   .profile-wrapper .site-title,
   .site-title {
     font-size: 1.4rem !important;
+    line-height: 1.35 !important;
   }
 }
 
-/* Desktop and large screens */
+/* Desktop and larger - ensure proper display */
 @media (min-width: 992px) {
   #sidebar .site-title,
   .profile-wrapper .site-title,
   .site-title {
     font-size: 1.5rem !important;
+    line-height: 1.3 !important;
   }
 }
 
-/* Extra large screens */
-@media (min-width: 1200px) {
+/* Desktop: keep words intact while allowing line break between words only */
+@media (min-width: 992px) {
   #sidebar .site-title,
   .profile-wrapper .site-title,
   .site-title {
-    font-size: 1.6rem !important;
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
   }
 }
 
