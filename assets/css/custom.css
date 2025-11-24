@@ -16,7 +16,7 @@
    - 'Montserrat', sans-serif (requires Google Fonts link)
 */
 
-/* Site Title - The main title "Cybersecurityjunior" */
+/* Site Title - Split into two lines: "Cybersecurity" and "Junior" */
 /* Using higher specificity to override theme styles */
 #sidebar .site-title,
 .profile-wrapper .site-title,
@@ -27,14 +27,14 @@
   /* Font weight: normal (400), bold (700), or 100-900 */
   font-weight: 900 !important;
   
-  /* Font size - slightly reduced to fit better (1.5rem = 24px) */
+  /* Font size - responsive sizing */
   font-size: 1.5rem !important;
   
   /* Letter spacing - reduced for better fit */
   letter-spacing: 0.25px !important;
   
   /* Line height - spacing between lines */
-  line-height: 1.2 !important;
+  line-height: 1.3 !important;
   
   /* Text transform: none, uppercase, lowercase, capitalize */
   text-transform: none !important;
@@ -42,11 +42,9 @@
   /* Font style: normal or italic */
   font-style: normal !important;
   
-  /* Allow text to wrap naturally (break only at spaces) */
-  white-space: normal !important;
-  word-break: keep-all !important;
-  overflow-wrap: break-word !important;
-  hyphens: none !important;
+  /* Display as flex column to stack lines */
+  display: flex !important;
+  flex-direction: column !important;
   
   /* Ensure full width is available */
   width: 100% !important;
@@ -55,16 +53,64 @@
   /* Prevent text overflow */
   overflow: visible !important;
   text-overflow: clip !important;
+  
+  /* Center align the text */
+  text-align: center !important;
 }
 
-/* Desktop: keep words intact while allowing line break between words only */
+/* Individual title lines */
+.site-title-line {
+  display: block !important;
+  width: 100% !important;
+  white-space: nowrap !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+}
+
+/* First line "Cybersecurity" */
+.site-title-line:first-child {
+  margin-bottom: 0 !important;
+}
+
+/* Second line "Junior" */
+.site-title-line:last-child {
+  margin-top: 0 !important;
+}
+
+/* Responsive font sizing for different screen sizes */
+/* Mobile phones (default) */
+@media (max-width: 575px) {
+  #sidebar .site-title,
+  .profile-wrapper .site-title,
+  .site-title {
+    font-size: 1.2rem !important;
+  }
+}
+
+/* Tablets and small screens */
+@media (min-width: 576px) and (max-width: 991px) {
+  #sidebar .site-title,
+  .profile-wrapper .site-title,
+  .site-title {
+    font-size: 1.4rem !important;
+  }
+}
+
+/* Desktop and large screens */
 @media (min-width: 992px) {
   #sidebar .site-title,
   .profile-wrapper .site-title,
   .site-title {
-    white-space: normal !important;
-    word-break: keep-all !important;
-    overflow-wrap: normal !important;
+    font-size: 1.5rem !important;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1200px) {
+  #sidebar .site-title,
+  .profile-wrapper .site-title,
+  .site-title {
+    font-size: 1.6rem !important;
   }
 }
 

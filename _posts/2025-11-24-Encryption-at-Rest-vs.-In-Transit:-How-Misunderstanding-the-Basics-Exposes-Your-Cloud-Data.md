@@ -53,14 +53,20 @@ bucket_policy = {
         "Action": "s3:*",
         "Resource": [f"arn:aws:s3:::{bucket_name}", f"arn:aws:s3:::{bucket_name}/*"],
         "Condition": {
-            "Bool": {"aws:SecureTransport": "false"}
+            "Bool": {"aws:SecureTransport": "false"} # If HTTPS is false, DENY access
         }
     }]
 }
 s3.put_bucket_policy(Bucket=bucket_name, Policy=json.dumps(bucket_policy))
 
 print("Bucket Secured: Rest + Transit enforcement active.")
-</code></pre>
+```
+## What is this code doing?
+This script creates a bucket that encrypts files when they land (Rest) and refuses files sent over HTTP (Transit).
+
+At Rest: It sets the SSEAlgorithm to 'AES256'. Amazon will now automatically lock the data the moment it touches their disk.
+
+In Transit: The Policy denies any traffic where "aws:SecureTransport": "false". If a developer tries to use insecure HTTP, AWS blocks the request.
 
 The "Gotcha" (Business Impact) The biggest mistake I see in corporate environments is relying too much on "Encryption at Rest."
 
