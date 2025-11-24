@@ -100,7 +100,7 @@
 }
 
 /* Desktop-only styles (screen width ≥ 992px) */
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   #sidebar .site-title {
     font-size: 1.1rem !important;
     color : red !important;
@@ -110,5 +110,4 @@
     padding: 1.5rem 1rem;
     color : red !important;
   }
-  /* Add more desktop-specific tweaks here */
-}
+} */
