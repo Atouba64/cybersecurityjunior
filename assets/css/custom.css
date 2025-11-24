@@ -44,8 +44,9 @@
   
   /* Allow text to wrap naturally (break only at spaces) */
   white-space: normal !important;
-  word-break: normal !important;
-  overflow-wrap: normal !important;
+  word-break: keep-all !important;
+  overflow-wrap: break-word !important;
+  hyphens: none !important;
   
   /* Ensure full width is available */
   width: 100% !important;
@@ -54,7 +55,17 @@
   /* Prevent text overflow */
   overflow: visible !important;
   text-overflow: clip !important;
-  /* color : red !important; */
+}
+
+/* Desktop: keep words intact while allowing line break between words only */
+@media (min-width: 992px) {
+  #sidebar .site-title,
+  .profile-wrapper .site-title,
+  .site-title {
+    white-space: normal !important;
+    word-break: keep-all !important;
+    overflow-wrap: normal !important;
+  }
 }
 
 /* Profile wrapper - ensure it allows text wrapping */
@@ -97,6 +108,15 @@
   /* Text transform: none, uppercase, lowercase, capitalize */
   text-transform: none !important;
   color: greenyellow !important;
+}
+
+/* Highlight LABS nav icon with a red “liquid” color */
+/* Highlight LABS nav icon when active/hovered */
+.site-nav a[href="/labs/"].active i,
+.site-nav a[href="/labs/"].active .fas,
+.site-nav a[href="/labs/"]:hover i,
+.site-nav a[href="/labs/"]:hover .fas {
+  color: #ff1f39 !important;
 }
 
 /* Desktop-only styles (screen width ≥ 992px) */
