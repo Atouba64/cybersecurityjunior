@@ -62,7 +62,7 @@ order: 1
         <!-- Categories Filter - Expandable Dropdown Style -->
         <div class="mb-2">
           <button 
-            class="category-trigger" 
+            class="filter-trigger category-trigger" 
             type="button"
             onclick="toggleCategoryPanel()"
             id="category-trigger"
@@ -109,7 +109,7 @@ order: 1
         <!-- Tags Filter - Expandable Cloud Style -->
         <div class="mb-2">
           <button 
-            class="tag-trigger" 
+            class="filter-trigger tag-trigger" 
             type="button"
             onclick="toggleTagPanel()"
             id="tag-trigger"
@@ -527,47 +527,52 @@ order: 1
 </script>
 
 <style>
-/* Category and Tag Triggers - Same Button Style */
-.category-trigger {
+/* Filter trigger base */
+.filter-trigger {
   width: 100%;
-  padding: 0.5rem 1rem;
+  /* padding: 0.9rem 1rem; */
   border: 1px solid #d4a574;
   background: var(--main-bg);
   color: var(--main-text-color);
-  border-radius: 6px;
-  font-size: 0.875rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: left;
+  display: block;
 }
 
-.category-trigger:hover,
-.tag-trigger:hover {
+.filter-trigger:hover {
   border-color: #c8955f;
   background: rgba(212, 165, 116, 0.05);
 }
 
-.category-trigger.active,
-.tag-trigger.active {
+.filter-trigger.active {
   border-color: #d4a574;
   background: rgba(212, 165, 116, 0.08);
   color: var(--main-text-color);
 }
 
-.category-trigger .trigger-icon,
-.tag-trigger .trigger-icon {
+.filter-trigger .trigger-icon {
   transition: transform 0.2s ease;
   font-size: 0.75rem;
 }
 
-.category-trigger.active .trigger-icon,
-.tag-trigger.active .trigger-icon {
+.filter-trigger.active .trigger-icon {
   transform: rotate(180deg);
 }
 
 /* Category and Tag Panels - Same Panel Style */
-/* .category-panel,
+.category-panel {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background: var(--main-bg);
+  border: 1px solid var(--main-border-color);
+  border-radius: 8px;
+  animation: slideDown 0.2s ease;
+}
+
 .tag-panel {
   margin-top: 0.5rem;
   padding: 1rem;
@@ -575,7 +580,7 @@ order: 1
   border: 1px solid var(--main-border-color);
   border-radius: 8px;
   animation: slideDown 0.2s ease;
-} */
+}
 
 @keyframes slideDown {
   from {
@@ -620,21 +625,6 @@ order: 1
   color: white;
   box-shadow: 0 2px 8px rgba(var(--bs-primary-rgb), 0.3);
 }
-
-.tag-trigger {
-  width: 100%;
-  padding: 0.2rem 1rem;
-  border: 1px solid #d4a574;
-  background: var(--main-bg);
-  color: var(--main-text-color);
-  border-radius: 6px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: left;
-}
-
 
 .tag-cloud {
   display: flex;

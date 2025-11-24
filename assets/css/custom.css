@@ -42,10 +42,10 @@
   /* Font style: normal or italic */
   font-style: normal !important;
   
-  /* Allow text to wrap to multiple lines */
+  /* Allow text to wrap naturally (break only at spaces) */
   white-space: normal !important;
-  word-wrap: break-word !important;
-  overflow-wrap: break-word !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
   
   /* Ensure full width is available */
   width: 100% !important;
@@ -54,6 +54,7 @@
   /* Prevent text overflow */
   overflow: visible !important;
   text-overflow: clip !important;
+  /* color : red !important; */
 }
 
 /* Profile wrapper - ensure it allows text wrapping */
@@ -98,3 +99,16 @@
   color: greenyellow !important;
 }
 
+/* Desktop-only styles (screen width ≥ 992px) */
+@media (min-width: 992px) {
+  #sidebar .site-title {
+    font-size: 1.1rem !important;
+    color : red !important;
+  }
+  
+  .profile-wrapper {
+    padding: 1.5rem 1rem;
+    color : red !important;
+  }
+  /* Add more desktop-specific tweaks here */
+}
