@@ -154,85 +154,83 @@ hide_title: true
       data-tags="{{ post.tags | join: '|' | downcase }}"
       data-date="{{ post.date | date: '%s' }}"
       data-read="{{ read_minutes }}">
-      <a href="{{ post.url | relative_url }}" class="post-preview row g-0 flex-md-row-reverse">
-        {% assign card_body_col = '12' %}
-
-        {% if post.image %}
-          {% assign src = post.image.path | default: post.image %}
-
-          {% if post.media_subpath %}
-            {% unless src contains '://' %}
-              {% assign src = post.media_subpath
-                | append: '/'
-                | append: src
-                | replace: '///', '/'
-                | replace: '//', '/'
-              %}
-            {% endunless %}
-          {% endif %}
-
-          {% if post.image.lqip %}
-            {% assign lqip = post.image.lqip %}
+      <a href="{{ post.url | relative_url }}" class="post-preview post-card-link">
+        <div class="post-card-inner d-flex flex-column flex-md-row">
+          {% if post.image %}
+            {% assign src = post.image.path | default: post.image %}
 
             {% if post.media_subpath %}
-              {% unless lqip contains 'data:' %}
-                {% assign lqip = post.media_subpath
+              {% unless src contains '://' %}
+                {% assign src = post.media_subpath
                   | append: '/'
-                  | append: lqip
+                  | append: src
                   | replace: '///', '/'
                   | replace: '//', '/'
                 %}
               {% endunless %}
             {% endif %}
 
-            {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
+            {% if post.image.lqip %}
+              {% assign lqip = post.image.lqip %}
+
+              {% if post.media_subpath %}
+                {% unless lqip contains 'data:' %}
+                  {% assign lqip = post.media_subpath
+                    | append: '/'
+                    | append: lqip
+                    | replace: '///', '/'
+                    | replace: '//', '/'
+                  %}
+                {% endunless %}
+              {% endif %}
+
+              {% assign lqip_attr = 'lqip="' | append: lqip | append: '"' %}
+            {% endif %}
+
+            {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+
+            <div class="post-card-image">
+              <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
+            </div>
           {% endif %}
 
-          {% assign alt = post.image.alt | xml_escape | default: 'Preview Image' %}
+          <div class="post-card-content">
+            <div class="card-body d-flex flex-column">
+              <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
 
-          <div class="col-md-5">
-            <img src="{{ src }}" alt="{{ alt }}" {{ lqip_attr }}>
-          </div>
-
-          {% assign card_body_col = '7' %}
-        {% endif %}
-
-        <div class="col-md-{{ card_body_col }}">
-          <div class="card-body d-flex flex-column">
-            <h1 class="card-title my-2 mt-md-0">{{ post.title }}</h1>
-
-            <div class="card-text content mt-0 mb-3">
-              <p>{% include post-summary.html %}</p>
-            </div>
-
-            <div class="post-meta flex-grow-1 d-flex align-items-end">
-              <div class="me-auto">
-                <!-- posted date -->
-                <i class="far fa-calendar fa-fw me-1"></i>
-                {% include datetime.html date=post.date lang=lang %}
-
-                <!-- categories -->
-                {% if post.categories.size > 0 %}
-                  <i class="far fa-folder-open fa-fw me-1"></i>
-                  <span class="categories">
-                    {% for category in post.categories %}
-                      {{ category }}
-                      {%- unless forloop.last -%},{%- endunless -%}
-                    {% endfor %}
-                  </span>
-                {% endif %}
+              <div class="card-text content mt-0 mb-3">
+                <p>{% include post-summary.html %}</p>
               </div>
 
-              {% if post.pin %}
-                <div class="pin ms-1">
-                  <i class="fas fa-thumbtack fa-fw"></i>
-                  <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+              <div class="post-meta flex-grow-1 d-flex align-items-end">
+                <div class="me-auto">
+                  <!-- posted date -->
+                  <i class="far fa-calendar fa-fw me-1"></i>
+                  {% include datetime.html date=post.date lang=lang %}
+
+                  <!-- categories -->
+                  {% if post.categories.size > 0 %}
+                    <i class="far fa-folder-open fa-fw me-1"></i>
+                    <span class="categories">
+                      {% for category in post.categories %}
+                        {{ category }}
+                        {%- unless forloop.last -%},{%- endunless -%}
+                      {% endfor %}
+                    </span>
+                  {% endif %}
                 </div>
-              {% endif %}
+
+                {% if post.pin %}
+                  <div class="pin ms-1">
+                    <i class="fas fa-thumbtack fa-fw"></i>
+                    <span>{{ site.data.locales[lang].post.pin_prompt }}</span>
+                  </div>
+                {% endif %}
+              </div>
+              <!-- .post-meta -->
             </div>
-            <!-- .post-meta -->
+            <!-- .card-body -->
           </div>
-          <!-- .card-body -->
         </div>
       </a>
     </article>
@@ -336,6 +334,115 @@ hide_title: true
   .btn-link:hover {
     color: var(--sidebar-active-color);
     opacity: 0.8;
+  }
+
+  /* Post Card Layout - Image on right (40%), Content on left (60%) */
+  .post-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+  }
+
+  .post-card-link:hover {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-card-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem; /* Slight space between image and content */
+  }
+
+  /* Content section - 60% width, on the left */
+  .post-card-content {
+    flex: 0 0 60%;
+    max-width: 60%;
+    min-width: 0; /* Prevent flex item from overflowing */
+    order: 1; /* Ensure content appears first (left side) */
+  }
+
+  /* Image section - 40% width, on the right */
+  .post-card-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+    min-width: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    order: 2; /* Ensure image appears second (right side) */
+    background-color: var(--main-bg, #f8f9fa);
+  }
+
+  .post-card-image img {
+    width: 100%;
+    height: 100%;
+    min-height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Ensure image container matches card height */
+  .card-wrapper .post-card-inner {
+    min-height: 200px;
+  }
+
+  /* When no image exists, content takes full width */
+  .post-card-inner:not(:has(.post-card-image)) .post-card-content {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Fallback for browsers that don't support :has() */
+  .post-card-content:only-child {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Mobile: stack vertically */
+  @media (max-width: 767.98px) {
+    .post-card-inner {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .post-card-content {
+      flex: 0 0 100%;
+      max-width: 100%;
+      order: 1;
+    }
+
+    .post-card-image {
+      flex: 0 0 auto;
+      max-width: 100%;
+      width: 100%;
+      max-height: 250px;
+      order: 2;
+    }
+
+    .post-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  /* Ensure card doesn't extend beyond container */
+  .card-wrapper {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .post-card-inner {
+    height: 100%;
+  }
+
+  /* Ensure consistent card height */
+  .card-wrapper .card {
+    height: 100%;
   }
 </style>
 
