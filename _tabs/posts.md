@@ -246,6 +246,11 @@ hide_title: true
 </div>
 
 <style>
+  /* Hide page title */
+  .dynamic-title {
+    display: none !important;
+  }
+
   /* Filter & Sort Panel Styling - Chirpy Theme Compatible */
   #filterSortPanel .card {
     border: 1px solid var(--border-color);
