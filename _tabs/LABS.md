@@ -1,7 +1,9 @@
 ---
 layout: page
-icon: fas fa-stream
+title: "LABS"
+icon: fas fa-flask
 order: 1
 permalink: /categories/
 ---
+
 

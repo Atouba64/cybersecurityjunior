@@ -528,10 +528,9 @@ order: 1
 
 <style>
 /* Category and Tag Triggers - Same Button Style */
-.category-trigger,
-.tag-trigger {
+.category-trigger {
   width: 100%;
-  padding: 0.9rem 1rem;
+  padding: 0.5rem 1rem;
   border: 1px solid #d4a574;
   background: var(--main-bg);
   color: var(--main-text-color);
@@ -568,7 +567,7 @@ order: 1
 }
 
 /* Category and Tag Panels - Same Panel Style */
-.category-panel,
+/* .category-panel,
 .tag-panel {
   margin-top: 0.5rem;
   padding: 1rem;
@@ -576,7 +575,7 @@ order: 1
   border: 1px solid var(--main-border-color);
   border-radius: 8px;
   animation: slideDown 0.2s ease;
-}
+} */
 
 @keyframes slideDown {
   from {
@@ -620,6 +619,20 @@ order: 1
   border-color: var(--bs-primary);
   color: white;
   box-shadow: 0 2px 8px rgba(var(--bs-primary-rgb), 0.3);
+}
+
+.tag-trigger {
+  width: 100%;
+  padding: 0.2rem 1rem;
+  border: 1px solid #d4a574;
+  background: var(--main-bg);
+  color: var(--main-text-color);
+  border-radius: 6px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
 }
 
 
