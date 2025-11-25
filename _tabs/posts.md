@@ -362,30 +362,31 @@ hide_title: true
    * ========================================================
    * 
    * To change the proportion between image and content:
-   * - Adjust .post-card-content flex value (default: 60%)
-   * - Adjust .post-card-image flex value (default: 40%)
+   * - Adjust .post-card-content flex value (default: 75%)
+   * - Adjust .post-card-image flex value (default: 25%)
    * 
    * Examples:
    * - 50/50 split: content 50%, image 50%
    * - 70/30 split: content 70%, image 30%
-   * - 30/70 split: content 30%, image 70%
+   * - 80/20 split: content 80%, image 20%
+   * - Current: 75/25 split (content 75%, image 25% - miniature)
    * 
    * Make sure the two percentages add up to 100%!
    * ========================================================
    */
   
-  /* Content section - 60% width, on the left */
+  /* Content section - 75% width, on the left (larger part for text/content) */
   .post-card-content {
-    flex: 0 0 60%; /* EDIT THIS: Change to adjust content width (0-100%) */
-    max-width: 60%; /* EDIT THIS: Must match flex value above */
+    flex: 0 0 75%; /* EDIT THIS: Change to adjust content width (0-100%) */
+    max-width: 75%; /* EDIT THIS: Must match flex value above */
     min-width: 0; /* Prevent flex item from overflowing */
     order: 1; /* Ensure content appears first (left side) */
   }
 
-  /* Image section - 40% width, on the right */
+  /* Image section - 25% width, on the right (smaller part for image miniature) */
   .post-card-image {
-    flex: 0 0 40%; /* EDIT THIS: Change to adjust image width (0-100%) */
-    max-width: 40%; /* EDIT THIS: Must match flex value above */
+    flex: 0 0 25%; /* EDIT THIS: Change to adjust image width (0-100%) */
+    max-width: 25%; /* EDIT THIS: Must match flex value above */
     min-width: 0;
     overflow: hidden;
     display: flex;
@@ -398,19 +399,19 @@ hide_title: true
   .post-card-image img {
     width: 100%;
     height: 100%;
-    min-height: 200px;
+    min-height: 150px; /* Reduced for miniature display */
     max-height: 100%;
-    object-fit: contain; /* Changed from 'cover' to 'contain' - shows full image without cropping */
+    object-fit: contain; /* Shows full image without cropping - perfect for miniature */
     object-position: center; /* Centers the image */
     display: block;
-    /* Maintain image quality */
+    /* Maintain image quality for miniature */
     image-rendering: -webkit-optimize-contrast;
     image-rendering: crisp-edges;
   }
 
   /* Ensure image container matches card height */
   .card-wrapper .post-card-inner {
-    min-height: 200px;
+    min-height: 180px; /* Adjusted for better proportion with smaller image */
   }
 
   /* When no image exists, content takes full width */
