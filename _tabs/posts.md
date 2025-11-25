@@ -356,22 +356,40 @@ hide_title: true
     gap: 0.75rem; /* Slight space between image and content */
   }
 
+  /* 
+   * ========================================================
+   * POST CARD IMAGE PROPORTIONS - EDIT HERE
+   * ========================================================
+   * 
+   * To change the proportion between image and content:
+   * - Adjust .post-card-content flex value (default: 60%)
+   * - Adjust .post-card-image flex value (default: 40%)
+   * 
+   * Examples:
+   * - 50/50 split: content 50%, image 50%
+   * - 70/30 split: content 70%, image 30%
+   * - 30/70 split: content 30%, image 70%
+   * 
+   * Make sure the two percentages add up to 100%!
+   * ========================================================
+   */
+  
   /* Content section - 60% width, on the left */
   .post-card-content {
-    flex: 0 0 60%;
-    max-width: 60%;
+    flex: 0 0 60%; /* EDIT THIS: Change to adjust content width (0-100%) */
+    max-width: 60%; /* EDIT THIS: Must match flex value above */
     min-width: 0; /* Prevent flex item from overflowing */
     order: 1; /* Ensure content appears first (left side) */
   }
 
   /* Image section - 40% width, on the right */
   .post-card-image {
-    flex: 0 0 40%;
-    max-width: 40%;
+    flex: 0 0 40%; /* EDIT THIS: Change to adjust image width (0-100%) */
+    max-width: 40%; /* EDIT THIS: Must match flex value above */
     min-width: 0;
     overflow: hidden;
     display: flex;
-    align-items: stretch;
+    align-items: center; /* Changed from stretch to center for better image display */
     justify-content: center;
     order: 2; /* Ensure image appears second (right side) */
     background-color: var(--main-bg, #f8f9fa);
@@ -381,8 +399,13 @@ hide_title: true
     width: 100%;
     height: 100%;
     min-height: 200px;
-    object-fit: cover;
+    max-height: 100%;
+    object-fit: contain; /* Changed from 'cover' to 'contain' - shows full image without cropping */
+    object-position: center; /* Centers the image */
     display: block;
+    /* Maintain image quality */
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
   }
 
   /* Ensure image container matches card height */
@@ -426,7 +449,9 @@ hide_title: true
     .post-card-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      max-height: 300px;
+      object-fit: contain; /* Changed to 'contain' - shows full image without cropping */
+      object-position: center;
     }
   }
 
