@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Encryption at Rest vs. In Transit: How Misunderstandingthe Basics Exposes Your Cloud Data"
+title: Encryption at Rest vs In Transit:Your Cloud Data are Exposed
 date: 2025-11-26T23:06:00.000Z
 categories:
     - Security
