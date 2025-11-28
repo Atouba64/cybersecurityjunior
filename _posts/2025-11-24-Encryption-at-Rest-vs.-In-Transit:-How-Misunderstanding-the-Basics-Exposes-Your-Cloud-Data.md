@@ -1,10 +1,15 @@
 ---
 layout: post
-title: "Encryption at Rest vs. In Transit: How Misunderstanding the Basics Exposes Your Cloud Data"
-date: 2025-11-24 6:00:00 -0400
-categories: [Technical, Security]
-tags: [Encryption]
-excerpt: "Is your cloud data actually secure, or just locked behind an open door? Learn the essential differences between Encryption at Rest and Encryption in Transit. Includes a practical guide on using Python (Boto3) to enforce encryption policies in AWS S3 to meet compliance standards."
+title: "Encryption at Rest vs. In Transit: How Misunderstandingthe Basics Exposes Your Cloud Data"
+date: 2025-11-26T23:06:00.000Z
+categories:
+    - Security
+    - Technical
+    - DevSecOps
+tags:
+    - Encryption
+excerpt: Is your cloud data actually secure, or just locked behind an open door? Learn the essential differences between Encryption at Rest and Encryption in Transit. Includes a practical guide on using Python (Boto3) to enforce encryption policies in AWS S3 to meet compliance standards.
+slug: encryption-rest-transit-misunderstandingthe-basics-exposes-cloud-data
 ---
 
 Imagine you have a million dollars in gold. You buy the most expensive, impenetrable safe in the world to store it in your vault. But then, to move it to the bank, you put the gold in a cardboard box and carry it down the street in an open wagon.

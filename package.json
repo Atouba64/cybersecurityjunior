@@ -1,0 +1,19 @@
+{
+  "name": "cybersecurityjunior",
+  "version": "1.0.0",
+  "description": "CybersecurityJunior Jekyll site with Stackbit integration",
+  "private": true,
+  "scripts": {
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "server": "bundle exec jekyll serve"
+  },
+  "dependencies": {
+    "@stackbit/types": "^0.6.0",
+    "@stackbit/cms-contentful": "^0.6.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
+

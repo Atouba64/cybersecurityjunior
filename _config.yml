@@ -185,6 +185,8 @@ exclude:
   - "pages/posts"
   - "feed.xml"
   - "assets/feed.xml"
+  - ".netlify"
+  - "posts/index.html"
 
 jekyll-archives:
   enabled: [categories, tags]
