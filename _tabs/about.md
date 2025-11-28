@@ -104,6 +104,6 @@ If you're on a similar journey—whether you're building your first security aut
 
 **Let's ship secure systems together.** 💻🛡️
 
----
+<!-- ---
 
-*Last updated: December 2025*
+*Last updated: December 2025* -->
