@@ -6,8 +6,13 @@
   "scripts": {
     "build": "bundle exec jekyll build",
     "serve": "bundle exec jekyll serve",
-    "server": "bundle exec jekyll serve"
+    "server": "bundle exec jekyll serve",
+    "dev": "bundle exec jekyll serve --livereload",
+    "clean": "rm -rf _site",
+    "rebuild": "npm run clean && bundle exec jekyll build",
+    "serve:network": "bundle exec jekyll serve --livereload --host 0.0.0.0"
   },
+  "_comment": "All Jekyll commands use 'bundle exec' to ensure version consistency with Gemfile.lock",
   "dependencies": {
     "@stackbit/types": "^0.6.0",
     "@stackbit/cms-contentful": "^0.6.0"
