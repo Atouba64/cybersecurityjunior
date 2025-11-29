@@ -3,7 +3,7 @@
   publish = "_site"
 
 [build.environment]
-  RUBY_VERSION = "3.4.1"
+  RUBY_VERSION = "3.3.0"
   JEKYLL_ENV = "production"
   # Disable Stackbit/Visual Editor - this is a Jekyll static site
   # Prevents Netlify from trying to start Stackbit dev server
