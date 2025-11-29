@@ -36,9 +36,11 @@ baseurl: "/subdirectory"  # Only if deploying to a subdirectory
 
 ### 3. Environment Inconsistencies
 
-**Problem**: Different Jekyll versions or plugin versions between local and production.
+**Problem**: Different Jekyll versions or plugin versions between local and production. The Jekyll version running locally might be different from the one used by your hosting provider (e.g., GitHub Pages uses specific versions and supported plugins).
 
-**Solution**: Always use `bundle exec`:
+**Solution**: 
+- **Use a Gemfile** to specify exact gems and versions (already configured ✅)
+- **Always use `bundle exec`**:
 ```bash
 # ✅ Correct - uses versions from Gemfile.lock
 bundle exec jekyll serve
@@ -53,6 +55,14 @@ bundle exec jekyll --version
 # Compare with your hosting provider's Jekyll version
 ```
 
+**If issues persist**:
+```bash
+# Delete lock file and reinstall
+rm Gemfile.lock
+bundle install
+bundle exec jekyll serve
+```
+
 ### 4. CSS/Asset Loading Issues
 
 **Problem**: CSS or other assets not loading correctly.
@@ -63,8 +73,12 @@ bundle exec jekyll --version
 3. Network tab in browser DevTools to see failed requests
 
 **Solution**: 
-- Ensure `baseurl` is correct
-- Check that asset paths use `{{ site.baseurl }}/assets/...` in templates
+- Ensure `baseurl` is correct in `_config.yml`
+- **Always use Jekyll's built-in filters** for linking assets and pages:
+  - `{{ '/styles.css' | relative_url }}` - For relative URLs
+  - `{{ site.baseurl }}{% link styles.css %}` - Alternative method
+  - `{{ '/path' | absolute_url }}` - For absolute URLs (use sparingly)
+- These filters ensure the correct path is generated regardless of environment (local vs production)
 - Clear browser cache and hard refresh
 
 ### 5. PWA Cache Issues
@@ -84,6 +98,51 @@ pwa:
 - Clear service worker cache in browser DevTools → Application → Service Workers
 - Unregister service worker if testing locally
 
+### 6. Build/Serve Environment Differences
+
+**Problem**: The default Jekyll environment when running `jekyll serve` is `development`, while a live deployment is typically `production`. This can cause differences in how the site renders (e.g., HTML compression is disabled in development).
+
+**Solution**: Test your local build in the production environment:
+```bash
+# Test with production environment (matches live deployment)
+JEKYLL_ENV=production bundle exec jekyll serve
+
+# Or use the npm script (includes live reload):
+npm run dev:prod
+
+# On Windows (PowerShell):
+$env:JEKYLL_ENV="production"; bundle exec jekyll serve
+```
+
+This helps catch environment-specific issues before deployment, such as:
+- HTML compression settings
+- Asset optimization differences
+- Analytics or tracking script behavior
+
+## Debugging Steps
+
+### Using Browser Developer Tools
+
+When troubleshooting differences between local and live sites:
+
+1. **Inspect the Live Site**: 
+   - Open your live site in a browser
+   - Right-click and select "Inspect" to open developer tools
+
+2. **Check the Console Tab**:
+   - Often reveals errors related to loading CSS, JavaScript, or other assets
+   - Shows the exact incorrect URL Jekyll is trying to use
+   - Look for 404 errors or failed resource loads
+
+3. **Check the Network Tab**:
+   - Shows 404 Not Found errors for missing files
+   - Helps pinpoint path issues
+   - Compare request URLs with actual file locations
+
+4. **Verify File Paths**:
+   - Compare the paths in the developer tools with the actual location of files in your generated `_site` folder
+   - Ensure paths match expected structure
+
 ## Development Best Practices
 
 ### Use Live Reload for Development
@@ -99,16 +158,22 @@ This automatically:
 
 ### Force Rebuild
 
-If changes aren't showing:
+If changes aren't showing or you're experiencing persistent issues:
 
 ```bash
 # Stop the server (Ctrl+C)
-# Clean the build directory
+# Clean the build directory and lock file
 rm -rf _site
+rm Gemfile.lock  # Optional: forces gem reinstall
+
+# Reinstall dependencies (if Gemfile.lock was deleted)
+bundle install
 
 # Rebuild and serve
 bundle exec jekyll serve --livereload
 ```
+
+**Note**: Deleting `_site` and `Gemfile.lock`, then running `bundle install` and rebuilding can resolve many caching and version-related issues.
 
 ### Check for Build Errors
 
@@ -131,14 +196,17 @@ Then access via: `http://YOUR_IP_ADDRESS:4000`
 
 When local site looks different from live:
 
-- [ ] Hard refresh browser (Cmd+Shift+R / Ctrl+Shift+R)
-- [ ] Try incognito/private browsing mode
-- [ ] Check browser console for errors
-- [ ] Verify `baseurl` in `_config.yml` is correct
-- [ ] Use `bundle exec jekyll serve` (not just `jekyll serve`)
-- [ ] Clear `_site` directory and rebuild
-- [ ] Check that you're using `npm run dev` for live reload
-- [ ] Verify Jekyll version matches production
+- [ ] **Hard refresh browser** (Cmd+Shift+R / Ctrl+Shift+R)
+- [ ] **Try incognito/private browsing mode** (eliminates cache issues)
+- [ ] **Check browser console** for errors (F12 → Console tab)
+- [ ] **Check browser network tab** for 404 errors (F12 → Network tab)
+- [ ] **Verify `baseurl` in `_config.yml`** is correct (`""` for root domain)
+- [ ] **Use `bundle exec jekyll serve`** (not just `jekyll serve`)
+- [ ] **Test with production environment**: `JEKYLL_ENV=production bundle exec jekyll serve`
+- [ ] **Clear `_site` directory** and rebuild
+- [ ] **Use `--livereload` flag** for automatic refresh: `bundle exec jekyll serve --livereload`
+- [ ] **Verify asset paths use Jekyll filters** (`relative_url`, `absolute_url`)
+- [ ] **Verify Jekyll version matches production** (check Gemfile.lock)
 
 ## Common Error Messages
 

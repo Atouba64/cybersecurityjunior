@@ -8,6 +8,7 @@
     "serve": "bundle exec jekyll serve",
     "server": "bundle exec jekyll serve",
     "dev": "bundle exec jekyll serve --livereload",
+    "dev:prod": "JEKYLL_ENV=production bundle exec jekyll serve --livereload",
     "clean": "rm -rf _site",
     "rebuild": "npm run clean && bundle exec jekyll build",
     "serve:network": "bundle exec jekyll serve --livereload --host 0.0.0.0"
