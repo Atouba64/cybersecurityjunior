@@ -1,0 +1,4 @@
+# Ignore Stackbit config - not needed for Jekyll deployment
+stackbit.config.ts
+.netlify/
+

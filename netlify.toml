@@ -5,7 +5,11 @@
 [build.environment]
   RUBY_VERSION = "3.3"
   JEKYLL_ENV = "production"
+  # Disable Stackbit/Visual Editor - this is a Jekyll static site
+  # Prevents Netlify from trying to start Stackbit dev server
+  NETLIFY_NEXT_PLUGIN_SKIP = "true"
 
 # Jekyll is a static site generator - all content is pre-rendered at build time
 # No server-side processing required - perfect for static hosting platforms
+# Stackbit config exists but is not needed for deployment - Netlify will ignore it
 

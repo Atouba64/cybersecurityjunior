@@ -183,6 +183,7 @@ exclude:
   - LICENSE
   - purgecss.js
   - "*.config.js"
+  - "stackbit.config.ts"
   - "package*.json"
   - ".DS_Store"
   - "_old_site"
