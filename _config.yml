@@ -187,7 +187,6 @@ exclude:
   - "assets/feed.xml"
   - ".netlify"
   - "posts/index.html"
-  - "about.html"
   - "contact.html"
   - "faq.html"
   - "my-journey.html"
