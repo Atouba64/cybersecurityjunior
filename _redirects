@@ -1,6 +1,0 @@
-# Netlify redirects file
-# This file will be copied to _site/ during Jekyll build
-
-# Ensure /about redirects to /about/ with trailing slash
-/about /about/ 301
-

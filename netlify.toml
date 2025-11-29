@@ -1,16 +1,9 @@
 [build]
-  command = "ruby -v && bundle install && bundle exec jekyll build"
-  publish = "_site"
+  command = "echo 'No build step required - static site'"
+  publish = "."
 
 [build.environment]
-  RUBY_VERSION = "3.3.0"
-  JEKYLL_ENV = "production"
-  # Disable Stackbit/Visual Editor - this is a Jekyll static site
-  # Prevents Netlify from trying to start Stackbit dev server
+  # Disable Stackbit/Visual Editor
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
   NETLIFY_PLUGIN_VISUAL_EDITOR_DISABLED = "true"
-
-# Jekyll is a static site generator - all content is pre-rendered at build time
-# No server-side processing required - perfect for static hosting platforms
-# Stackbit config exists but is not needed for deployment - Netlify will ignore it
 
