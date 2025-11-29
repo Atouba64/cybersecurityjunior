@@ -195,6 +195,10 @@ exclude:
   - "signup.html"
   - "terms-conditions.html"
 
+# Ensure _redirects file is included in build
+include:
+  - _redirects
+
 jekyll-archives:
   enabled: [categories, tags]
   layouts:

@@ -6,3 +6,11 @@
   RUBY_VERSION = "3.3"
   JEKYLL_ENV = "production"
 
+# Redirects for Jekyll directory-based URLs
+# Ensure trailing slashes work correctly
+[[redirects]]
+  from = "/about"
+  to = "/about/"
+  status = 301
+  force = true
+
