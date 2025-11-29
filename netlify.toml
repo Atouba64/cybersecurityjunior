@@ -8,6 +8,7 @@
   # Disable Stackbit/Visual Editor - this is a Jekyll static site
   # Prevents Netlify from trying to start Stackbit dev server
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
+  NETLIFY_PLUGIN_VISUAL_EDITOR_DISABLED = "true"
 
 # Jekyll is a static site generator - all content is pre-rendered at build time
 # No server-side processing required - perfect for static hosting platforms
