@@ -1,9 +1,9 @@
 [build]
-  command = "bundle install && bundle exec jekyll build"
+  command = "ruby -v && bundle install && bundle exec jekyll build"
   publish = "_site"
 
 [build.environment]
-  RUBY_VERSION = "3.3"
+  RUBY_VERSION = "3.3.0"
   JEKYLL_ENV = "production"
   # Disable Stackbit/Visual Editor - this is a Jekyll static site
   # Prevents Netlify from trying to start Stackbit dev server
