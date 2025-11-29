@@ -1,4 +1,9 @@
 # The Site Configuration
+# 
+# Static Site Configuration:
+# Jekyll is a static site generator - all content is pre-rendered at build time.
+# This site is configured for static deployment to GitHub Pages, Netlify, or any static hosting platform.
+# No server-side processing is required - perfect for static hosting.
 
 # Import the theme
 theme: jekyll-theme-chirpy
