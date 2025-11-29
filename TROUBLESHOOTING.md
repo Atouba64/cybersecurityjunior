@@ -227,3 +227,29 @@ bundle exec jekyll serve
 ### "404 for assets"
 **Solution**: Check `baseurl` configuration and ensure asset paths are correct.
 
+### "no acceptor (port is in use or requires root privileges)"
+**Problem**: The live reload port (35729) or Jekyll server port (4000) is already in use by another Jekyll process.
+
+**Solution**: Kill existing Jekyll processes:
+```bash
+# Quick solution - use the npm script
+npm run kill
+
+# Or manually find and kill processes
+pkill -f 'jekyll serve'
+
+# Or kill specific ports
+lsof -ti:4000 | xargs kill -9
+lsof -ti:35729 | xargs kill -9
+```
+
+**Prevention**: Use the clean start script:
+```bash
+npm run dev:clean  # Kills old processes and starts fresh
+```
+
+**Alternative**: Use a different port:
+```bash
+bundle exec jekyll serve --livereload --port 4001
+```
+
