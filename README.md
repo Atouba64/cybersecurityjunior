@@ -1,5 +1,7 @@
 # CybersecurityJunior
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/30672e97-95b7-462d-be4b-9afbd391645d/deploy-status)](https://app.netlify.com/projects/cybersecurityjunior/deploys)
+
 A Jekyll site using the Chirpy theme for cybersecurity content and blog posts.
 
 ## Version Management
