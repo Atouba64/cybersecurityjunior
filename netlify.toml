@@ -1,15 +1,13 @@
 [build]
-  # Copy static files to _site directory
-  command = "npm run build"
+  # Build with Jekyll (requires Ruby/Bundler)
+  command = "bundle install && bundle exec jekyll build"
   # Publish from _site directory
   publish = "_site"
 
 [build.environment]
-  # Disable dependency installation and auto-detection
+  RUBY_VERSION = "3.3.0"
+  JEKYLL_ENV = "production"
+  # Disable Stackbit/Visual Editor
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
   NETLIFY_PLUGIN_VISUAL_EDITOR_DISABLED = "true"
-  # Explicitly prevent Ruby/Bundler installation
-  SKIP_RUBY_BUNDLER_INSTALL = "true"
-  # Prevent npm install from running
-  NPM_FLAGS = "--ignore-scripts"
 

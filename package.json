@@ -17,8 +17,8 @@
   },
   "_comment": "All Jekyll commands use 'bundle exec' to ensure version consistency with Gemfile.lock",
   "dependencies": {
-    "@stackbit/types": "^0.6.0",
-    "@stackbit/cms-contentful": "^0.6.0"
+    "@stackbit/types": "^2.1.14",
+    "@stackbit/cms-contentful": "^1.0.33"
   },
   "engines": {
     "node": ">=18.0.0"

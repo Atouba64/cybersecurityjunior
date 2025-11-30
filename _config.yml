@@ -70,8 +70,11 @@ theme_mode:
 # The CDN endpoint for media resources
 cdn:
 
-# the avatar on sidebar
-avatar: /assets/img/avatar.png
+# the avatar on sidebar (using logo)
+avatar: /assets/img/cybersecurityjunior.png
+
+# Site logo (used in header and favicon)
+logo: /assets/img/cybersecurityjunior.png
 
 # The URL of the site-wide social preview image
 social_preview_image:
