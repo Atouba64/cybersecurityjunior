@@ -1,8 +1,9 @@
 # CybersecurityJunior
 
+[![Deploy Jekyll site to Pages](https://github.com/Atouba64/cybersecurityjunior/actions/workflows/pages-deploy.yml/badge.svg?branch=main)](https://github.com/Atouba64/cybersecurityjunior/actions/workflows/pages-deploy.yml)
 [![Netlify Status](https://api.netlify.com/api/v1/badges/30672e97-95b7-462d-be4b-9afbd391645d/deploy-status)](https://app.netlify.com/projects/cybersecurityjunior/deploys)
 
-A static website for cybersecurity content and blog posts.
+A Jekyll static website for cybersecurity content and blog posts using the Chirpy theme.
 
 ## Overview
 
@@ -10,38 +11,38 @@ This is a static website containing cybersecurity resources, blog posts, and edu
 
 ## Development
 
-This is a static site - no build process required. Simply open the HTML files directly or serve them with any static file server.
+This is a Jekyll static site using the Chirpy theme. Build the site locally before serving.
 
 ### Local Development
 
-You can use any simple HTTP server to preview the site locally:
-
 ```bash
-# Using Python
-python -m http.server 8000
+# Install dependencies
+bundle install
 
-# Using Node.js (http-server)
-npx http-server
+# Build the site
+bundle exec jekyll build
 
-# Using PHP
-php -S localhost:8000
+# Serve locally with live reload
+bundle exec jekyll serve --livereload
+# Or use npm scripts:
+npm run dev
 ```
 
-Then open http://localhost:8000 in your browser.
+Then open http://localhost:4000 in your browser.
 
 ## Deployment
 
-The site can be deployed to:
+The site is automatically deployed to:
+- **GitHub Pages** - Automatic deployment via GitHub Actions on push to `main` branch
 - **Netlify** - Configured for automatic deployment
-- **GitHub Pages** - Push HTML files directly
-- Any static hosting service
 
 ## Project Structure
 
-- `index.html` - Homepage
-- `pages/` - Additional pages
-- `assets/` - CSS, images, and JavaScript files
-- `legal/` - Legal pages (privacy policy, terms, etc.)
+- `_posts/` - Blog posts (Markdown files)
+- `_tabs/` - Navigation tabs
+- `_config.yml` - Jekyll configuration
+- `assets/img/` - Images (logo, avatar, etc.)
+- `_site/` - Generated static site (created by Jekyll build)
 
 ## License
 
