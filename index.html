@@ -1,5 +1,142 @@
----
-layout: home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CybersecurityJunior - Start Your Journey into Cybersecurity Today</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #533483 75%, #7209b7 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .glass-card {
+            background: rgba(30, 30, 30, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="text-gray-100">
+    <!-- Header -->
+    <header class="bg-gray-900 bg-opacity-50 backdrop-blur-md border-b border-gray-700 sticky top-0 z-50">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img src="assets/cybersecurityjunior.png" alt="CybersecurityJunior Logo" class="h-10 w-10 object-contain">
+                        <span class="text-2xl font-bold text-white">Cybersecurity<span class="text-blue-400">Junior</span></span>
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="my-journey.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">My Journey</a>
+                    <a href="faq.html" class="text-gray-300 hover:text-white px-3 py-2 rounded-md text-sm font-medium transition-colors">FAQ</a>
+                    <a href="contact.html" class="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </header>
 
-<!-- This file uses the home layout which generates the post list -->
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <!-- Hero Section -->
+        <div class="text-center mb-16">
+            <h1 class="text-5xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                Start Your Journey into Cybersecurity Today
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                A living documentation of the journey from IT generalist to cloud security and DevSecOps engineer. 
+                Learn, build, and grow with real-world examples.
+            </p>
+            <div class="flex justify-center space-x-4">
+                <a href="my-journey.html" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+                    Explore My Journey
+                </a>
+                <a href="contact.html" class="bg-gray-700 hover:bg-gray-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors shadow-lg">
+                    Get in Touch
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-16">
+            <div class="glass-card rounded-xl p-6">
+                <h2 class="text-2xl font-bold mb-4 text-blue-400">📚 Learn</h2>
+                <p class="text-gray-300">
+                    Deep dives into AWS security, infrastructure automation, and cybersecurity fundamentals.
+                </p>
+            </div>
+            <div class="glass-card rounded-xl p-6">
+                <h2 class="text-2xl font-bold mb-4 text-purple-400">🛠️ Build</h2>
+                <p class="text-gray-300">
+                    Hands-on automation scripts and real-world projects you can use and adapt.
+                </p>
+            </div>
+            <div class="glass-card rounded-xl p-6">
+                <h2 class="text-2xl font-bold mb-4 text-green-400">💼 Grow</h2>
+                <p class="text-gray-300">
+                    Career transition guides, interview strategies, and portfolio building tips.
+                </p>
+            </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="glass-card rounded-xl p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center">Quick Links</h2>
+            <div class="grid md:grid-cols-2 gap-6">
+                <a href="my-journey.html" class="block p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
+                    <h3 class="text-xl font-semibold mb-2">My Journey</h3>
+                    <p class="text-gray-400">Read about my transition into cybersecurity</p>
+                </a>
+                <a href="faq.html" class="block p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
+                    <h3 class="text-xl font-semibold mb-2">FAQ</h3>
+                    <p class="text-gray-400">Common questions and answers</p>
+                </a>
+                <a href="contact.html" class="block p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
+                    <h3 class="text-xl font-semibold mb-2">Contact</h3>
+                    <p class="text-gray-400">Get in touch with me</p>
+                </a>
+                <a href="pages/posts/" class="block p-4 bg-gray-800 rounded-lg hover:bg-gray-700 transition-colors">
+                    <h3 class="text-xl font-semibold mb-2">Posts</h3>
+                    <p class="text-gray-400">Browse all technical posts and tutorials</p>
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 bg-opacity-50 backdrop-blur-md border-t border-gray-700 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <img src="assets/cybersecurityjunior.png" alt="CybersecurityJunior Logo" class="h-10 w-10 object-contain">
+                        <span class="text-2xl font-bold text-white">Cybersecurity<span class="text-blue-400">Junior</span></span>
+                    </a>
+                </div>
+                <div class="flex flex-wrap justify-center gap-6 mb-6 md:mb-0 text-sm">
+                    <a href="my-journey.html" class="text-gray-400 hover:text-white transition-colors">My Journey</a>
+                    <a href="faq.html" class="text-gray-400 hover:text-white transition-colors">FAQ</a>
+                    <a href="contact.html" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+                    <a href="legal/privacy-policy.html" class="text-gray-400 hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="legal/terms-conditions.html" class="text-gray-400 hover:text-white transition-colors">Terms & Conditions</a>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center text-sm text-gray-400">
+                <p>&copy; 2025 CybersecurityJunior. All rights reserved.</p>
+                <p class="mt-1">Documenting our journey, one post at a time.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

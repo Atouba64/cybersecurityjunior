@@ -1,14 +1,16 @@
 [build]
-  # No build command - this is a static site with no dependencies
-  command = ""
-  publish = "."
+  command = "bundle install && bundle exec jekyll build"
+  publish = "_site"
 
 [build.environment]
-  # Disable dependency installation and auto-detection
+  RUBY_VERSION = "3.4.1"
+  JEKYLL_ENV = "production"
+  # Disable Stackbit/Visual Editor - this is a Jekyll static site
+  # Prevents Netlify from trying to start Stackbit dev server
   NETLIFY_NEXT_PLUGIN_SKIP = "true"
   NETLIFY_PLUGIN_VISUAL_EDITOR_DISABLED = "true"
-  # Explicitly prevent Ruby/Bundler installation
-  SKIP_RUBY_BUNDLER_INSTALL = "true"
-  # Prevent npm install from running
-  NPM_FLAGS = "--ignore-scripts"
+
+# Jekyll is a static site generator - all content is pre-rendered at build time
+# No server-side processing required - perfect for static hosting platforms
+# Stackbit config exists but is not needed for deployment - Netlify will ignore it
 

@@ -1,0 +1,215 @@
+# The Site Configuration
+# 
+# Static Site Configuration:
+# Jekyll is a static site generator - all content is pre-rendered at build time.
+# This site is configured for static deployment to GitHub Pages, Netlify, or any static hosting platform.
+# No server-side processing is required - perfect for static hosting.
+
+# Import the theme
+theme: jekyll-theme-chirpy
+
+# The language of the webpage
+lang: en
+
+# Change to your timezone
+timezone: America/New_York
+
+# jekyll-seo-tag settings
+title: CybersecurityJunior
+tagline: Start Your Journey into Cybersecurity Today
+description: >-
+  From beginner tips and career transitions to advanced homelabs. Follow my journey and learn with me as I navigate the world of cyber.
+
+# Fill in the protocol & hostname for your site.
+url: "https://cybersecurityjunior.com"
+github:
+  username: Atouba64
+
+twitter:
+  username:
+
+social:
+  name: Mabele Liango
+  email:
+  links:
+    - https://github.com/Atouba64
+
+# Site Verification Settings
+webmaster_verifications:
+  google:
+  bing:
+  alexa:
+  yandex:
+  baidu:
+  facebook:
+
+# Web Analytics Settings
+analytics:
+  google:
+    id:
+  goatcounter:
+    id:
+  umami:
+    id:
+    domain:
+  matomo:
+    id:
+    domain:
+  cloudflare:
+    id:
+  fathom:
+    id:
+
+# Page views settings
+pageviews:
+  provider:
+
+# Prefer color scheme setting (empty = both light and dark with toggle)
+theme_mode:
+
+# The CDN endpoint for media resources
+cdn:
+
+# the avatar on sidebar
+avatar: /assets/img/avatar.png
+
+# The URL of the site-wide social preview image
+social_preview_image:
+
+# boolean type, the global switch for TOC in posts.
+toc: true
+
+comments:
+  provider:
+  disqus:
+    shortname:
+  utterances:
+    repo:
+    issue_term:
+  giscus:
+    repo:
+    repo_id:
+    category:
+    category_id:
+    mapping:
+    strict:
+    input_position:
+    lang:
+    reactions_enabled:
+
+# Self-hosted static assets
+assets:
+  self_host:
+    enabled:
+    env:
+
+pwa:
+  enabled: true
+  cache:
+    enabled: true
+    deny_paths:
+
+paginate: 6
+
+# The base URL of your site
+baseurl: ""
+
+# ------------ The following options are not recommended to be modified ------------------
+
+kramdown:
+  footnote_backlink: "&#8617;&#xfe0e;"
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: highlight
+    span:
+      line_numbers: false
+    block:
+      line_numbers: true
+      start_line: 1
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jekyll-archives
+
+collections:
+  tabs:
+    output: true
+    sort_by: order
+  posts:
+    output: true
+    permalink: /posts/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      comments: true
+      toc: true
+      permalink: /posts/:title/
+  - scope:
+      path: _drafts
+    values:
+      comments: false
+  - scope:
+      path: ""
+      type: tabs
+    values:
+      layout: page
+      permalink: /:title/
+
+sass:
+  style: compressed
+
+compress_html:
+  clippings: all
+  comments: all
+  endings: all
+  profile: false
+  blanklines: false
+  ignore:
+    envs: [development]
+
+exclude:
+  - "*.gem"
+  - "*.gemspec"
+  - docs
+  - tools
+  - README.md
+  - LICENSE
+  - purgecss.js
+  - "*.config.js"
+  - "stackbit.config.ts"
+  - "package*.json"
+  - ".DS_Store"
+  - "_old_site"
+  - "backup"
+  - "pages/posts"
+  - "feed.xml"
+  - "assets/feed.xml"
+  - ".netlify"
+  - "posts/index.html"
+  - "contact.html"
+  - "faq.html"
+  - "my-journey.html"
+  - "privacy-policy.html"
+  - "signin.html"
+  - "signup.html"
+  - "terms-conditions.html"
+
+# Ensure _redirects file is included in build
+include:
+  - _redirects
+
+jekyll-archives:
+  enabled: [categories, tags]
+  layouts:
+    category: category
+    tag: tag
+  permalinks:
+    tag: /tags/:name/
+    category: /categories/:name/
