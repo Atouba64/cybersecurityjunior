@@ -45,12 +45,9 @@
       <button type="button" class="btn btn-link nav-link" aria-label="Switch Mode" id="mode-toggle">
         <i class="fas fa-adjust"></i>
       </button>
-
-      {% if site.data.contact.size > 0 %}
-        <span class="icon-border"></span>
-      {% endif %}
     {% endunless %}
 
+    {% assign first_contact = true %}
     {% for entry in site.data.contact %}
       {%- assign url = null -%}
 
@@ -81,6 +78,14 @@
       {% endcase %}
 
       {% if url %}
+        {% if first_contact %}
+          {% unless site.theme_mode %}
+            <span class="icon-border"></span>
+          {% endunless %}
+          {% assign first_contact = false %}
+        {% else %}
+          <span class="icon-border"></span>
+        {% endif %}
         <a
           href="{{ url }}"
           aria-label="{{ entry.type }}"
