@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "CybersecurityJunior static website",
   "private": true,
-  "scripts": {},
+  "scripts": {
+    "server": "python3 -m http.server 8000 || python -m http.server 8000",
+    "serve": "npm run server",
+    "dev": "npm run server",
+    "start": "npm run server"
+  },
   "engines": {
     "node": ">=18.0.0"
   }
