@@ -188,18 +188,10 @@ exclude:
   - ".DS_Store"
   - "_old_site"
   - "backup"
-  - "pages/posts"
   - "feed.xml"
   - "assets/feed.xml"
   - ".netlify"
   - "posts/index.html"
-  - "contact.html"
-  - "faq.html"
-  - "my-journey.html"
-  - "privacy-policy.html"
-  - "signin.html"
-  - "signup.html"
-  - "terms-conditions.html"
 
 # Ensure _redirects file is included in build
 include:

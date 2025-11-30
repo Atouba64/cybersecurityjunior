@@ -1,8 +1,8 @@
 [build]
-  # No build command - this is a pure static site
-  command = ""
-  # Publish from root directory (same as localhost)
-  publish = "."
+  # Copy static files to _site directory
+  command = "npm run build"
+  # Publish from _site directory
+  publish = "_site"
 
 [build.environment]
   # Disable dependency installation and auto-detection

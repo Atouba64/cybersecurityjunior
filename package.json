@@ -1,13 +1,24 @@
 {
   "name": "cybersecurityjunior",
   "version": "1.0.0",
-  "description": "CybersecurityJunior static website",
+  "description": "CybersecurityJunior Jekyll site with Stackbit integration",
   "private": true,
   "scripts": {
-    "server": "python3 -m http.server 8000 || python -m http.server 8000",
-    "serve": "npm run server",
-    "dev": "npm run server",
-    "start": "npm run server"
+    "build": "bundle exec jekyll build",
+    "serve": "bundle exec jekyll serve",
+    "server": "bundle exec jekyll serve",
+    "dev": "bundle exec jekyll serve --livereload",
+    "dev:prod": "JEKYLL_ENV=production bundle exec jekyll serve --livereload",
+    "clean": "rm -rf _site",
+    "rebuild": "npm run clean && bundle exec jekyll build",
+    "serve:network": "bundle exec jekyll serve --livereload --host 0.0.0.0",
+    "kill": "pkill -f 'jekyll serve' || echo 'No Jekyll processes found'",
+    "dev:clean": "npm run kill && sleep 1 && npm run dev"
+  },
+  "_comment": "All Jekyll commands use 'bundle exec' to ensure version consistency with Gemfile.lock",
+  "dependencies": {
+    "@stackbit/types": "^0.6.0",
+    "@stackbit/cms-contentful": "^0.6.0"
   },
   "engines": {
     "node": ">=18.0.0"
