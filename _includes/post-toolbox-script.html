@@ -1,0 +1,155 @@
+<script>
+(function() {
+  let originalPosts = [];
+  let originalOrder = [];
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    const postList = document.getElementById('post-list');
+    if (postList) {
+      const articles = Array.from(postList.querySelectorAll('article.card-wrapper'));
+      originalPosts = articles.map((article, index) => {
+        const titleEl = article.querySelector('h1.card-title');
+        const dateEl = article.querySelector('time');
+        const categoryLinks = article.querySelectorAll('a[href^="/categories/"]');
+        // Also check for categories in the post-meta section
+        const categoryText = article.querySelector('.post-meta .categories')?.textContent || '';
+        const categoriesFromText = categoryText.split(',').map(c => c.trim()).filter(Boolean);
+        const categoriesFromLinks = Array.from(categoryLinks).map(link => link.textContent.trim()).filter(Boolean);
+        
+        return {
+          element: article,
+          originalIndex: index,
+          title: titleEl?.textContent?.trim() || '',
+          date: dateEl?.getAttribute('datetime') || dateEl?.textContent?.trim() || '',
+          categories: [...new Set([...categoriesFromLinks, ...categoriesFromText])],
+          visible: true
+        };
+      });
+      originalOrder = [...originalPosts];
+    }
+  });
+
+  window.toggleToolbox = function() {
+    const content = document.getElementById('toolbox-content');
+    const icon = document.getElementById('toolbox-icon');
+    const toggle = document.getElementById('toolbox-toggle');
+    
+    if (content.style.display === 'none') {
+      content.style.display = 'block';
+      icon.classList.remove('fa-chevron-down');
+      icon.classList.add('fa-chevron-up');
+      toggle.setAttribute('aria-expanded', 'true');
+    } else {
+      content.style.display = 'none';
+      icon.classList.remove('fa-chevron-up');
+      icon.classList.add('fa-chevron-down');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+  };
+
+  window.updateFilterVisual = function() {
+    document.querySelectorAll('.toolbox-checkbox').forEach(label => {
+      const checkbox = label.querySelector('.filter-category');
+      if (checkbox.checked) {
+        label.classList.add('active');
+      } else {
+        label.classList.remove('active');
+      }
+    });
+  };
+
+  window.updateSortVisual = function() {
+    document.querySelectorAll('.toolbox-radio').forEach(label => {
+      const radio = label.querySelector('input[name="sort-option"]');
+      if (radio.checked) {
+        label.classList.add('active');
+      } else {
+        label.classList.remove('active');
+      }
+    });
+  };
+
+  window.applyFilters = function() {
+    const selectedCategories = Array.from(document.querySelectorAll('.filter-category:checked'))
+      .map(cb => cb.value);
+    const sortOption = document.querySelector('input[name="sort-option"]:checked')?.value || 'date-desc';
+
+    const postList = document.getElementById('post-list');
+    if (!postList) return;
+
+    // Filter and sort posts
+    let filteredPosts = originalPosts.map(post => {
+      if (selectedCategories.length === 0) {
+        post.visible = true;
+      } else {
+        post.visible = selectedCategories.some(cat => post.categories.includes(cat));
+      }
+      return post;
+    }).filter(post => post.visible);
+
+    // Sort posts
+    filteredPosts.sort((a, b) => {
+      switch(sortOption) {
+        case 'date-desc':
+          return new Date(b.date || 0) - new Date(a.date || 0);
+        case 'date-asc':
+          return new Date(a.date || 0) - new Date(b.date || 0);
+        case 'title-asc':
+          return (a.title || '').localeCompare(b.title || '');
+        case 'title-desc':
+          return (b.title || '').localeCompare(a.title || '');
+        default:
+          return 0;
+      }
+    });
+
+    // Hide all posts first
+    originalPosts.forEach(post => {
+      post.element.style.display = 'none';
+    });
+
+    // Show and reorder filtered posts
+    filteredPosts.forEach(post => {
+      post.element.style.display = '';
+      postList.appendChild(post.element);
+    });
+  };
+
+  window.clearFilters = function() {
+    // Clear checkboxes
+    document.querySelectorAll('.filter-category').forEach(cb => {
+      cb.checked = false;
+    });
+    updateFilterVisual();
+
+    // Reset sort to default
+    const defaultSort = document.querySelector('input[name="sort-option"][value="date-desc"]');
+    if (defaultSort) {
+      defaultSort.checked = true;
+      updateSortVisual();
+    }
+
+    // Restore original posts
+    const postList = document.getElementById('post-list');
+    if (postList) {
+      originalPosts.forEach(post => {
+        post.element.style.display = '';
+      });
+      
+      // Restore original order
+      originalOrder.forEach(post => {
+        postList.appendChild(post.element);
+      });
+    }
+  };
+
+  // Initialize sort visual state
+  document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(() => {
+      updateSortVisual();
+    }, 100);
+  });
+})();
+</script>
+
