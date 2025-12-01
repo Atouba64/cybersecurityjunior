@@ -30,6 +30,7 @@ jobs:
         with:
           ruby-version: 3.4.1
           bundler-cache: true
+          bundler: '2.5.0'
 
       - name: Setup Pages
         id: pages
