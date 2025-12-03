@@ -4,6 +4,7 @@
   "description": "CybersecurityJunior Jekyll site with Stackbit integration",
   "private": true,
   "scripts": {
+    "start": "bundle exec jekyll serve --livereload",
     "build": "bundle exec jekyll build",
     "serve": "bundle exec jekyll serve",
     "server": "bundle exec jekyll serve",
