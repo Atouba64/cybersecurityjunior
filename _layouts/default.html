@@ -37,9 +37,11 @@ layout: compress
             <div class="access">
               {% include_cached update-list.html lang=lang %}
               {% include_cached trending-tags.html lang=lang %}
+              {% comment %}
               {% if page.layout == 'home' %}
                 {% include post-toolbox.html %}
               {% endif %}
+              {% endcomment %}
             </div>
 
             {% for _include in layout.panel_includes %}
