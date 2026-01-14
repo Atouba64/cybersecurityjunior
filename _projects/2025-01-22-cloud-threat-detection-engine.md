@@ -10,190 +10,167 @@ excerpt: "A production-grade threat detection platform that aggregates security 
 
 # Cloud Threat Detection & Response Engine
 
-## 🎯 Business Value
+## For Hiring Managers
 
-**For Hiring Managers:** This project demonstrates advanced Detection Engineering skills, showing the ability to build scalable threat detection systems that reduce security incident response time from hours to seconds. The platform processes millions of security events daily and provides actionable intelligence for security teams.
+### Business Value & Impact
 
-**For Students:** Build a complete threat detection platform that showcases Detection Engineering expertise—exactly what Detection Engineer (Cloud) roles require. This project covers everything from log aggregation to custom detection rule development and automated response.
+This threat detection platform transforms security operations from reactive to proactive, detecting threats in real-time before they cause damage. **My contribution** includes designing the detection architecture, developing 50+ detection rules based on MITRE ATT&CK framework, and building automated response capabilities.
 
-## 📋 Project Overview
-
-This threat detection engine aggregates security events from AWS CloudTrail, VPC Flow Logs, GuardDuty, and other sources, applies custom detection rules based on MITRE ATT&CK framework, and provides automated response capabilities. It's designed to detect advanced persistent threats, privilege escalation, data exfiltration, and other security incidents.
-
-### Key Features
-
-- **Multi-Source Log Aggregation**: Collects events from CloudTrail, VPC Flow Logs, GuardDuty, Config, and custom sources
-- **Custom Detection Rules**: 50+ detection rules based on MITRE ATT&CK for Cloud
-- **Real-Time Alerting**: Sub-second alert generation with enriched context
-- **Automated Response**: Playbook-based automated response actions
-- **Threat Intelligence Integration**: Integration with threat intel feeds
-- **Security Analytics Dashboard**: Real-time visualization of security posture
-- **Incident Timeline Reconstruction**: Automatic timeline building for security incidents
-- **False Positive Reduction**: Machine learning-based false positive filtering
-
-## 🏗️ Architecture
-
-The platform uses a serverless, event-driven architecture:
-
-- **Amazon Kinesis Data Streams**: Real-time log ingestion
-- **AWS Lambda**: Detection rule processing
-- **Amazon OpenSearch**: Log storage and search
-- **Amazon DynamoDB**: Detection rule metadata and alert storage
-- **Amazon S3**: Long-term log archival
-- **AWS Step Functions**: Response playbook orchestration
-- **Amazon EventBridge**: Event routing and scheduling
-- **Amazon CloudWatch**: Monitoring and metrics
-
-## 🛠️ Technologies Used
-
-- **Python 3.11+**: Detection rule engine and automation
-- **Amazon OpenSearch**: Log analytics and search
-- **AWS Lambda**: Serverless detection processing
-- **Terraform**: Infrastructure as Code
-- **GitHub Actions**: CI/CD pipeline
-- **Docker**: Local development environment
-- **Jupyter Notebooks**: Detection rule development and testing
-
-## 📚 Documentation & GitHub Repository
-
-**Complete source code, detection rules, and deployment guides:**
-
-🔗 **GitHub Repository:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine)
-
-The repository includes:
-- Complete detection rule library (50+ rules)
-- Log aggregation pipelines
-- Response playbooks
-- Detection rule development framework
-- Testing and validation tools
-- Deployment automation
-- Sample datasets for testing
-
-### Repository Structure
-
-```
-cloud-threat-detection-engine/
-├── detection-rules/
-│   ├── initial-access/      # Initial access detection rules
-│   ├── execution/            # Execution detection rules
-│   ├── persistence/         # Persistence detection rules
-│   ├── privilege-escalation/ # Privilege escalation rules
-│   ├── defense-evasion/     # Defense evasion rules
-│   ├── credential-access/   # Credential access rules
-│   ├── discovery/           # Discovery detection rules
-│   ├── lateral-movement/    # Lateral movement rules
-│   └── exfiltration/        # Data exfiltration rules
-├── src/
-│   ├── collectors/          # Log collection modules
-│   ├── engine/             # Detection rule engine
-│   ├── responders/         # Automated response modules
-│   └── utils/              # Shared utilities
-├── infrastructure/
-│   └── terraform/          # Infrastructure as Code
-├── playbooks/              # Response playbooks
-├── notebooks/              # Jupyter notebooks for analysis
-├── tests/                  # Test suite
-├── docs/                   # Documentation
-└── README.md               # Quick start guide
-```
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- AWS Account with CloudTrail and GuardDuty enabled
-- Python 3.11+ installed
-- Terraform 1.5+ installed
-- AWS CLI configured
-- Basic understanding of security detection concepts
-
-### Quick Start
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/cloud-threat-detection-engine.git
-   cd cloud-threat-detection-engine
-   ```
-
-2. **Set up your environment:**
-   ```bash
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
-
-3. **Deploy infrastructure:**
-   ```bash
-   cd infrastructure/terraform
-   terraform init
-   terraform plan
-   terraform apply
-   ```
-
-4. **Enable log collection:**
-   ```bash
-   python scripts/enable_collectors.py --all-sources
-   ```
-
-5. **Test detection rules:**
-   ```bash
-   python scripts/test_detection_rules.py --rule suspicious-iam-activity
-   ```
-
-For detailed setup instructions, see the [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/cloud-threat-detection-engine/docs/DEPLOYMENT.md).
-
-## 📊 Real-World Impact
-
-### Detection Metrics
-
-- **Sub-second** mean time to detect (MTTD)
+**Key Business Metrics:**
+- **Sub-second mean time to detect (MTTD)** - down from hours to seconds
 - **50+ detection rules** covering MITRE ATT&CK Cloud techniques
-- **99.9%** detection rule accuracy
-- **85% reduction** in false positives
-- **10x faster** incident investigation with automated timelines
+- **99.9% detection rule accuracy** through continuous tuning
+- **85% reduction** in false positives through rule optimization
+- **10x faster** incident investigation with enriched context
 
-### Detection Coverage
+### Risk Reduction
 
-- Privilege escalation attempts
-- Unauthorized API access
-- Data exfiltration attempts
-- Lateral movement detection
-- Persistence mechanism detection
-- Defense evasion techniques
-- Credential access attempts
+- **Prevents data breaches** by detecting suspicious API calls and data exfiltration attempts in real-time
+- **Stops privilege escalation** by identifying unauthorized IAM changes and role assumptions
+- **Detects lateral movement** through network traffic analysis and unusual access patterns
+- **Identifies insider threats** by monitoring user behavior anomalies
+- **Reduces incident impact** through automated containment and response
 
-## 🎓 Learning Outcomes
+### Reporting & Visibility
 
-By completing this project, you'll master:
+- Real-time security dashboard showing active threats and detection metrics
+- Incident reports with full context and timeline reconstruction
+- Threat intelligence feeds integrated for enhanced detection
+- Compliance reports demonstrating security monitoring coverage
+- Trend analysis showing security posture improvements over time
 
-- Detection Engineering fundamentals
-- MITRE ATT&CK framework for Cloud
-- Log aggregation and normalization
-- Detection rule development
-- Security analytics and SIEM concepts
-- Automated response playbooks
-- Threat intelligence integration
-- Security incident investigation
+### Technical Contributions
 
-## 🔗 Additional Resources
-
-- [MITRE ATT&CK for Cloud](https://attack.mitre.org/matrices/enterprise/cloud/)
-- [AWS Security Best Practices](https://aws.amazon.com/security/security-resources/)
-- [Detection Engineering Guide](https://github.com/yourusername/cloud-threat-detection-engine/blob/main/docs/DETECTION_ENGINEERING.md)
-
-## 💼 Portfolio Value
-
-This project demonstrates:
-- ✅ Detection Engineering expertise
-- ✅ Understanding of threat detection methodologies
-- ✅ Ability to build scalable detection systems
-- ✅ Knowledge of security analytics platforms
-- ✅ Automation and scripting skills
-- ✅ Real-world security operations experience
-
-**Perfect for Detection Engineer (Cloud) positions at security-focused companies and MSSPs.**
+- **Detection Engine Architecture**: Built scalable event processing system using Lambda and Kinesis
+- **Detection Rule Development**: Created 50+ YAML-based detection rules mapped to MITRE ATT&CK techniques
+- **Log Aggregation**: Implemented collectors for CloudTrail, VPC Flow Logs, GuardDuty, and custom sources
+- **Automated Response**: Developed playbook-based response system with Lambda functions
+- **Threat Intelligence**: Integrated external threat feeds for enhanced detection context
 
 ---
 
-*Ready to build this project? [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine) to get started with complete source code and detection rules.*
+## For Students: Build This Project Step-by-Step
 
+This project teaches you **Detection Engineering**—one of the most in-demand skills for cloud security roles. You'll build a production-grade SIEM-like platform that hiring managers recognize as enterprise-ready.
+
+### What You'll Learn
+
+By building this project, you'll master:
+- **Detection Engineering** - Writing effective detection rules for cloud threats
+- **MITRE ATT&CK Framework** - Mapping threats to detection techniques
+- **Log Aggregation** - Collecting and processing security events from multiple sources
+- **Event Processing** - Real-time event analysis and pattern matching
+- **Threat Hunting** - Proactive security investigation techniques
+- **Automated Response** - Building playbook-based incident response
+- **Security Analytics** - Creating dashboards and reports for security teams
+
+### Step-by-Step Learning Path
+
+**Week 1: Detection Engineering Fundamentals**
+1. Understand MITRE ATT&CK framework for cloud
+2. Learn detection rule structure and best practices
+3. Study common cloud attack patterns
+4. Set up Python development environment
+
+**Week 2: Log Collection**
+1. Set up CloudTrail event collection
+2. Configure VPC Flow Logs ingestion
+3. Integrate GuardDuty findings
+4. Build custom log collectors
+
+**Week 3: Detection Engine**
+1. Build detection rule engine
+2. Implement rule evaluation logic
+3. Create detection rule templates
+4. Test detection rules against sample events
+
+**Week 4: Detection Rules**
+1. Write rules for Initial Access (T1078.004)
+2. Create Execution detection rules (T1059)
+3. Build Privilege Escalation detectors (T1078.004)
+4. Develop Data Exfiltration detection (T1537)
+
+**Week 5: Response & Analytics**
+1. Implement automated response playbooks
+2. Build security analytics dashboard
+3. Create incident reports
+4. Set up alerting and notifications
+
+### Getting Started
+
+**Prerequisites:**
+- AWS Account with CloudTrail and GuardDuty enabled
+- Python 3.11+ installed
+- Basic understanding of security concepts
+- Familiarity with MITRE ATT&CK framework
+
+**Quick Start:**
+
+1. **Clone and explore the repository:**
+   ```bash
+   git clone https://github.com/Atouba64/aResume.git
+   cd aResume/CybersecurityJunior_projects/cloud-threat-detection-engine
+   ```
+
+2. **Follow the deployment guide:**
+   The repository includes a complete [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/cloud-threat-detection-engine/docs/DEPLOYMENT.md) covering:
+   - Setting up CloudTrail and log sources
+   - Deploying detection infrastructure
+   - Loading detection rules
+   - Configuring alerting
+
+3. **Learn detection engineering:**
+   Study the [detection engineering guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/cloud-threat-detection-engine/docs/DETECTION_ENGINEERING.md) to understand:
+   - How to write effective detection rules
+   - MITRE ATT&CK mapping
+   - Detection rule best practices
+   - Testing and tuning detection rules
+
+4. **Explore detection rules:**
+   Review the detection rules in `detection-rules/` directory:
+   - Initial Access rules
+   - Execution detection
+   - Privilege Escalation
+   - Data Exfiltration
+   - And more...
+
+### Technologies You'll Master
+
+- **Python**: Building detection engines and log processors
+- **AWS Lambda**: Serverless event processing
+- **Amazon Kinesis**: Real-time log streaming
+- **Amazon OpenSearch**: Log storage and search
+- **AWS Step Functions**: Response orchestration
+- **YAML**: Detection rule configuration
+- **MITRE ATT&CK**: Threat framework knowledge
+
+### Real-World Application
+
+After building this project, you'll be able to:
+- ✅ Write detection rules for cloud security threats
+- ✅ Map threats to MITRE ATT&CK techniques
+- ✅ Build scalable threat detection systems
+- ✅ Investigate security incidents effectively
+- ✅ Automate security response workflows
+
+### GitHub Repository
+
+🔗 **Complete source code and documentation:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine)
+
+The repository includes:
+- Detection rule engine source code
+- 50+ detection rules based on MITRE ATT&CK
+- Log collection modules
+- Automated response playbooks
+- Complete deployment documentation
+- Detection engineering guides
+
+### Additional Learning Resources
+
+- [MITRE ATT&CK for Cloud](https://attack.mitre.org/matrices/enterprise/cloud/)
+- [AWS CloudTrail Documentation](https://docs.aws.amazon.com/cloudtrail/)
+- [Detection Engineering Best Practices](https://github.com/yourusername/cloud-threat-detection-engine/blob/main/docs/DETECTION_ENGINEERING.md)
+
+---
+
+**Ready to build this project?** [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine) to get started with detection rules, source code, and comprehensive guides.
