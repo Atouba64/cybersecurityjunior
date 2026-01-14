@@ -10,8 +10,6 @@ excerpt: "A production-grade threat detection platform that aggregates security 
 
 # Cloud Threat Detection & Response Engine
 
-## For Hiring Managers
-
 ### Business Value & Impact
 
 This threat detection platform transforms security operations from reactive to proactive, detecting threats in real-time before they cause damage. **My contribution** includes designing the detection architecture, developing 50+ detection rules based on MITRE ATT&CK framework, and building automated response capabilities.
@@ -49,7 +47,7 @@ This threat detection platform transforms security operations from reactive to p
 
 ---
 
-## For Students: Build This Project Step-by-Step
+## Build This Project Step-by-Step
 
 This project teaches you **Detection Engineering**—one of the most in-demand skills for cloud security roles. You'll build a production-grade SIEM-like platform that hiring managers recognize as enterprise-ready.
 

@@ -10,8 +10,6 @@ excerpt: "A comprehensive DevSecOps platform that integrates security scanning, 
 
 # DevSecOps Pipeline Security Automation
 
-## For Hiring Managers
-
 ### Business Value & Impact
 
 This DevSecOps platform shifts security left in the development lifecycle, catching vulnerabilities before they reach production. **My contribution** includes designing the complete security pipeline, integrating multiple security tools, and implementing policy-as-code enforcement.
@@ -50,9 +48,9 @@ This DevSecOps platform shifts security left in the development lifecycle, catch
 
 ---
 
-## For Students: Build This Project Step-by-Step
+## Build This Project Step-by-Step
 
-This project teaches you **DevSecOps**—integrating security into every stage of software development. You'll build a complete security pipeline that hiring managers recognize as production-ready.
+This project teaches you **DevSecOps**—integrating security into every stage of software development. You'll build a complete security pipeline
 
 ### What You'll Learn
 

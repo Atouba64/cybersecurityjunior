@@ -10,8 +10,6 @@ excerpt: "A comprehensive framework for implementing defense-in-depth network se
 
 # AWS VPC Security Hardening & Network Segmentation Framework
 
-## For Hiring Managers
-
 ### Business Value & Impact
 
 This framework provides enterprise-grade network security architecture that prevents unauthorized access and data breaches through multi-layered defense. **My contribution** includes designing the complete network architecture, implementing Terraform modules for repeatable deployments, and creating security auditing tools.
@@ -48,7 +46,7 @@ This framework provides enterprise-grade network security architecture that prev
 
 ---
 
-## For Students: Build This Project Step-by-Step
+## Build This Project Step-by-Step
 
 This framework teaches you how to build **production-grade network security** in AWS. You'll learn defense-in-depth principles that are essential for AWS Cloud Security Engineer roles.
 

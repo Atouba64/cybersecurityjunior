@@ -10,8 +10,6 @@ excerpt: "An enterprise-grade automation platform that continuously monitors and
 
 # AWS Security Compliance Automation Platform
 
-## For Hiring Managers
-
 ### Business Value & Impact
 
 This production-ready platform addresses a critical business need: maintaining security compliance across multiple AWS accounts without manual overhead. **My contribution** includes designing and implementing the entire serverless architecture, developing automated scanning and remediation capabilities, and integrating with enterprise security tools.
@@ -47,7 +45,7 @@ This production-ready platform addresses a critical business need: maintaining s
 
 ---
 
-## For Students: Build This Project Step-by-Step
+## Build This Project Step-by-Step
 
 This is a **complete, production-ready project** you can build from scratch to demonstrate AWS Cloud Security Engineer skills. Follow along to learn enterprise-grade security automation that hiring managers recognize and value.
 

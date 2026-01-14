@@ -10,8 +10,6 @@ excerpt: "An enterprise-grade IAM governance platform that automates access revi
 
 # AWS IAM Governance & Access Management Platform
 
-## For Hiring Managers
-
 ### Business Value & Impact
 
 This IAM governance platform addresses one of the most critical cloud security challenges: managing identity and access at scale. **My contribution** includes designing the complete governance framework, building automated access review workflows, and implementing least-privilege optimization algorithms.
@@ -50,7 +48,7 @@ This IAM governance platform addresses one of the most critical cloud security c
 
 ---
 
-## For Students: Build This Project Step-by-Step
+## Build This Project Step-by-Step
 
 This project teaches you **IAM Governance**—a critical skill for IAM Engineer and Cloud Security roles. You'll build a complete platform that demonstrates enterprise-grade identity management capabilities.
 
