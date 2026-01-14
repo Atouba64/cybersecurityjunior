@@ -164,6 +164,10 @@ defaults:
     values:
       layout: page
       permalink: /:title/
+  - scope:
+      path: my_pages
+    values:
+      layout: page
 
 sass:
   style: compressed

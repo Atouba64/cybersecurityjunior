@@ -7,7 +7,6 @@ permalink: /my_pages/about-me/
 # Mabele Liango Jr
 
 ## WHO AM I
-
 Hello! I'm Mabele Liango. I am a Cloud Security & Identity Engineer with a foot in two worlds: I am dual-based in Gainesville, GA (home to family) and The Colony, TX (where I live most of the year). I bridge the gap between "It works" and "It's secure." With over 4 years of experience in IT operations, my background isn't just theoretical. I spent years on the front lines as a System Administrator and IT Support specialist. I've dealt with the panic of hardware failures, the stress of real-world incidents, and the daily puzzle of user access.
 
 Today, I focus on the 'Build' side of security. I help organizations stop putting out fires and start building fireproof infrastructure. I specialize in implementing Least Privilege (IAM), automating compliance (CSPM), and securing infrastructure as code (Terraform/Python).

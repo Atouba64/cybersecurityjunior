@@ -5,8 +5,9 @@ permalink: /my_pages/projects/
 ---
 
 <div id="project-list">
-  {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
-  {% for project in sorted_projects %}
+  {% if site.projects %}
+    {% assign sorted_projects = site.projects | sort: 'date' | reverse %}
+    {% for project in sorted_projects %}
     <article class="card-wrapper">
       <div class="card post-preview flex-md-row-reverse">
         {% if project.image %}
@@ -41,10 +42,9 @@ permalink: /my_pages/projects/
         </div>
       </div>
     </article>
-  {% endfor %}
+    {% endfor %}
+  {% else %}
+    <p>No projects available yet. Check back soon!</p>
+  {% endif %}
 </div>
-
-{% if sorted_projects.size == 0 %}
-  <p>No projects available yet. Check back soon!</p>
-{% endif %}
 
