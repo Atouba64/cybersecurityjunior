@@ -3,11 +3,11 @@ layout: page
 title: About Me
 permalink: /my_pages/about-me/
 ---
-
-# Mabele Liango Jr
-
 ## WHO AM I
-Hello! I'm Mabele Liango. I am a Cloud Security & Identity Engineer with a foot in two worlds: I am dual-based in Gainesville, GA (home to family) and The Colony, TX (where I live most of the year). I bridge the gap between "It works" and "It's secure." With over 4 years of experience in IT operations, my background isn't just theoretical. I spent years on the front lines as a System Administrator and IT Support specialist. I've dealt with the panic of hardware failures, the stress of real-world incidents, and the daily puzzle of user access.
+
+Hello! I'm Mabele Liango. I am a Cloud Security & Identity Engineer with a foot in two worlds: I am dual-based in Gainesville, GA (home to family) and The Colony, TX (where I live most of the year). I bridge the gap between "It works" and "It's secure." With over 4 years of experience in IT operations, my background isn't just theoretical.
+
+I spent years on the front lines as a System Administrator and IT Support specialist. I've dealt with the panic of hardware failures, the stress of real-world incidents, and the daily puzzle of user access.
 
 Today, I focus on the 'Build' side of security. I help organizations stop putting out fires and start building fireproof infrastructure. I specialize in implementing Least Privilege (IAM), automating compliance (CSPM), and securing infrastructure as code (Terraform/Python).
 
@@ -26,7 +26,9 @@ I am currently open to opportunities in:
 
 ## My Story
 
-My journey didn't start in the cloud; it started with cables. I began my career troubleshooting physical infrastructure and supporting end-users. This experience taught me the most valuable lesson in security, one that pure analysts often forget: **Availability is just as important as Confidentiality.** (If the server is secure but nobody can log in, I haven't done my job).
+My journey didn't start in the cloud; it started with cables. I began my career troubleshooting physical infrastructure and supporting end-users.
+
+This experience taught me the most valuable lesson in security, one that pure analysts often forget: **Availability is just as important as Confidentiality.** (If the server is secure but nobody can log in, I haven't done my job).
 
 After transitioning to an Information Security Analyst role, I realized that reactive security (staring at alerts) wasn't enough for me. I wanted to be proactive. I wanted to build the systems that prevented the alerts in the first place.
 
@@ -44,7 +46,9 @@ So, Cybersecurityjunior.com is my digital legacy. It is where I document my path
 
 ## For Visitors
 
-If you are reading this, I am building this resource for you. I write about the labs I solve (TryHackMe/HackTheBox), the certifications I take, and the scripts I write. My goal is to make complex cloud, cloud security, and cybersecurity concepts accessible to everyone, regardless of their background or first language.
+If you are reading this, I am building this resource for you. I write about the labs I solve (TryHackMe/HackTheBox), the certifications I take, and the scripts I write.
+
+My goal is to make complex cloud, cloud security, and cybersecurity concepts accessible to everyone, regardless of their background or first language.
 
 ## My Technical Arsenal
 
@@ -59,15 +63,20 @@ If you are reading this, I am building this resource for you. I write about the 
 
 When I'm not configuring S3 bucket policies or writing Python scripts, I'm usually offline disconnecting from the digital world.
 
-* **The Guitarist**: My roots are in Gospel music. I grew up playing bass guitar in my father's church. After a 10-year hiatus, I've returned to music, but this time I'm learning the electric guitar. It is mainly for my own peace of mind, but I also serve my local church worship team when needed.
-* **The Rider**: I have a passion for motorcycles. Learning to ride taught me situational awareness—a skill that applies surprisingly well to threat detection!
-* **The Linguist**: Originally from the Democratic Republic of Congo, I am fluent in French and English. I love connecting with the global cybersecurity community.
-* **The Builder**: Whether it's a new home lab setup or a content strategy, I am always building something.
+* **The Guitarist**:
+My roots are in Gospel music. I grew up playing bass guitar in my father's church. After a 10-year hiatus, I've returned to music, but this time I'm learning the electric guitar.
+It is mainly for my own peace of mind, but I also serve my local church worship team when needed.
+* **The Rider**:
+I have a passion for motorcycles. Learning to ride taught me situational awareness—a skill that applies surprisingly well to threat detection!
+* **The Linguist**:
+Originally from the Democratic Republic of Congo, I am fluent in French and English. I love connecting with the global cybersecurity community.
+* **The Builder**:
+Whether it's a new home lab setup or a content strategy, I am always building something.
 
 ## Let's Build Something Secure
 
 Whether you are a recruiter looking for a dedicated Cloud Engineer, or a student looking for study tips, I'd love to connect.
 
-* **Hiring?** [Download my resume](/assets/resume/MABELE-LIANGO-Hearst-SecEngineer.pdf) *(You can replace this PDF file in the `assets/resume/` folder)*
+* **Hiring?** [Download my resume](/assets/resume/MABELE-LIANGO-Hearst-SecEngineer.pdf)
 * **Networking?** [Connect with me on LinkedIn](https://www.linkedin.com/in/juniorliango/)
 * **Contact me directly**: [liangojunior9@gmail.com](mailto:liangojunior9@gmail.com)
