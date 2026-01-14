@@ -50,6 +50,18 @@
   object-position: center;
 }
 
+/* Prevent image links from interfering with card link */
+#project-list .post-image a {
+  pointer-events: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#project-list .post-image a img {
+  pointer-events: none;
+}
+
 /* Card body styling */
 #project-list .card-body {
   max-height: 200px;
