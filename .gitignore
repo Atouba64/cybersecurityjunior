@@ -4,3 +4,10 @@
 _site/
 vendor/
 .netlify/
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Node modules
+node_modules/
