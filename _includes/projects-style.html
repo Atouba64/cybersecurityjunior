@@ -5,11 +5,6 @@
   position: relative;
 }
 
-#project-list .card-wrapper > a {
-  display: block;
-  width: 100%;
-}
-
 /* Apply Jekyll theme card styling with dynamic contrast */
 #project-list .card.post-preview {
   background-color: var(--card-bg, var(--bs-body-bg, #ffffff));
@@ -20,9 +15,10 @@
   cursor: pointer;
   position: relative;
   width: 100%;
-  height: 100%;
+  min-height: 150px;
   display: block;
   overflow: hidden;
+  pointer-events: auto;
 }
 
 #project-list .card.post-preview:hover {
@@ -36,8 +32,12 @@
   display: block;
   text-decoration: none;
   color: inherit;
-  position: relative;
-  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
   width: 100%;
   height: 100%;
 }
@@ -62,12 +62,13 @@
 #project-list .card-body {
   padding: 1.5rem;
   position: relative;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none; /* Allow clicks to pass through to parent link */
   color: var(--bs-body-color, #212529);
+  width: 100%;
 }
 
-/* Title styling with dynamic contrast */
+/* Title styling with dynamic contrast - left aligned */
 #project-list .card-title {
   font-size: 1.25rem;
   font-weight: 600;
@@ -81,6 +82,8 @@
   text-overflow: ellipsis;
   pointer-events: none;
   color: var(--bs-heading-color, var(--bs-body-color, #212529));
+  text-align: left;
+  width: 100%;
 }
 
 #project-list .card-title a {
@@ -93,26 +96,35 @@
   color: var(--bs-primary, #0066cc);
 }
 
-/* Post meta styling with dynamic contrast */
+/* Post meta styling with dynamic contrast - left aligned */
 #project-list .post-meta {
   font-size: 0.875rem;
   margin-bottom: 0.75rem;
   flex-shrink: 0;
   pointer-events: none;
   color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.25rem;
 }
 
 #project-list .post-meta time {
   color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
-/* Post content/excerpt styling with dynamic contrast */
+/* Post content/excerpt styling with dynamic contrast - left aligned */
 #project-list .post-content {
   flex: 1;
   overflow: hidden;
   margin-bottom: 0.5rem;
   pointer-events: none;
   color: var(--bs-body-color, #212529);
+  text-align: left;
+  width: 100%;
 }
 
 #project-list .post-content p {
@@ -125,20 +137,25 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   color: var(--bs-body-color, #212529);
+  text-align: left;
 }
 
-/* Categories styling with dynamic contrast */
+/* Categories styling with dynamic contrast - left aligned */
 #project-list .categories {
-  display: inline-block;
+  display: block;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
   color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  text-align: left;
+  margin-top: 0.25rem;
+  line-height: 1.5;
 }
 
 #project-list .categories span {
   color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  display: inline;
 }
 
 /* Read more link - hide since whole card is clickable */
