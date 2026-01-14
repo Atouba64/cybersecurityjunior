@@ -168,6 +168,13 @@ defaults:
       layout: page
       permalink: /:title/
   - scope:
+      path: ""
+      type: projects
+    values:
+      layout: post
+      comments: true
+      toc: true
+  - scope:
       path: my_pages
     values:
       layout: page
