@@ -41,9 +41,6 @@ layout: compress
               {% else %}
                 {% include_cached update-list.html lang=lang %}
                 {% include_cached trending-tags.html lang=lang %}
-                {% if page.layout == 'home' %}
-                  {% include post-toolbox.html %}
-                {% endif %}
               {% endif %}
             </div>
 
