@@ -6,12 +6,15 @@
   "scripts": {
     "start": "bundle exec jekyll serve --livereload",
     "build": "bundle exec jekyll build",
+    "build:prod": "JEKYLL_ENV=production bundle exec jekyll build",
     "serve": "bundle exec jekyll serve",
     "server": "bundle exec jekyll serve",
     "dev": "bundle exec jekyll serve --livereload",
     "dev:prod": "JEKYLL_ENV=production bundle exec jekyll serve --livereload",
+    "test:prod": "JEKYLL_ENV=production bundle exec jekyll serve --livereload --host 127.0.0.1",
     "clean": "rm -rf _site",
     "rebuild": "npm run clean && bundle exec jekyll build",
+    "rebuild:prod": "npm run clean && JEKYLL_ENV=production bundle exec jekyll build",
     "serve:network": "bundle exec jekyll serve --livereload --host 0.0.0.0",
     "kill": "pkill -f 'jekyll serve' || echo 'No Jekyll processes found'",
     "dev:clean": "npm run kill && sleep 1 && npm run dev"
