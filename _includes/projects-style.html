@@ -58,20 +58,20 @@
   display: none !important;
 }
 
-/* Card body styling with dynamic text contrast */
+/* Card body styling with high contrast text */
 #project-list .card-body {
   padding: 1.5rem;
   position: relative;
   z-index: 1;
   pointer-events: none; /* Allow clicks to pass through to parent link */
-  color: var(--bs-body-color, #212529);
+  color: #000000; /* Very black for maximum contrast on white */
   width: 100%;
 }
 
-/* Title styling with dynamic contrast - left aligned */
+/* Title styling with high contrast and bold weight - left aligned */
 #project-list .card-title {
   font-size: 1.25rem;
-  font-weight: 600;
+  font-weight: 800; /* Extra bold for headers */
   margin-bottom: 0.75rem;
   line-height: 1.4;
   max-height: 2.8em;
@@ -81,9 +81,10 @@
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
   pointer-events: none;
-  color: var(--bs-heading-color, var(--bs-body-color, #212529));
+  color: #000000; /* Very black for maximum contrast */
   text-align: left;
   width: 100%;
+  letter-spacing: -0.01em; /* Slight letter spacing for readability */
 }
 
 #project-list .card-title a {
@@ -96,13 +97,14 @@
   color: var(--bs-primary, #0066cc);
 }
 
-/* Post meta styling with dynamic contrast - left aligned */
+/* Post meta styling with high contrast - left aligned */
 #project-list .post-meta {
   font-size: 0.875rem;
+  font-weight: 600; /* Bold for sub-headers */
   margin-bottom: 0.75rem;
   flex-shrink: 0;
   pointer-events: none;
-  color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  color: #1a1a1a; /* Very dark gray for high contrast on white */
   text-align: left;
   display: flex;
   flex-direction: column;
@@ -111,18 +113,19 @@
 }
 
 #project-list .post-meta time {
-  color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  color: #1a1a1a; /* Very dark gray for high contrast */
+  font-weight: 600; /* Bold for sub-headers */
   display: block;
   margin-bottom: 0.25rem;
 }
 
-/* Post content/excerpt styling with dynamic contrast - left aligned */
+/* Post content/excerpt styling with high contrast - left aligned */
 #project-list .post-content {
   flex: 1;
   overflow: hidden;
   margin-bottom: 0.5rem;
   pointer-events: none;
-  color: var(--bs-body-color, #212529);
+  color: #000000; /* Very black for maximum contrast */
   text-align: left;
   width: 100%;
 }
@@ -136,25 +139,28 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
-  color: var(--bs-body-color, #212529);
+  color: #000000; /* Very black for maximum contrast */
+  font-weight: 500; /* Medium weight for better readability */
   text-align: left;
 }
 
-/* Categories styling with dynamic contrast - left aligned */
+/* Categories styling with high contrast - left aligned */
 #project-list .categories {
   display: block;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
-  color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  color: #1a1a1a; /* Very dark gray for high contrast */
+  font-weight: 600; /* Bold for sub-headers */
   text-align: left;
   margin-top: 0.25rem;
   line-height: 1.5;
 }
 
 #project-list .categories span {
-  color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+  color: #1a1a1a; /* Very dark gray for high contrast */
+  font-weight: 600; /* Bold for sub-headers */
   display: inline;
 }
 
@@ -163,32 +169,39 @@
   display: none;
 }
 
-/* Dark mode support - automatic contrast adjustment */
+/* Dark mode support - high contrast light text on dark background */
 @media (prefers-color-scheme: dark) {
   #project-list .card.post-preview {
     background-color: var(--card-bg-dark, var(--bs-dark, #212529));
     border-color: var(--card-border-color-dark, var(--bs-border-color-dark, #495057));
-    color: var(--bs-body-color-dark, #e9ecef);
+    color: #ffffff; /* Very white for maximum contrast on dark */
   }
   
   #project-list .card-body {
-    color: var(--bs-body-color-dark, #e9ecef);
+    color: #ffffff; /* Very white for maximum contrast */
   }
   
   #project-list .card-title {
-    color: var(--bs-heading-color-dark, var(--bs-body-color-dark, #e9ecef));
+    color: #ffffff; /* Very white for maximum contrast */
+    font-weight: 800; /* Extra bold maintained in dark mode */
   }
   
   #project-list .post-meta,
-  #project-list .post-meta time,
+  #project-list .post-meta time {
+    color: #e0e0e0; /* Light gray for high contrast on dark */
+    font-weight: 600; /* Bold maintained */
+  }
+  
   #project-list .categories,
   #project-list .categories span {
-    color: var(--bs-secondary-color-dark, var(--bs-text-muted-dark, #adb5bd));
+    color: #e0e0e0; /* Light gray for high contrast */
+    font-weight: 600; /* Bold maintained */
   }
   
   #project-list .post-content,
   #project-list .post-content p {
-    color: var(--bs-body-color-dark, #e9ecef);
+    color: #ffffff; /* Very white for maximum contrast */
+    font-weight: 500; /* Medium weight maintained */
   }
   
   #project-list .card.post-preview:hover {
@@ -196,32 +209,39 @@
   }
 }
 
-/* Light mode explicit styling */
+/* Light mode explicit styling - very black text on white */
 @media (prefers-color-scheme: light) {
   #project-list .card.post-preview {
-    background-color: var(--card-bg-light, var(--bs-body-bg, #ffffff));
+    background-color: #ffffff; /* Pure white */
     border-color: var(--card-border-color-light, var(--bs-border-color, #dee2e6));
-    color: var(--bs-body-color, #212529);
+    color: #000000; /* Very black for maximum contrast */
   }
   
   #project-list .card-body {
-    color: var(--bs-body-color, #212529);
+    color: #000000; /* Very black for maximum contrast */
   }
   
   #project-list .card-title {
-    color: var(--bs-heading-color, var(--bs-body-color, #212529));
+    color: #000000; /* Very black for maximum contrast */
+    font-weight: 800; /* Extra bold */
   }
   
   #project-list .post-meta,
-  #project-list .post-meta time,
+  #project-list .post-meta time {
+    color: #1a1a1a; /* Very dark gray for high contrast */
+    font-weight: 600; /* Bold */
+  }
+  
   #project-list .categories,
   #project-list .categories span {
-    color: var(--bs-secondary-color, var(--bs-text-muted, #6c757d));
+    color: #1a1a1a; /* Very dark gray for high contrast */
+    font-weight: 600; /* Bold */
   }
   
   #project-list .post-content,
   #project-list .post-content p {
-    color: var(--bs-body-color, #212529);
+    color: #000000; /* Very black for maximum contrast */
+    font-weight: 500; /* Medium weight */
   }
 }
 
@@ -251,19 +271,39 @@
 /* Ensure proper contrast using CSS color-mix for fallback */
 #project-list .card.post-preview {
   /* Fallback for browsers that don't support CSS variables */
-  background-color: #ffffff;
-  color: #212529;
+  background-color: #ffffff; /* Pure white */
+  color: #000000; /* Very black for maximum contrast */
 }
 
 /* High contrast mode support */
 @media (prefers-contrast: high) {
   #project-list .card.post-preview {
     border-width: 2px;
-    border-color: currentColor;
+    border-color: #000000; /* Very black border */
+    background-color: #ffffff; /* Pure white */
+  }
+  
+  #project-list .card-body {
+    color: #000000; /* Very black */
   }
   
   #project-list .card-title {
-    font-weight: 700;
+    font-weight: 900; /* Extra bold for high contrast mode */
+    color: #000000; /* Very black */
+  }
+  
+  #project-list .post-meta,
+  #project-list .post-meta time,
+  #project-list .categories,
+  #project-list .categories span {
+    color: #000000; /* Very black */
+    font-weight: 700; /* Bold */
+  }
+  
+  #project-list .post-content,
+  #project-list .post-content p {
+    color: #000000; /* Very black */
+    font-weight: 600; /* Semi-bold */
   }
 }
 
