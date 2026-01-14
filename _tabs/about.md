@@ -5,14 +5,11 @@ order: 3
 title: About
 permalink: /about/
 ---
-
-# About
-
 Welcome to CybersecurityJunior! This site documents my journey from IT support to cloud security and DevSecOps engineering.
 
 ## About Me
 
-Learn more about my background, interests, and goals: [About Me](/my_pages/about-me/)
+Learn more about my background, interests, and goals in the[About Me](/my_pages/about-me/)
 
 ## What You'll Find Here
 
