@@ -144,6 +144,9 @@ collections:
   posts:
     output: true
     permalink: /posts/:name/
+  projects:
+    output: true
+    permalink: /projects/:name/
 
 defaults:
   - scope:

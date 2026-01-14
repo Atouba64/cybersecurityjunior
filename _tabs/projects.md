@@ -1,0 +1,7 @@
+---
+layout: projects
+icon: fas fa-code-branch
+order: 2
+permalink: /projects/
+---
+

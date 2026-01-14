@@ -1,7 +1,7 @@
 ---
 layout: page
 icon: fas fa-info-circle
-order: 3
+order: 4
 title: About
 permalink: /about/
 ---
@@ -9,7 +9,7 @@ Welcome to CybersecurityJunior! This site documents my journey from IT support t
 
 ## About Me
 
-Learn more about my background, interests, and goals in the[About Me](/my_pages/about-me/)
+Learn more about my background, interests, and goals in the [About Me](/my_pages/about-me/)
 
 ## What You'll Find Here
 
