@@ -58,7 +58,7 @@ The platform uses a serverless, event-driven architecture:
 
 **Complete source code, detection rules, and deployment guides:**
 
-🔗 **GitHub Repository:** [github.com/yourusername/cloud-threat-detection-engine](https://github.com/yourusername/cloud-threat-detection-engine)
+🔗 **GitHub Repository:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine)
 
 The repository includes:
 - Complete detection rule library (50+ rules)
@@ -140,7 +140,7 @@ cloud-threat-detection-engine/
    python scripts/test_detection_rules.py --rule suspicious-iam-activity
    ```
 
-For detailed setup instructions, see the [deployment guide](https://github.com/yourusername/cloud-threat-detection-engine/blob/main/docs/DEPLOYMENT.md).
+For detailed setup instructions, see the [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/cloud-threat-detection-engine/docs/DEPLOYMENT.md).
 
 ## 📊 Real-World Impact
 
@@ -195,5 +195,5 @@ This project demonstrates:
 
 ---
 
-*Ready to build this project? [Visit the GitHub repository](https://github.com/yourusername/cloud-threat-detection-engine) to get started with complete source code and detection rules.*
+*Ready to build this project? [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/cloud-threat-detection-engine) to get started with complete source code and detection rules.*
 

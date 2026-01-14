@@ -56,7 +56,7 @@ The framework implements a multi-VPC architecture with:
 
 **Complete source code, architecture diagrams, and deployment guides are available:**
 
-🔗 **GitHub Repository:** [github.com/yourusername/aws-vpc-security-hardening](https://github.com/yourusername/aws-vpc-security-hardening)
+🔗 **GitHub Repository:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-vpc-security-hardening](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-vpc-security-hardening)
 
 The repository includes:
 - Terraform modules for VPC provisioning
@@ -126,7 +126,7 @@ aws-vpc-security-hardening/
    python scripts/security-group-audit.py --vpc-id <your-vpc-id>
    ```
 
-For detailed deployment instructions, see the [deployment guide](https://github.com/yourusername/aws-vpc-security-hardening/blob/main/docs/DEPLOYMENT.md).
+For detailed deployment instructions, see the [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/aws-vpc-security-hardening/docs/DEPLOYMENT.md).
 
 ## 📊 Real-World Impact
 
@@ -179,5 +179,5 @@ This project demonstrates:
 
 ---
 
-*Ready to build this project? [Visit the GitHub repository](https://github.com/yourusername/aws-vpc-security-hardening) to get started with complete source code and detailed documentation.*
+*Ready to build this project? [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-vpc-security-hardening) to get started with complete source code and detailed documentation.*
 

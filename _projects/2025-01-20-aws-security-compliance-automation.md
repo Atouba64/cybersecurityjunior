@@ -54,7 +54,7 @@ The platform uses a serverless architecture for scalability and cost-effectivene
 
 **Complete source code, documentation, and deployment guides are available in the GitHub repository:**
 
-🔗 **GitHub Repository:** [github.com/yourusername/aws-security-compliance-automation](https://github.com/yourusername/aws-security-compliance-automation)
+🔗 **GitHub Repository:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-security-compliance-automation](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-security-compliance-automation)
 
 The repository includes:
 - Complete source code with detailed comments
@@ -126,7 +126,7 @@ aws-security-compliance-automation/
    python scripts/run_scan.py --all-accounts
    ```
 
-For detailed setup instructions, see the [deployment guide](https://github.com/yourusername/aws-security-compliance-automation/blob/main/docs/DEPLOYMENT.md) in the repository.
+For detailed setup instructions, see the [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/aws-security-compliance-automation/docs/DEPLOYMENT.md) in the repository.
 
 ## 📊 Real-World Impact
 
@@ -178,5 +178,5 @@ This project demonstrates:
 
 ---
 
-*Ready to build this project? [Visit the GitHub repository](https://github.com/yourusername/aws-security-compliance-automation) to get started with step-by-step instructions and complete source code.*
+*Ready to build this project? [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-security-compliance-automation) to get started with step-by-step instructions and complete source code.*
 

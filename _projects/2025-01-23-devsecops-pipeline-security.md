@@ -61,7 +61,7 @@ The platform integrates with GitHub Actions and provides:
 
 **Complete source code, GitHub Actions workflows, and deployment guides:**
 
-🔗 **GitHub Repository:** [github.com/yourusername/devsecops-pipeline-security](https://github.com/yourusername/devsecops-pipeline-security)
+🔗 **GitHub Repository:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/devsecops-pipeline-security](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/devsecops-pipeline-security)
 
 The repository includes:
 - GitHub Actions workflow templates
@@ -134,7 +134,7 @@ devsecops-pipeline-security/
    git push
    ```
 
-For detailed setup instructions, see the [deployment guide](https://github.com/yourusername/devsecops-pipeline-security/blob/main/docs/DEPLOYMENT.md).
+For detailed setup instructions, see the [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/devsecops-pipeline-security/docs/DEPLOYMENT.md).
 
 ## 📊 Real-World Impact
 
@@ -187,5 +187,5 @@ This project demonstrates:
 
 ---
 
-*Ready to build this project? [Visit the GitHub repository](https://github.com/yourusername/devsecops-pipeline-security) to get started with complete workflows and documentation.*
+*Ready to build this project? [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/devsecops-pipeline-security) to get started with complete workflows and documentation.*
 

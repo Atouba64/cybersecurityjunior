@@ -60,7 +60,7 @@ The platform uses a serverless architecture:
 
 **Complete source code, IAM policies, and deployment guides:**
 
-🔗 **GitHub Repository:** [github.com/yourusername/aws-iam-governance-platform](https://github.com/yourusername/aws-iam-governance-platform)
+🔗 **GitHub Repository:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-iam-governance-platform](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-iam-governance-platform)
 
 The repository includes:
 - Complete IAM analysis engine
@@ -143,7 +143,7 @@ aws-iam-governance-platform/
    python scripts/generate_access_review.py --output reports/
    ```
 
-For detailed setup instructions, see the [deployment guide](https://github.com/yourusername/aws-iam-governance-platform/blob/main/docs/DEPLOYMENT.md).
+For detailed setup instructions, see the [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/aws-iam-governance-platform/docs/DEPLOYMENT.md).
 
 ## 📊 Real-World Impact
 
@@ -197,5 +197,5 @@ This project demonstrates:
 
 ---
 
-*Ready to build this project? [Visit the GitHub repository](https://github.com/yourusername/aws-iam-governance-platform) to get started with complete source code and detailed documentation.*
+*Ready to build this project? [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-iam-governance-platform) to get started with complete source code and detailed documentation.*
 
