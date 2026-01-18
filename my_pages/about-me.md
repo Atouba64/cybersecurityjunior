@@ -73,13 +73,20 @@ My goal is to make complex cloud, cloud security, and cybersecurity concepts acc
 When I'm not configuring S3 bucket policies or writing Python scripts, I'm usually offline disconnecting from the digital world.
 
 * **The Guitarist**:
+
 My roots are in Gospel music. I grew up playing bass guitar in my father's church. After a 10-year hiatus, I've returned to music, but this time I'm learning the electric guitar.
 It is mainly for my own peace of mind, but I also serve my local church worship team when needed.
+
 * **The Rider**:
+
 I have a passion for motorcycles. Learning to ride taught me situational awareness—a skill that applies surprisingly well to threat detection!
+
 * **The Linguist**:
+
 Originally from the Democratic Republic of Congo, I am fluent in French and English. I love connecting with the global cybersecurity community.
+
 * **The Builder**:
+
 Whether it's a new home lab setup or a content strategy, I am always building something.
 
 ## Let's Build Something Secure
