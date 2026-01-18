@@ -5,18 +5,27 @@ permalink: /my_pages/about-me/
 ---
 ## WHO AM I
 
-Hello! I'm Mabele Liango. I am a Cloud Security & Identity Engineer with a foot in two worlds: I am dual-based in Gainesville, GA (home to family) and The Colony, TX (where I live most of the year). I bridge the gap between "It works" and "It's secure." With over 4 years of experience in IT operations, my background isn't just theoretical.
+Hello! I'm Mabele Liango. I am an enthousiast Cloud Security & Identity Engineer with a foot in two worlds: I am dual-based in Gainesville, GA (home to family) and The Colony, TX (where I live most of the year).
+
+I bridge the gap between "It works" and "It's secure." With over 4 years of experience in IT operations, my background isn't just theoretical. I am known for being hands-on and practical.
 
 I spent years on the front lines as a System Administrator and IT Support specialist. I've dealt with the panic of hardware failures, the stress of real-world incidents, and the daily puzzle of user access.
 
 Today, I focus on the 'Build' side of security. I help organizations stop putting out fires and start building fireproof infrastructure. I specialize in implementing Least Privilege (IAM), automating compliance (CSPM), and securing infrastructure as code (Terraform/Python).
 
-My goal is to support the business by:
+Throughout my career, I have helped organizations with :
 
-* **Hardening Infrastructure**: Configuring VPCs, Firewalls, and Security Groups to isolate networks and strictly block DDoS attacks.
-* **Protecting Data**: Managing secrets, enforcing encryption, and ensuring compliance (CIS, GDPR) so sensitive info stays sensitive.
-* **Defending Applications**: Applying OWASP standards and conducting Vulnerability Management to reduce the attack surface.
-* **Automating Security**: Integrating DevSecOps into the CI/CD pipeline and centralizing Threat Detection to catch anomalies before they become breaches.
+* **Hardening Infrastructure**:
+Configuring VPCs, Firewalls, and Security Groups to isolate networks and strictly block DDoS attacks.
+
+* **Protecting Data**:
+Managing secrets, enforcing encryption, and ensuring compliance (CIS, GDPR) so sensitive info stays sensitive.
+
+* **Defending Applications**:
+Applying OWASP standards and conducting Vulnerability Management to reduce the attack surface.
+
+* **Automating Security**:
+Integrating DevSecOps into the CI/CD pipeline and centralizing Threat Detection to catch anomalies before they become breaches.
 
 I am currently open to opportunities in:
 
