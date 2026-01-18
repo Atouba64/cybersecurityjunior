@@ -1,6 +1,6 @@
 ---
 title: "Passing the Security+ Exam"
-date: 2026-01-18 09:45:00 -0500
+date: 2025-10-23 10:00:00 -0400
 categories: [Certifications]
 tags: [security+, comptia, certification, study-guide, exam, cybersecurity]
 image: https://placehold.co/1000x400/F59E0B/FFFFFF?text=Security%2B+Certification

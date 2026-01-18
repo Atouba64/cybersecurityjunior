@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Elasticsearch & SIEM: Security Monitoring for Beginners"
-date: 2026-01-18 12:45:00 -0500
+date: 2025-11-22 10:00:00 -0400
 categories: [SIEM, Security Monitoring, Elasticsearch]
 tags: [siem, elasticsearch, elk-stack, security-monitoring, log-analysis, security]
 image: https://placehold.co/1000x400/005571/FFFFFF?text=Elasticsearch+%26+SIEM

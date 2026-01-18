@@ -1,6 +1,6 @@
 ---
 title: "Imposter Syndrome is Real"
-date: 2026-01-18 09:15:00 -0500
+date: 2025-10-19 10:00:00 -0400
 categories: [My Journey]
 tags: [my-journey, imposter-syndrome, career, learning, cybersecurity]
 image: https://placehold.co/1000x400/8B5CF6/FFFFFF?text=Imposter+Syndrome

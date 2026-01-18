@@ -1,6 +1,6 @@
 ---
 title: "The Power of Wireshark"
-date: 2026-01-18 09:30:00 -0500
+date: 2025-10-21 10:00:00 -0400
 categories: [Discovery]
 tags: [wireshark, networking, security, packet-analysis, incident-response, tools]
 image: https://placehold.co/1000x400/EF4444/FFFFFF?text=Wireshark+Analysis
