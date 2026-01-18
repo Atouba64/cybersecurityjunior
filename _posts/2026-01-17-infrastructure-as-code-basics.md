@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Infrastructure as Code: Managing Cloud Resources with Code"
-date: 2026-01-18 13:15:00 -0500
+date: 2026-01-17 13:15:00 -0500
 categories: [Infrastructure, DevOps, Cloud Security]
 tags: [terraform, pulumi, infrastructure-as-code, iac, devops, cloud]
 image: https://placehold.co/1000x400/7B42BC/FFFFFF?text=Infrastructure+as+Code

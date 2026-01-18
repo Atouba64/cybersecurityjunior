@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS VPC Security Hardening & Network Segmentation Framework"
-date: 2026-01-18 14:15:00 -0500
+date: 2026-01-17 14:15:00 -0500
 categories: [AWS, Security, IaC]
 tags: [aws, terraform, vpc, network-security, security-groups, nacl, transit-gateway]
 image: https://placehold.co/1000x400/DC3545/FFFFFF?text=VPC+Security+Hardening

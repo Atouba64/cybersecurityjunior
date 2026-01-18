@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "DevSecOps Pipeline Security Automation"
-date: 2026-01-18 14:45:00 -0500
+date: 2026-01-17 14:45:00 -0500
 categories: [DevSecOps, CI/CD, Security]
 tags: [devsecops, ci-cd, github-actions, aws, security-scanning, sast, dast, iac-security]
 image: https://placehold.co/1000x400/6F42C5/FFFFFF?text=DevSecOps+Pipeline+Security

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Python & Boto3: Automating AWS Like a Security Pro"
-date: 2026-01-18 11:30:00 -0500
+date: 2026-01-17 11:30:00 -0500
 categories: [Python, AWS, Automation, DevSecOps]
 tags: [python, boto3, aws, automation, scripting, security, devsecops]
 image: https://placehold.co/1000x400/3776AB/FFFFFF?text=Python+%26+Boto3+Automation

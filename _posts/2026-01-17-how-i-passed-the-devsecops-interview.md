@@ -1,6 +1,6 @@
 ---
 title: How I Passed the DevSecOps Interview (And How You Can, Too)
-date: 2026-01-18 10:45:00 -0500
+date: 2026-01-17 10:45:00 -0500
 categories: [Career Tips]
 tags: [interview, devsecops, career, tips, job-search]
 ---

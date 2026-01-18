@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building an Automated AWS Compliance Tool: A Complete Setup Guide"
-date: 2026-01-18 10:30:00 -0500
+date: 2026-01-17 10:30:00 -0500
 categories: [DevSecOps, AWS, Automation, Compliance]
 tags: [aws, compliance, automation, devsecops, security, python, boto3, elasticsearch, docker, kubernetes]
 image: https://placehold.co/1000x400/667eea/FFFFFF?text=Automated+AWS+Compliance+Tool

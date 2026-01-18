@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS S3 Security: Protecting Your Cloud Storage Like a Pro"
-date: 2026-01-18 11:15:00 -0500
+date: 2026-01-17 11:15:00 -0500
 categories: [AWS, Cloud Security, Storage]
 tags: [aws, s3, cloud-storage, encryption, access-control, security, beginners]
 image: https://placehold.co/1000x400/FF9900/FFFFFF?text=AWS+S3+Security+Basics

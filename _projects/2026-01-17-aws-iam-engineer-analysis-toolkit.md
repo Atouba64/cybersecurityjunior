@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS IAM Engineer Analysis & Compliance Toolkit"
-date: 2026-01-18 15:15:00 -0500
+date: 2026-01-17 15:15:00 -0500
 categories: [AWS, IAM, Security, Automation]
 tags: [aws, iam, security-analysis, compliance, python, boto3, cis-benchmark, nist, security-automation, iam-audit, access-management]
 image: https://placehold.co/1000x400/6C757D/FFFFFF?text=AWS+IAM+Engineer+Analysis+Toolkit

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS IAM Governance & Access Management Platform"
-date: 2026-01-18 15:00:00 -0500
+date: 2026-01-17 15:00:00 -0500
 categories: [AWS, IAM, Security]
 tags: [aws, iam, least-privilege, governance, access-management, python, boto3, cloudformation]
 image: https://placehold.co/1000x400/007BFF/FFFFFF?text=IAM+Governance+Platform
