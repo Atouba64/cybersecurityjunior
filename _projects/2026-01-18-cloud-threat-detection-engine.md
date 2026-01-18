@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cloud Threat Detection & Response Engine"
-date: 2025-01-22 10:00:00 -0500
+date: 2026-01-18 14:30:00 -0500
 categories: [Detection Engineering, Cloud Security, SIEM]
 tags: [detection-engineering, aws, cloud-security, siem, threat-detection, security-analytics, python]
 image: https://placehold.co/1000x400/EC4899/FFFFFF?text=Cloud+Threat+Detection+Engine

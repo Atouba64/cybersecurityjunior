@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kubernetes for Security: Orchestrating Containers at Scale"
-date: 2025-11-19 10:00:00 -0400
+date: 2026-01-18 12:00:00 -0500
 categories: [Kubernetes, DevOps, Cloud Security]
 tags: [kubernetes, k8s, containers, orchestration, devops, cloud-security]
 image: https://placehold.co/1000x400/326CE5/FFFFFF?text=Kubernetes+Orchestration

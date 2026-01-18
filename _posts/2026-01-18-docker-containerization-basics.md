@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Docker for Security Professionals: Containerization Made Simple"
-date: 2025-11-18 10:00:00 -0400
+date: 2026-01-18 11:45:00 -0500
 categories: [Docker, DevOps, Security]
 tags: [docker, containers, containerization, devops, security, automation]
 image: https://placehold.co/1000x400/2496ED/FFFFFF?text=Docker+Containerization

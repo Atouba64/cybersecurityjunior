@@ -1,6 +1,6 @@
 ---
 title: "Networking Basics I Wish I Knew Sooner"
-date: 2025-10-17 10:00:00 -0400
+date: 2026-01-18 09:00:00 -0500
 categories: [Networking]
 tags: [networking, basics, security, osi-model, tcp-ip, dns, ports]
 image: https://placehold.co/1000x400/EC4899/FFFFFF?text=Networking+Fundamentals
