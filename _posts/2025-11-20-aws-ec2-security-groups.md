@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "EC2 Security Groups: Your Virtual Firewall in the Cloud"
-date: 2025-11-20 10:00:00 -0400
+date: 2026-01-18 12:15:00 -0500
 categories: [AWS, Cloud Security, Networking]
 tags: [aws, ec2, security-groups, networking, firewall, cloud-security]
 image: https://placehold.co/1000x400/FF9900/FFFFFF?text=EC2+Security+Groups

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS Security Compliance Automation Platform"
-date: 2025-01-20 10:00:00 -0400
+date: 2026-01-18 14:00:00 -0500
 categories: [AWS, Cloud Security, Automation]
 tags: [aws, cloud-security, python, boto3, compliance, security-automation, cicd]
 image: https://placehold.co/1000x400/EC4899/FFFFFF?text=AWS+Security+Compliance+Automation
@@ -108,7 +108,7 @@ By building this project, you'll master:
    ```
 
 2. **Follow the deployment guide:**
-   The repository includes a complete [step-by-step deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/aws-security-compliance-automation/docs/DEPLOYMENT.md) that walks you through:
+   The repository includes a complete [step-by-step deployment guide](https://github.com/Atouba64/aResume/CybersecurityJunior_projects/aws-security-compliance-automation/docs/DEPLOYMENT.md) that walks you through:
    - Setting up your AWS environment
    - Installing dependencies
    - Deploying infrastructure
@@ -116,7 +116,7 @@ By building this project, you'll master:
    - Understanding the results
 
 3. **Study the architecture:**
-   Review the [architecture documentation](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/aws-security-compliance-automation/docs/ARCHITECTURE.md) to understand how all components work together.
+   Review the [architecture documentation](https://github.com/Atouba64/aResume/CybersecurityJunior_projects/aws-security-compliance-automation/docs/ARCHITECTURE.md) to understand how all components work together.
 
 4. **Customize and extend:**
    - Add your own compliance checks
@@ -145,7 +145,7 @@ After building this project, you'll be able to:
 
 ### GitHub Repository
 
-🔗 **Complete source code and documentation:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-security-compliance-automation](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-security-compliance-automation)
+🔗 **Complete source code and documentation:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/aws-security-compliance-automation](https://github.com/Atouba64/aResume/CybersecurityJunior_projects/aws-security-compliance-automation)
 
 The repository includes everything you need:
 - Complete Python source code with detailed comments

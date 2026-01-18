@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "DevSecOps Pipeline Security Automation"
-date: 2025-01-23 10:00:00 -0400
+date: 2026-01-18 14:45:00 -0500
 categories: [DevSecOps, CI/CD, Security]
 tags: [devsecops, ci-cd, github-actions, aws, security-scanning, sast, dast, iac-security]
 image: https://placehold.co/1000x400/6F42C5/FFFFFF?text=DevSecOps+Pipeline+Security
@@ -117,7 +117,7 @@ By building this project, you'll master:
    ```
 
 3. **Follow the deployment guide:**
-   The repository includes a complete [deployment guide](https://github.com/Atouba64/aResume/blob/main/CybersecurityJunior_projects/devsecops-pipeline-security/docs/DEPLOYMENT.md) covering:
+   The repository includes a complete [deployment guide](https://github.com/Atouba64/aResume/CybersecurityJunior_projects/devsecops-pipeline-security/docs/DEPLOYMENT.md) covering:
    - Setting up GitHub Actions
    - Configuring security tools
    - Defining security policies
@@ -156,7 +156,7 @@ After building this project, you'll be able to:
 
 ### GitHub Repository
 
-🔗 **Complete source code and documentation:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/devsecops-pipeline-security](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/devsecops-pipeline-security)
+🔗 **Complete source code and documentation:** [github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/devsecops-pipeline-security](https://github.com/Atouba64/aResume/CybersecurityJunior_projects/devsecops-pipeline-security)
 
 The repository includes:
 - GitHub Actions workflow templates
@@ -173,4 +173,4 @@ The repository includes:
 
 ---
 
-**Ready to build this project?** [Visit the GitHub repository](https://github.com/Atouba64/aResume/tree/main/CybersecurityJunior_projects/devsecops-pipeline-security) to get started with workflow templates, security policies, and deployment guides.
+**Ready to build this project?** [Visit the GitHub repository](https://github.com/Atouba64/aResume/CybersecurityJunior_projects/devsecops-pipeline-security) to get started with workflow templates, security policies, and deployment guides.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS IAM Fundamentals: Your First Step to Cloud Security"
-date: 2025-11-15 10:00:00 -0400
+date: 2026-01-18 11:00:00 -0500
 categories: [AWS, Cloud Security, Fundamentals]
 tags: [aws, iam, cloud-security, identity-management, access-control, beginners]
 image: https://placehold.co/1000x400/FF9900/FFFFFF?text=AWS+IAM+Fundamentals

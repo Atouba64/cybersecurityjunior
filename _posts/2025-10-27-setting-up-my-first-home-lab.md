@@ -1,6 +1,6 @@
 ---
 title: Setting Up My First Home Lab
-date: 2025-10-27
+date: 2026-01-18 10:15:00 -0500
 categories: [Home Lab]
 tags: [homelab, virtualization, proxmox, cybersecurity]
 ---

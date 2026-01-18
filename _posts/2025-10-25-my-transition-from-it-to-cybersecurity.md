@@ -1,6 +1,6 @@
 ---
 title: My Transition from IT to Cybersecurity
-date: 2025-10-25
+date: 2026-01-18 10:00:00 -0500
 categories: [Career Transition]
 tags: [career, transition, IT, cybersecurity, learning]
 ---
