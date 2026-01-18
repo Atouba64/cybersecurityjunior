@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AWS Security Compliance Automation Platform"
-date: 2026-01-18 14:00:00 -0500
+date: 2025-01-20 10:00:00 -0500
 categories: [AWS, Cloud Security, Automation]
 tags: [aws, cloud-security, python, boto3, compliance, security-automation, cicd]
 image: https://placehold.co/1000x400/EC4899/FFFFFF?text=AWS+Security+Compliance+Automation
