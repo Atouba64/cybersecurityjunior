@@ -7,6 +7,22 @@
     {
       "title": "posts",
       "path": "[[workspace]]/_posts"
+    },
+    {
+      "path": "[[workspace]]/_tabs",
+      "title": "_tabs"
+    },
+    {
+      "path": "[[workspace]]/_projects",
+      "title": "_projects"
+    },
+    {
+      "title": "_site",
+      "path": "[[workspace]]/_site"
+    },
+    {
+      "title": "my_pages",
+      "path": "[[workspace]]/my_pages"
     }
   ],
   "frontMatter.git.enabled": true

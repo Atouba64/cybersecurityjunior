@@ -2,9 +2,8 @@
 layout: page
 title: About Me
 permalink: /my_pages/about-me/
+draft: false
 ---
-## WHO AM I
-
 Hello! I'm Mabele Liango. I am an enthousiast Cloud Security & Identity Engineer with a foot in two worlds: I am dual-based in Gainesville, GA (home to family) and The Colony, TX (where I live most of the year).
 
 I bridge the gap between "It works" and "It's secure." With over 4 years of experience in IT operations, my background isn't just theoretical. I am known for being hands-on and practical.
