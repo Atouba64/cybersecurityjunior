@@ -21,7 +21,8 @@ description: >-
   From beginner tips and career transitions to advanced homelabs. Follow my journey and learn with me as I navigate the world of cyber.
 
 # Fill in the protocol & hostname for your site.
-url: "https://cybersecurityjunior.com"
+# After .com is registered and DNS is set, use https://cybersecurityjunior.com
+url: "https://cybersecurityjunior.netlify.app"
 github:
   username: Atouba64
 
@@ -44,6 +45,7 @@ webmaster_verifications:
   facebook:
 
 # Web Analytics Settings
+# Google tag is injected in _includes/metadata-hook.html (Chirpy; same ID, no duplicate).
 analytics:
   google:
     id:
