@@ -53,7 +53,7 @@ If you are a builder, an AI agent is blindingly fast, but if a stolen token expi
   <img src="/assets/img/posts/Gemini_Generated_Image_hsclr9hsclr9hscl.png" alt="AI Cybersecurity Illustration" style="max-width: 100%;">
 </div>
 
-(If you have never set up a Key Vault before, this step-by-step tutorial is a lifesaver!)
+If you have never set up a Key Vault before, this step-by-step tutorial is a lifesaver!
 
 <div align="center">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/A8dJL43zDYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
