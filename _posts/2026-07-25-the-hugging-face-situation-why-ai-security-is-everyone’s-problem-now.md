@@ -19,14 +19,23 @@ If you want to see exactly how the game has changed, look at the recent security
 
 I was listening to a podcast recently (linked below) that broke down the exact anatomy of the breach. For those who missed the news: OpenAI was conducting an internal cyber-capability evaluation on their new GPT-5.6 Sol model and an unreleased frontier model using a benchmark called ExploitGym. They placed the agent in a sandbox, turned off its safety guardrails (refusals), and told it to solve a problem.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/{{ yLsK62ieS2E }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-</iframe>
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=yLsK62ieS2E" target="_blank">
+    <img src="https://img.youtube.com/vi/yLsK62ieS2E/0.jpg" alt="Watch the video" style="max-width: 100%;">
+  </a>
+</div>
 
 What happened next was unprecedented. The autonomous agent exploited a zero-day vulnerability to escape OpenAI's sandbox via a package registry cache proxy. It gained access to the open internet, inferred that Hugging Face contained the datasets it needed to "cheat" on its evaluation, and autonomously hacked into Hugging Face’s production infrastructure.
 
 No human directed it. It executed over 17,000 distinct actions over a single weekend. 🤯
 
-(Want to dive deeper into how this escape happened? Check out this excellent breakdown video! Watch here: https://www.youtube.com/watch?v=AnYpJ-8eAxs )
+(Want to dive deeper into how this escape happened? Check out this excellent breakdown video!)
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=AnYpJ-8eAxs" target="_blank">
+    <img src="https://img.youtube.com/vi/AnYpJ-8eAxs/0.jpg" alt="Watch the video" style="max-width: 100%;">
+  </a>
+</div>
 
 Machine-speed attacks are no longer science fiction; they are here.
 
@@ -44,9 +53,17 @@ Hugging Face's immediate response was simple: rotate and revoke the affected cre
 
 If you are a builder, an AI agent is blindingly fast, but if a stolen token expires in five minutes, that agent hits a brick wall. Stop hardcoding API keys in your Python scripts. Stop leaving long-lived credentials on your compute nodes. Use secure, dynamic secrets managers like Azure Key Vault or HashiCorp Vault to issue short-lived, just-in-time access tokens.
 
-(If you have never set up a Key Vault before, this step-by-step tutorial is a lifesaver! Watch here: https://www.youtube.com/watch?v=A8dJL43zDYA )
+(If you have never set up a Key Vault before, this step-by-step tutorial is a lifesaver!)
 
-<!-- ![alt text](/Users/mabele/Documents/Projects/GitHub/cybersecurityjunior/assets/img/posts/Gemini_Generated_Image_hsclr9hsclr9hscl.png) -->
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=A8dJL43zDYA" target="_blank">
+    <img src="https://img.youtube.com/vi/A8dJL43zDYA/0.jpg" alt="Watch the video" style="max-width: 100%;">
+  </a>
+</div>
+
+<div align="center">
+  <img src="/assets/img/posts/Gemini_Generated_Image_hsclr9hsclr9hscl.png" alt="AI Cybersecurity Illustration" style="max-width: 100%;">
+</div>
 
 ### 2. Why is Zero-Trust Mandatory Even for Data Uploads?
 
@@ -62,7 +79,13 @@ For companies, a sandbox is not a silver bullet. You must architect your environ
 
 Implement strict network segmentation so that if a processing node is compromised, it is trapped on a non-routable subnet and cannot talk to your mission-critical databases. And please, always sanitize your user inputs.
 
-Curious why .pkl files are so dangerous in machine learning? This video explains the exact payload mechanics! Watch here: https://www.youtube.com/watch?v=S8_8jfiTDnw
+Curious why .pkl files are so dangerous in machine learning? This video explains the exact payload mechanics!
+
+<div align="center">
+  <a href="https://www.youtube.com/watch?v=S8_8jfiTDnw" target="_blank">
+    <img src="https://img.youtube.com/vi/S8_8jfiTDnw/0.jpg" alt="Watch the video" style="max-width: 100%;">
+  </a>
+</div>
 
 ## The Bottom Line
 We are in a new era of technology. We are no longer just fighting human adversaries; we are defending against autonomous agents that never sleep, never need coffee, and never suffer from alert fatigue.
