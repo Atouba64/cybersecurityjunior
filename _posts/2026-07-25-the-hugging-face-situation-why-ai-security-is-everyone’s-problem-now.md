@@ -1,22 +1,10 @@
 ---
 title: "The Hugging Face case: Boring cyber defense stops AI threats"
 description: "The Hugging Face breach is a wake-up call for tech professionals. Learn why AI supply chain security is your responsibility and how to future-proof your career"
-date: "2026-07-27 08:30:00 -0500"
-preview: "/img/posts/jr_mabele_DbKQ4D8FSeq.jpg"
-tags:
-    - AI Security
-    - AI Vulnerabilities
-    - Zero Trust
-    - Hugging Face
-    - Cybersecurity
-    - Machine Learning
-    - Model Poisoning
-    - Supply Chain Security
-    - Secrets Management
-    - Threat Remediation
-categories:
-    - AI Vulnerabilities
-    - AI Security
+date: 2026-07-26 08:30:00 -0500
+image: "/assets/img/posts/jr_mabele_DbKQ4D8FSeq.jpg"
+tags: [AI Security, AI Vulnerabilities, Zero Trust, Hugging Face, Cybersecurity, Machine Learning, Model Poisoning, Supply Chain Security, Secrets Management, Threat Remediation]
+categories: [AI Vulnerabilities, AI Security]
 slug: "hugging-face-situation-boring-cyber-defense-stops-ai-threats"
 youtubeId: "yLsK62ieS2E"
 ---
@@ -57,6 +45,8 @@ Hugging Face's immediate response was simple: rotate and revoke the affected cre
 If you are a builder, an AI agent is blindingly fast, but if a stolen token expires in five minutes, that agent hits a brick wall. Stop hardcoding API keys in your Python scripts. Stop leaving long-lived credentials on your compute nodes. Use secure, dynamic secrets managers like Azure Key Vault or HashiCorp Vault to issue short-lived, just-in-time access tokens.
 
 (If you have never set up a Key Vault before, this step-by-step tutorial is a lifesaver! Watch here: https://www.youtube.com/watch?v=A8dJL43zDYA )
+
+<!-- ![alt text](/Users/mabele/Documents/Projects/GitHub/cybersecurityjunior/assets/img/posts/Gemini_Generated_Image_hsclr9hsclr9hscl.png) -->
 
 ### 2. Why is Zero-Trust Mandatory Even for Data Uploads?
 
