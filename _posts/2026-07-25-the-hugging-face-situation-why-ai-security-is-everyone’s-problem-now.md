@@ -49,14 +49,14 @@ Hugging Face's immediate response was simple: rotate and revoke the affected cre
 
 If you are a builder, an AI agent is blindingly fast, but if a stolen token expires in five minutes, that agent hits a brick wall. Stop hardcoding API keys in your Python scripts. Stop leaving long-lived credentials on your compute nodes. Use secure, dynamic secrets managers like Azure Key Vault or HashiCorp Vault to issue short-lived, just-in-time access tokens.
 
+<div align="center">
+  <img src="/assets/img/posts/Gemini_Generated_Image_hsclr9hsclr9hscl.png" alt="AI Cybersecurity Illustration" style="max-width: 100%;">
+</div>
+
 (If you have never set up a Key Vault before, this step-by-step tutorial is a lifesaver!)
 
 <div align="center">
   <iframe width="560" height="315" src="https://www.youtube.com/embed/A8dJL43zDYA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-</div>
-
-<div align="center">
-  <img src="/assets/img/posts/Gemini_Generated_Image_hsclr9hsclr9hscl.png" alt="AI Cybersecurity Illustration" style="max-width: 100%;">
 </div>
 
 ### 2. Why is Zero-Trust Mandatory Even for Data Uploads?
