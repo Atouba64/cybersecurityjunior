@@ -3,7 +3,7 @@ layout: post
 title: "The Hugging Face case: Boring cyber defense stops AI threats"
 description: The Hugging Face breach is a wake-up call for tech professionals. Learn why AI supply chain security is your responsibility and how to future-proof your career
 date: 2026-07-27 08:30:00 -0500
-image: /img/posts/jr_mabele_DbKQ4D8FSeq.jpg
+preview: /img/posts/jr_mabele_DbKQ4D8FSeq.jpg
 tags:
     - AI Security
     - AI Vulnerabilities
