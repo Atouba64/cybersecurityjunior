@@ -85,22 +85,22 @@ social_preview_image:
 toc: true
 
 comments:
-  provider:
+  provider: giscus
   disqus:
     shortname:
   utterances:
     repo:
     issue_term:
   giscus:
-    repo:
-    repo_id:
-    category:
-    category_id:
-    mapping:
-    strict:
-    input_position:
-    lang:
-    reactions_enabled:
+    repo: Atouba64/cybersecurityjunior
+    repo_id: R_kgDOQJ0K2A
+    category: Announcements
+    category_id: DIC_kwDOQJ0K2M4DCEtb
+    mapping: pathname
+    strict: 0
+    input_position: bottom
+    lang: en
+    reactions_enabled: 1
 
 # Self-hosted static assets
 assets:
